@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'lead' => 'Únete a Cigno Members gratis y disfruta beneficios exclusivos.',
+    'prompt' => 'Inicia sesión o crea una cuenta',
+    'sign_up' => 'Registrarse',
+    'sign_in' => 'Iniciar sesión',
+    'name' => 'Nombre',
+    'last_name' => 'Apellido',
+    'email' => 'Correo',
+    'date_of_birth' => 'Fecha de nacimiento',
+    'country' => 'País de residencia',
+    'password' => 'Contraseña',
+    'placeholder_name' => 'Ingresa tu nombre',
+    'placeholder_last_name' => 'Ingresa tu apellido',
+    'placeholder_email' => 'Correo',
+    'placeholder_birth' => 'DD/MM/AAAA',
+    'placeholder_password' => 'Contraseña',
+    'select_country' => 'Selecciona un país',
+    'password_hint' => 'Requisitos: 8 caracteres, un número y una mayúscula.',
+    'show_password' => 'Mostrar contraseña',
+    'hide_password' => 'Ocultar contraseña',
+    'submit' => 'Enviar',
+    'success_title' => '¡Ya casi está!',
+    'success_body' => 'Para completar el registro, te enviamos un correo para validar tu cuenta',
+];

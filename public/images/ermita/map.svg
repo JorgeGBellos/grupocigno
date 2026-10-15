@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" fill="none" role="img" aria-label="Mapa Barrio de la Ermita">
+  <rect width="800" height="640" fill="#F3EFE8"/>
+  <g stroke="#D9D2C7" stroke-width="8">
+    <path d="M0 80H800M0 160H800M0 240H800M0 320H800M0 400H800M0 480H800M0 560H800"/>
+    <path d="M80 0V640M160 0V640M240 0V640M320 0V640M400 0V640M480 0V640M560 0V640M640 0V640M720 0V640"/>
+  </g>
+  <g fill="#C4BBB0" font-family="Anybody, sans-serif" font-size="14" letter-spacing="1.5">
+    <text x="70" y="50">BARRIO DE SANTIAGO</text>
+    <text x="340" y="120">CENTRO</text>
+    <text x="520" y="300">SAN JUAN DE MÉRIDA</text>
+    <text x="90" y="520">PARQUE DE LA MEJORADA</text>
+  </g>
+  <g transform="translate(390 250)">
+    <path d="M20 0C8.95 0 0 8.95 0 20c0 15 20 40 20 40s20-25 20-40C40 8.95 31.05 0 20 0z" fill="#075A85"/>
+    <circle cx="20" cy="20" r="7" fill="#FFFCF7"/>
+  </g>
+</svg>

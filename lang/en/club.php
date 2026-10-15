@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'lead' => 'Join Cigno Members for free and enjoy exclusive benefits.',
+    'prompt' => 'Sign in or create an account',
+    'sign_up' => 'Sign up',
+    'sign_in' => 'Sign in',
+    'name' => 'Name',
+    'last_name' => 'Last Name',
+    'email' => 'Email',
+    'date_of_birth' => 'Date of Birth',
+    'country' => 'Country of Residence',
+    'password' => 'Password',
+    'placeholder_name' => 'Enter name',
+    'placeholder_last_name' => 'Enter last name',
+    'placeholder_email' => 'Email',
+    'placeholder_birth' => 'MM/DD/YYYY',
+    'placeholder_password' => 'Password',
+    'select_country' => 'Select country',
+    'password_hint' => 'Requirements: 8 characters, a number & a capital letter.',
+    'show_password' => 'Show password',
+    'hide_password' => 'Hide password',
+    'submit' => 'Submit',
+    'success_title' => "We're almost there!",
+    'success_body' => "To complete the registration, we've sent you an e-mail to validate your account",
+];

@@ -1,0 +1,39 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-_bGUO6IA.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "assets": [
+      "assets/Anybody-Regular-DlIFxAQn.otf",
+      "assets/Anybody-Medium-BDCxSBle.otf",
+      "assets/Anybody-Bold-D9Yj0atW.otf",
+      "assets/JuniusVF-CWy_ebPK.ttf"
+    ]
+  },
+  "resources/fonts/anybody/Anybody-Bold.otf": {
+    "file": "assets/Anybody-Bold-D9Yj0atW.otf",
+    "src": "resources/fonts/anybody/Anybody-Bold.otf"
+  },
+  "resources/fonts/anybody/Anybody-Medium.otf": {
+    "file": "assets/Anybody-Medium-BDCxSBle.otf",
+    "src": "resources/fonts/anybody/Anybody-Medium.otf"
+  },
+  "resources/fonts/anybody/Anybody-Regular.otf": {
+    "file": "assets/Anybody-Regular-DlIFxAQn.otf",
+    "src": "resources/fonts/anybody/Anybody-Regular.otf"
+  },
+  "resources/fonts/junius/JuniusVF.ttf": {
+    "file": "assets/JuniusVF-CWy_ebPK.ttf",
+    "src": "resources/fonts/junius/JuniusVF.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CCQCOlf3.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
