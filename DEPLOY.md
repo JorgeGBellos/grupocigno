@@ -22,13 +22,23 @@ Laravel usa `usePublicPath(public_html)` para que `/images`, `/videos` y `/build
 
 ## Setup una sola vez
 
-1. Repo en GitHub (privado) y push de `main`.
-2. En hPanel: **Websites → Manage → Advanced → Git** → conectar GitHub.
-3. Activar auto-deploy al directorio `cigno` (Cursor/MCP: `hosting_git_update-auto-deployment-settings`).
-4. Subir `deploy/hostinger/index.php` como `public_html/index.php`.
-5. Copiar el `.env` de producción a `public_html/cigno/.env` (desde el antiguo `../cigno/.env` si existía).
-6. Asegurar `VIDEOS_ENABLED=true` y `APP_URL=https://lightyellow-okapi-798142.hostingersite.com` en ese `.env`.
-7. Tras el primer deploy: `php artisan migrate --force`, `view:clear`, `config:cache`.
+1. Repo en GitHub y push de `main` (`https://github.com/JorgeGBellos/grupocigno`).
+2. Auto-deploy (elige **una**):
+   - **Webhook (activo):** GitHub → Settings → Webhooks →  
+     `https://webhooks.hostinger.com/deploy/54634d55737d1ea54f374ccb696d9b08` (eventos `push`).  
+     Hostinger ya tiene el repo clonado en `public_html/cigno`.
+   - **GitHub App (opcional):** en hPanel **Websites → Manage → Advanced → Git** conectar la cuenta;  
+     luego MCP `hosting_git_update-auto-deployment-settings` (directory `cigno`, branch `main`).  
+     Hoy no hay instalación activa en la API (`hosting_git_list-installations` = `[]`).
+3. `public_html/index.php` = `deploy/hostinger/index.php` (bootstrap `./cigno` + `usePublicPath`).
+4. Copiar `.env` y, si usas SQLite, `database/database.sqlite` desde el antiguo sibling `../cigno/`  
+   (script: `deploy/hostinger/fix-env.sh`). Nunca commits de `.env`.
+5. Asegurar `VIDEOS_ENABLED=true` y `APP_URL=https://lightyellow-okapi-798142.hostingersite.com`.
+6. Tras el primer deploy: `php artisan migrate --force`, `view:clear`, `config:cache`  
+   (PHP CLI: `/opt/alt/php83/usr/bin/php`; ver `deploy/hostinger/composer-bootstrap.sh`).
+
+**Repo privado:** la deploy key RSA de Hostinger es de 2048 bits y GitHub la rechaza (≥3072).  
+Mientras no haya GitHub App en hPanel, deja el repo **público** o usa un token/App.
 
 ## Publish diario (rápido)
 
