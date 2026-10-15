@@ -37,21 +37,21 @@ return [
         'beds_other' => ':count camas dobles',
         'items' => [
             [
-                'image' => 'images/mejorada/rooms/room-01.png',
+                'image' => 'images/mejorada/rooms/classic-room-king.jpg',
                 'title' => 'Habitación clásica king',
                 'body' => 'Despierta de un sueño tranquilo en una cama king, en una suite acogedora para los momentos más íntimos, y comparte secretos entre fibras naturales y detalles orgánicos.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/mejorada/rooms/room-02.png',
+                'image' => 'images/mejorada/rooms/garden-jr-suite-plunge-pool.jpg',
                 'title' => 'Junior suite con terraza privada y alberca privada',
                 'body' => 'Suite ideal para viajar con amigos. Luz natural y techos altos que crean un espacio especial para relajarse entre mobiliario mexicano de diseño local.',
                 'people' => 4,
                 'beds' => 2,
             ],
             [
-                'image' => 'images/mejorada/rooms/room-03.png',
+                'image' => 'images/mejorada/rooms/jr-suite-2-beds-balcony.jpg',
                 'title' => 'Junior suite de 2 camas con balcón',
                 'body' => 'Grandiosa e imponente, con cama king y sofá cama cómodo, alberca privada al fondo y terraza con hamaca al frente.',
                 'people' => 2,
@@ -110,7 +110,7 @@ return [
         'items' => [
             [
                 'slug' => 'classic-room-king',
-                'image' => 'images/mejorada/rooms/room-01.png',
+                'image' => 'images/mejorada/rooms/classic-room-king.jpg',
                 'title' => 'Habitación clásica king',
                 'body' => 'Despierta de un sueño tranquilo en una cama king, en una suite acogedora para los momentos más íntimos, y comparte secretos entre fibras naturales y detalles orgánicos.',
                 'detail' => 'Despierta de un sueño tranquilo en una cama king, en una suite acogedora para los momentos más íntimos, y comparte secretos entre fibras naturales y detalles orgánicos.',
@@ -122,7 +122,7 @@ return [
             ],
             [
                 'slug' => 'jr-suite-private-terrace-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-02.png',
+                'image' => 'images/mejorada/rooms/garden-jr-suite-plunge-pool.jpg',
                 'title' => 'Junior suite con terraza privada y alberca privada',
                 'body' => 'Suite ideal para viajar con amigos. Luz natural y techos altos que crean un espacio especial para relajarse entre mobiliario mexicano de diseño local.',
                 'detail' => 'Suite ideal para viajar con amigos. Luz natural y techos altos que crean un espacio especial para relajarse entre mobiliario mexicano de diseño local.',
@@ -134,7 +134,7 @@ return [
             ],
             [
                 'slug' => 'jr-suite-2-beds-balcony',
-                'image' => 'images/mejorada/rooms/room-03.png',
+                'image' => 'images/mejorada/rooms/jr-suite-2-beds-balcony.jpg',
                 'title' => 'Junior suite de 2 camas con balcón',
                 'body' => 'Grandiosa e imponente, con cama king y sofá cama cómodo, alberca privada al fondo y terraza con hamaca al frente.',
                 'detail' => 'Grandiosa e imponente, con cama king y sofá cama cómodo, alberca privada al fondo y terraza con hamaca al frente.',
@@ -146,7 +146,7 @@ return [
             ],
             [
                 'slug' => 'deluxe-room-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-04.png',
+                'image' => 'images/mejorada/rooms/deluxe-room-plunge-pool.jpg',
                 'title' => 'Habitación deluxe con alberca privada',
                 'body' => 'Recoge esos sueños nocturnos en una suave cama king hecha a mano o disfruta la mejor vista a la alberca en planta baja.',
                 'detail' => 'Recoge esos sueños nocturnos en una suave cama king hecha a mano o disfruta la mejor vista a la alberca en planta baja.',
@@ -158,7 +158,7 @@ return [
             ],
             [
                 'slug' => 'master-suite-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-05.png',
+                'image' => 'images/mejorada/rooms/master-suite-plunge-pool.jpg',
                 'title' => 'Suite master con alberca privada',
                 'body' => 'Ubicación privilegiada en la azotea con cama king, alberca privada exterior, mesa para desayuno y terraza privada.',
                 'detail' => 'Ubicación privilegiada en la azotea con cama king, alberca privada exterior, mesa para desayuno y terraza privada.',
@@ -170,7 +170,7 @@ return [
             ],
             [
                 'slug' => 'garden-jr-suite-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-06.png',
+                'image' => 'images/mejorada/rooms/garden-jr-suite-plunge-pool.jpg',
                 'title' => 'Junior suite jardín con alberca privada',
                 'body' => 'Cama king celestial para acompañar tu descanso, alberca privada exterior con vista a la Parroquia de San Sebastián y amplia terraza en la azotea.',
                 'detail' => 'Cama king celestial para acompañar tu descanso, alberca privada exterior con vista a la Parroquia de San Sebastián y amplia terraza en la azotea.',
@@ -182,7 +182,7 @@ return [
             ],
             [
                 'slug' => 'villa-suite-bathtub',
-                'image' => 'images/mejorada/rooms/room-07.png',
+                'image' => 'images/mejorada/rooms/villa-suite-bathtub.jpg',
                 'title' => 'Suite villa con tina',
                 'body' => 'Ubicación privilegiada en la azotea con cama king, alberca privada exterior, mesa para desayuno y terraza privada.',
                 'detail' => 'Ubicación privilegiada en la azotea con cama king, alberca privada exterior, mesa para desayuno y terraza privada.',
@@ -194,7 +194,7 @@ return [
             ],
             [
                 'slug' => 'master-weddings-suite',
-                'image' => 'images/mejorada/rooms/room-08.png',
+                'image' => 'images/mejorada/rooms/master-suite-plunge-pool.jpg',
                 'title' => 'Suite master para bodas',
                 'body' => 'Cama king celestial para acompañar tu descanso, alberca privada exterior con vista a la Parroquia de San Sebastián y amplia terraza en la azotea.',
                 'detail' => 'Cama king celestial para acompañar tu descanso, alberca privada exterior con vista a la Parroquia de San Sebastián y amplia terraza en la azotea.',
@@ -206,7 +206,7 @@ return [
             ],
             [
                 'slug' => 'jr-suite-balcony-garden-view',
-                'image' => 'images/mejorada/rooms/room-09.png',
+                'image' => 'images/mejorada/rooms/jr-suite-2-beds-balcony.jpg',
                 'title' => 'Junior suite con balcón y vista al jardín',
                 'body' => 'Ubicación privilegiada en la azotea con cama king, alberca privada exterior, mesa para desayuno y terraza privada.',
                 'detail' => 'Ubicación privilegiada en la azotea con cama king, alberca privada exterior, mesa para desayuno y terraza privada.',
@@ -218,7 +218,7 @@ return [
             ],
             [
                 'slug' => 'villa-deluxe-bathtub',
-                'image' => 'images/mejorada/rooms/room-10.png',
+                'image' => 'images/mejorada/rooms/villa-suite-bathtub.jpg',
                 'title' => 'Villa deluxe con tina',
                 'body' => 'Cama king celestial para acompañar tu descanso, alberca privada exterior con vista a la Parroquia de San Sebastián y amplia terraza en la azotea.',
                 'detail' => 'Cama king celestial para acompañar tu descanso, alberca privada exterior con vista a la Parroquia de San Sebastián y amplia terraza en la azotea.',

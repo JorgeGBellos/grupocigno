@@ -37,21 +37,21 @@ return [
         'beds_other' => ':count double beds',
         'items' => [
             [
-                'image' => 'images/mejorada/rooms/room-01.png',
+                'image' => 'images/mejorada/rooms/classic-room-king.jpg',
                 'title' => 'Classic Room King',
                 'body' => 'Wake up from a peaceful sleep in a king-size bed, in a cozy suite for the most intimate moments, and share secrets between natural fibers and organic details.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/mejorada/rooms/room-02.png',
+                'image' => 'images/mejorada/rooms/garden-jr-suite-plunge-pool.jpg',
                 'title' => 'JR Suite w/ private terrace Plunge pool',
                 'body' => 'Ideal suite for travelers with friends. Natural lighting and high ceilings that create a special space for relaxation amidst locally designed Mexican furniture.',
                 'people' => 4,
                 'beds' => 2,
             ],
             [
-                'image' => 'images/mejorada/rooms/room-03.png',
+                'image' => 'images/mejorada/rooms/jr-suite-2-beds-balcony.jpg',
                 'title' => 'Jr Suite 2 beds with balcony',
                 'body' => 'Grand and imposing, with a king-size bed and comfortable sofa bed, a private plunge pool on the back and a terrace with a hammock on the front.',
                 'people' => 2,
@@ -110,7 +110,7 @@ return [
         'items' => [
             [
                 'slug' => 'classic-room-king',
-                'image' => 'images/mejorada/rooms/room-01.png',
+                'image' => 'images/mejorada/rooms/classic-room-king.jpg',
                 'title' => 'Classic Room King',
                 'body' => 'Wake up from a peaceful sleep in a king-size bed, in a cozy suite for the most intimate moments, and share secrets between natural fibers and organic details.',
                 'detail' => 'Wake up from a peaceful sleep in a king-size bed, in a cozy suite for the most intimate moments, and share secrets between natural fibers and organic details.',
@@ -122,7 +122,7 @@ return [
             ],
             [
                 'slug' => 'jr-suite-private-terrace-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-02.png',
+                'image' => 'images/mejorada/rooms/garden-jr-suite-plunge-pool.jpg',
                 'title' => 'JR Suite w/ private terrace Plunge pool',
                 'body' => 'Ideal suite for travelers with friends. Natural lighting and high ceilings that create a special space for relaxation amidst locally designed Mexican furniture.',
                 'detail' => 'Ideal suite for travelers with friends. Natural lighting and high ceilings that create a special space for relaxation amidst locally designed Mexican furniture.',
@@ -134,7 +134,7 @@ return [
             ],
             [
                 'slug' => 'jr-suite-2-beds-balcony',
-                'image' => 'images/mejorada/rooms/room-03.png',
+                'image' => 'images/mejorada/rooms/jr-suite-2-beds-balcony.jpg',
                 'title' => 'Jr Suite 2 beds with balcony',
                 'body' => 'Grand and imposing, with a king-size bed and comfortable sofa bed, a private plunge pool on the back and a terrace with a hammock on the front.',
                 'detail' => 'Grand and imposing, with a king-size bed and comfortable sofa bed, a private plunge pool on the back and a terrace with a hammock on the front.',
@@ -146,7 +146,7 @@ return [
             ],
             [
                 'slug' => 'deluxe-room-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-04.png',
+                'image' => 'images/mejorada/rooms/deluxe-room-plunge-pool.jpg',
                 'title' => 'DeLuxe Room Plunge pool',
                 'body' => 'Collect those nighttime dreams on a soft, handcrafted king-size bed or enjoy the best view of the pool on the ground floor.',
                 'detail' => 'Collect those nighttime dreams on a soft, handcrafted king-size bed or enjoy the best view of the pool on the ground floor.',
@@ -158,7 +158,7 @@ return [
             ],
             [
                 'slug' => 'master-suite-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-05.png',
+                'image' => 'images/mejorada/rooms/master-suite-plunge-pool.jpg',
                 'title' => 'Master Suite Plunge pool',
                 'body' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace',
                 'detail' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace',
@@ -170,7 +170,7 @@ return [
             ],
             [
                 'slug' => 'garden-jr-suite-plunge-pool',
-                'image' => 'images/mejorada/rooms/room-06.png',
+                'image' => 'images/mejorada/rooms/garden-jr-suite-plunge-pool.jpg',
                 'title' => 'Garden JR Suite Plunge Pool',
                 'body' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
                 'detail' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
@@ -182,7 +182,7 @@ return [
             ],
             [
                 'slug' => 'villa-suite-bathtub',
-                'image' => 'images/mejorada/rooms/room-07.png',
+                'image' => 'images/mejorada/rooms/villa-suite-bathtub.jpg',
                 'title' => 'Villa Suite Bathtub',
                 'body' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace',
                 'detail' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace',
@@ -194,7 +194,7 @@ return [
             ],
             [
                 'slug' => 'master-weddings-suite',
-                'image' => 'images/mejorada/rooms/room-08.png',
+                'image' => 'images/mejorada/rooms/master-suite-plunge-pool.jpg',
                 'title' => 'Master Weddings Suite',
                 'body' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
                 'detail' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
@@ -206,7 +206,7 @@ return [
             ],
             [
                 'slug' => 'jr-suite-balcony-garden-view',
-                'image' => 'images/mejorada/rooms/room-09.png',
+                'image' => 'images/mejorada/rooms/jr-suite-2-beds-balcony.jpg',
                 'title' => 'Jr Suite with balcony garden view',
                 'body' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace',
                 'detail' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace',
@@ -218,7 +218,7 @@ return [
             ],
             [
                 'slug' => 'villa-deluxe-bathtub',
-                'image' => 'images/mejorada/rooms/room-10.png',
+                'image' => 'images/mejorada/rooms/villa-suite-bathtub.jpg',
                 'title' => 'Villa Deluxe Bathtub',
                 'body' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
                 'detail' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',

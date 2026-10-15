@@ -41,42 +41,42 @@ return [
         'beds_other' => ':count camas dobles',
         'items' => [
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (5).png',
+                'image' => 'images/ermita/rooms/classic-room-king.jpg',
                 'title' => 'Habitación clásica king',
                 'body' => 'Despierta de un sueño tranquilo en una cama king, en una suite acogedora para los momentos más íntimos.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (6).png',
+                'image' => 'images/ermita/rooms/classic-room-2-beds.jpg',
                 'title' => 'Habitación clásica de 2 camas',
                 'body' => 'Suite ideal para viajar con amigos. Techos altos que crean un espacio especial para descansar entre mobiliario mexicano de diseño local.',
                 'people' => 4,
                 'beds' => 2,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/partial-pool-view-king.jpg',
                 'title' => 'Habitación king con vista parcial y alberca privada',
                 'body' => 'Grandiosa e imponente, con una cama king y un sofá cama cómodo, una alberca privada al fondo y una terraza con hamaca al frente.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/patio-suite-pool-view.jpg',
                 'title' => 'Suite de patio king con vista a la alberca',
                 'body' => 'Recoge esos sueños nocturnos en una suave cama king hecha a mano, o disfruta la mejor vista de la alberca en la planta baja.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (8).png',
+                'image' => 'images/ermita/rooms/deluxe-rooftop-suite-king.jpg',
                 'title' => 'Suite deluxe king en la azotea',
                 'body' => 'Tiene una ubicación privilegiada en la azotea, con cama king, alberca privada exterior, mesa para el desayuno y terraza privada.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (9).png',
+                'image' => 'images/ermita/rooms/premium-rooftop-suite-king.jpg',
                 'title' => 'Suite premium king en la azotea',
                 'body' => 'Una cama king celestial para acompañar tu descanso, una alberca privada exterior con vista a la Parroquia de San Sebastián y una terraza en la azotea.',
                 'people' => 2,
@@ -132,7 +132,7 @@ return [
         'items' => [
             [
                 'slug' => 'classic-room-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (5).png',
+                'image' => 'images/ermita/rooms/classic-room-king.jpg',
                 'title' => 'Habitación clásica king',
                 'body' => 'Despierta de un sueño tranquilo en una cama king, en una suite acogedora para los momentos más íntimos, y comparte secretos entre fibras naturales y detalles orgánicos.',
                 'detail' => 'Despierta de un sueño tranquilo en una cama king, en una suite acogedora para los momentos más íntimos, y comparte secretos entre fibras naturales y detalles orgánicos. Incluye acceso a la alberca y al bar de terraza.',
@@ -144,7 +144,7 @@ return [
             ],
             [
                 'slug' => 'classic-room-2-beds',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (6).png',
+                'image' => 'images/ermita/rooms/classic-room-2-beds.jpg',
                 'title' => 'Habitación clásica de 2 camas',
                 'body' => 'Suite ideal para viajar con amigos. Luz natural y techos altos que crean un espacio especial para descansar entre mobiliario mexicano de diseño local.',
                 'detail' => 'Ideal para viajar con amigos. Luz natural y techos altos que crean un espacio especial para descansar entre mobiliario mexicano de diseño local.',
@@ -156,7 +156,7 @@ return [
             ],
             [
                 'slug' => 'partial-pool-view-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/partial-pool-view-king.jpg',
                 'title' => 'Habitación king con vista parcial y alberca privada',
                 'body' => 'Grandiosa e imponente, con una cama king y un sofá cama cómodo, una alberca privada al fondo y una terraza con hamaca al frente.',
                 'detail' => 'Grandiosa e imponente, con cama king y sofá cama, alberca privada al fondo y terraza con hamaca al frente.',
@@ -168,7 +168,7 @@ return [
             ],
             [
                 'slug' => 'patio-suite-pool-view',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/patio-suite-pool-view.jpg',
                 'title' => 'Suite de patio king con vista a la alberca',
                 'body' => 'Recoge esos sueños nocturnos en una suave cama king hecha a mano o disfruta la mejor vista a la alberca en planta baja.',
                 'detail' => 'Recoge esos sueños nocturnos en una suave cama king hecha a mano o disfruta la mejor vista a la alberca en planta baja.',
@@ -180,7 +180,7 @@ return [
             ],
             [
                 'slug' => 'deluxe-rooftop-suite-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (8).png',
+                'image' => 'images/ermita/rooms/deluxe-rooftop-suite-king.jpg',
                 'title' => 'Suite deluxe king en la azotea',
                 'body' => 'Tiene una ubicación privilegiada en la azotea, con cama king, alberca privada exterior, mesa para el desayuno y terraza privada.',
                 'detail' => 'Tiene una ubicación privilegiada en la azotea, con cama king, alberca privada exterior, mesa para el desayuno y terraza privada.',
@@ -192,7 +192,7 @@ return [
             ],
             [
                 'slug' => 'premium-rooftop-suite-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (9).png',
+                'image' => 'images/ermita/rooms/premium-rooftop-suite-king.jpg',
                 'title' => 'Suite premium king en la azotea',
                 'body' => 'Una cama king celestial para acompañar tu descanso, una alberca privada exterior con vista a la Parroquia de San Sebastián y una amplia terraza en la azotea.',
                 'detail' => 'Una cama king celestial para acompañar tu descanso, una alberca privada exterior con vista a la Parroquia de San Sebastián y una amplia terraza en la azotea.',

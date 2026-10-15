@@ -41,42 +41,42 @@ return [
         'beds_other' => ':count double beds',
         'items' => [
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (5).png',
+                'image' => 'images/ermita/rooms/classic-room-king.jpg',
                 'title' => 'Classic Room King',
                 'body' => 'Wake up from a peaceful sleep in a king-size bed, in a cozy suite for the most intimate moments.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (6).png',
+                'image' => 'images/ermita/rooms/classic-room-2-beds.jpg',
                 'title' => 'Classic Room 2 Beds',
                 'body' => 'Ideal suite for travelers with friends. High ceilings that create a special space for relaxation amidst locally designed Mexican furniture.',
                 'people' => 4,
                 'beds' => 2,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/partial-pool-view-king.jpg',
                 'title' => 'Partial Pool View King + Plunge Pool',
                 'body' => 'Grand and imposing, with a king-size bed and comfortable sofa bed, a private plunge pool on the back and a terrace with a hammock on the front.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/patio-suite-pool-view.jpg',
                 'title' => 'Patio Suite Pool View King + Plunge Pool',
                 'body' => 'Collect those nighttime dreams on a soft, handcrafted king-size bed or enjoy the best view of the pool on the ground floor.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (8).png',
+                'image' => 'images/ermita/rooms/deluxe-rooftop-suite-king.jpg',
                 'title' => 'Deluxe Rooftop Suite King',
                 'body' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace.',
                 'people' => 2,
                 'beds' => 1,
             ],
             [
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (9).png',
+                'image' => 'images/ermita/rooms/premium-rooftop-suite-king.jpg',
                 'title' => 'Premium Rooftop Suite King',
                 'body' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a rooftop terrace.',
                 'people' => 2,
@@ -132,7 +132,7 @@ return [
         'items' => [
             [
                 'slug' => 'classic-room-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (5).png',
+                'image' => 'images/ermita/rooms/classic-room-king.jpg',
                 'title' => 'Classic Room King',
                 'body' => 'Wake up from a peaceful sleep in a king-size bed, in a cozy suite for the most intimate moments, and share secrets between natural fibers and organic details.',
                 'detail' => 'Wake up from a peaceful sleep in a king-size bed, in a cozy suite for the most intimate moments, and share secrets between natural fibers and organic details. Includes pool access and the terrace bar.',
@@ -144,7 +144,7 @@ return [
             ],
             [
                 'slug' => 'classic-room-2-beds',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (6).png',
+                'image' => 'images/ermita/rooms/classic-room-2-beds.jpg',
                 'title' => 'Classic Room 2 Beds',
                 'body' => 'Ideal suite for travelers with friends. Natural lighting and high ceilings that create a special space for relaxation amidst locally designed Mexican furniture.',
                 'detail' => 'Ideal suite for travelers with friends. Natural lighting and high ceilings that create a special space for relaxation amidst locally designed Mexican furniture.',
@@ -156,7 +156,7 @@ return [
             ],
             [
                 'slug' => 'partial-pool-view-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/partial-pool-view-king.jpg',
                 'title' => 'Partial Pool View King + Plunge Pool',
                 'body' => 'Grand and imposing, with a king-size bed and comfortable sofa bed, a private plunge pool on the back and a terrace with a hammock on the front.',
                 'detail' => 'Grand and imposing, with a king-size bed and comfortable sofa bed, a private plunge pool on the back and a terrace with a hammock on the front.',
@@ -168,7 +168,7 @@ return [
             ],
             [
                 'slug' => 'patio-suite-pool-view',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (7).png',
+                'image' => 'images/ermita/rooms/patio-suite-pool-view.jpg',
                 'title' => 'Patio Suite Pool View King + Plunge Pool',
                 'body' => 'Collect those nighttime dreams on a soft, handcrafted king-size bed or enjoy the best view of the pool on the ground floor.',
                 'detail' => 'Collect those nighttime dreams on a soft, handcrafted king-size bed or enjoy the best view of the pool on the ground floor.',
@@ -180,7 +180,7 @@ return [
             ],
             [
                 'slug' => 'deluxe-rooftop-suite-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (8).png',
+                'image' => 'images/ermita/rooms/deluxe-rooftop-suite-king.jpg',
                 'title' => 'Deluxe Rooftop Suite King',
                 'body' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace.',
                 'detail' => 'It has a privileged location on the rooftop with a king-size bed, an outdoor private plunge pool, a breakfast table, and a private terrace.',
@@ -192,7 +192,7 @@ return [
             ],
             [
                 'slug' => 'premium-rooftop-suite-king',
-                'image' => 'images/ermita/home/rooms/Rectangle 3 (9).png',
+                'image' => 'images/ermita/rooms/premium-rooftop-suite-king.jpg',
                 'title' => 'Premium Rooftop Suite King',
                 'body' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
                 'detail' => 'Heavenly king-size bed to accompany your night\'s sleep, an outdoor private plunge pool with a view of San Sebastian Parish and a spacious rooftop terrace.',
