@@ -13,7 +13,7 @@ return [
     'destination' => [
         'title' => 'El destino definitivo',
         'lead_1' => 'Estamos donde el corazón de Mérida late con más fuerza.',
-        'lead_2' => 'En lo mejor de La Mejorada y La Ermita, nuestros hoteles son tu puerta a templos auténticos, mercados vibrantes y el encanto atemporal de Yucatán. (prueba deploy)',
+        'lead_2' => 'En lo mejor de La Mejorada y La Ermita, nuestros hoteles son tu puerta a templos auténticos, mercados vibrantes y el encanto atemporal de Yucatán.',
     ],
     'hotels' => [
         'title' => 'Un alma, dos formas de vivirla',
