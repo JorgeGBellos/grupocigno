@@ -57,7 +57,7 @@ class PageFieldDefinitions
                     ['key' => 'story.title', 'label' => 'Título (accesibilidad)', 'type' => 'text', 'fallback' => 'home.story.title'],
                     ['key' => 'story.lead_1', 'label' => 'Texto imagen derecha', 'type' => 'textarea', 'fallback' => 'home.story.lead_1'],
                     ['key' => 'story.lead_2', 'label' => 'Texto imagen izquierda', 'type' => 'textarea', 'fallback' => 'home.story.lead_2'],
-                    ['key' => 'story.image_1', 'label' => 'Imagen izquierda', 'type' => 'image', 'fallback' => 'images/home/seccion1.png', 'media' => true],
+                    ['key' => 'story.image_1', 'label' => 'Imagen izquierda', 'type' => 'image', 'fallback' => 'images/mejorada/home/story-2.png', 'media' => true],
                     ['key' => 'story.image_2', 'label' => 'Imagen derecha', 'type' => 'image', 'fallback' => 'images/home/seccion1.2.png', 'media' => true],
                 ],
             ],

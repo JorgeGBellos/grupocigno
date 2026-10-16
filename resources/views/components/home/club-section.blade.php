@@ -22,13 +22,7 @@
     ];
 @endphp
 
-<section class="relative isolate flex min-h-[750px] items-center overflow-hidden px-6 py-16 text-white lg:px-10 lg:py-24">
-    <img
-        src="{{ $cms->asset('club.background', 'images/home/Cigno Club (1).png') }}"
-        alt=""
-        class="absolute inset-0 size-full object-cover"
-    >
-
+<section class="relative isolate flex min-h-[750px] items-center overflow-hidden bg-yellow-gold-300 px-6 py-16 text-white lg:px-10 lg:py-24">
     <div class="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
         <h1 class="type-h1 text-white">
             {{ $cms->text('club.title', 'home.club.title') }}

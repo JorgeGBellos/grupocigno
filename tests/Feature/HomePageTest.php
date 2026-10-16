@@ -26,7 +26,7 @@ class HomePageTest extends TestCase
         $response->assertSee('images/home/form/1.svg', false);
         $response->assertSee(__('home.story.lead_1'), false);
         $response->assertSee(__('home.story.lead_2'), false);
-        $response->assertSee('images/home/seccion1.png', false);
+        $response->assertSee('images/mejorada/home/story-2.png', false);
         $response->assertSee('images/home/seccion1.2.png', false);
         $response->assertSee(__('home.destination.title'), false);
         $response->assertSee('images/home/Vector (15).svg', false);
@@ -41,7 +41,7 @@ class HomePageTest extends TestCase
         $response->assertSee(__('pages.coming_soon.eyebrow'), false);
         $response->assertSee(__('home.club.title'), false);
         $response->assertSee(__('home.club.line_1'), false);
-        $response->assertSee('images/home/Cigno Club (1).png', false);
+        $response->assertSee('bg-yellow-gold-300', false);
         $response->assertSee('images/home/Layer_1 (55).svg', false);
         $response->assertSee(__('home.club.vip_note'), false);
         $response->assertSee('Cocina Vidente.svg', false);

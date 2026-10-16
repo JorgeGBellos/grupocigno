@@ -65,17 +65,24 @@
         menuOpen: false,
         langOpen: false,
         menuBrand: {{ \Illuminate\Support\Js::from($activeKey) }},
+        menuCol2: false,
         brands: {{ \Illuminate\Support\Js::from($menuBrands) }},
         get active() {
             return this.brands.find((brand) => brand.key === this.menuBrand) || this.brands[0];
         },
         openMenu() {
             this.menuBrand = {{ \Illuminate\Support\Js::from($activeKey) }};
+            this.menuCol2 = false;
             this.menuOpen = true;
             this.langOpen = false;
         },
         closeMenu() {
             this.menuOpen = false;
+            this.menuCol2 = false;
+        },
+        selectMenuBrand(key) {
+            this.menuBrand = key;
+            this.menuCol2 = true;
         },
     }"
     @keydown.escape.window="langOpen ? langOpen = false : menuOpen = false"
@@ -481,10 +488,10 @@
                                 <button
                                     type="button"
                                     class="type-h3 text-left transition-opacity duration-300 hover:opacity-70"
-                                    :class="menuBrand === brand.key ? 'underline underline-offset-[10px] decoration-1' : 'opacity-80'"
-                                    @click="menuBrand = brand.key"
-                                    @mouseenter="menuBrand = brand.key"
-                                    :aria-current="menuBrand === brand.key ? 'true' : 'false'"
+                                    :class="menuCol2 && menuBrand === brand.key ? 'underline underline-offset-[10px] decoration-1' : 'opacity-80'"
+                                    @click="selectMenuBrand(brand.key)"
+                                    @mouseenter="selectMenuBrand(brand.key)"
+                                    :aria-current="menuCol2 && menuBrand === brand.key ? 'true' : 'false'"
                                     x-text="brand.label"
                                 ></button>
                             </li>
@@ -532,26 +539,28 @@
             </div>
 
             <div class="relative flex min-h-0 flex-col justify-center px-10 py-10 xl:px-12 xl:py-14">
-                <p
-                    class="type-b3 mb-6 shrink-0 opacity-90 xl:mb-10"
-                    x-text="active.explore"
-                ></p>
+                <div x-show="menuCol2" x-cloak>
+                    <p
+                        class="type-b3 mb-6 shrink-0 opacity-90 xl:mb-10"
+                        x-text="active.explore"
+                    ></p>
 
-                <nav class="min-h-0" aria-label="{{ __('ui.main_nav') }}">
-                    <ul class="flex flex-col gap-2 xl:gap-3">
-                        <template x-for="item in active.items" :key="'d-item-' + item.href">
-                            <li>
-                                <a
-                                    :href="item.href"
-                                    class="type-s2 transition-opacity duration-300 hover:opacity-55"
-                                    :aria-current="item.current ? 'page' : null"
-                                    @click="closeMenu()"
-                                    x-text="item.label"
-                                ></a>
-                            </li>
-                        </template>
-                    </ul>
-                </nav>
+                    <nav class="min-h-0" aria-label="{{ __('ui.main_nav') }}">
+                        <ul class="flex flex-col gap-2 xl:gap-3">
+                            <template x-for="item in active.items" :key="'d-item-' + item.href">
+                                <li>
+                                    <a
+                                        :href="item.href"
+                                        class="type-s2 transition-opacity duration-300 hover:opacity-55"
+                                        :aria-current="item.current ? 'page' : null"
+                                        @click="closeMenu()"
+                                        x-text="item.label"
+                                    ></a>
+                                </li>
+                            </template>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
             <div class="site-menu-media-frame flex min-h-0 items-center justify-center overflow-hidden px-10 py-10 xl:px-12 xl:py-14">

@@ -12,7 +12,7 @@
         <figure class="lg:mt-28 xl:mt-36">
             <div class="aspect-[900/700] overflow-hidden">
                 <img
-                    src="{{ $cms->asset('story.image_1', 'images/home/seccion1.png') }}"
+                    src="{{ $cms->asset('story.image_1', 'images/mejorada/home/story-2.png') }}"
                     alt=""
                     class="size-full object-cover"
                 >
