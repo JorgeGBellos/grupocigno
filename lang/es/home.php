@@ -41,28 +41,21 @@ return [
         'lead_2' => 'Desde cenotes escondidos hasta rituales ancestrales, déjate llevar por nuestras experiencias.',
         'items' => [
             [
-                'image' => 'images/home/Rectangle 2 (5).png',
+                'image' => 'images/home/experiences-gastro.png',
                 'video' => 'Copia de 02. Reel sensaciones.mp4',
                 'label' => 'Gastronomía local',
                 'title' => 'Sabores y tradiciones',
                 'body' => 'Sumérgete en la historia y tradición auténticas de Yucatán con una experiencia culinaria exclusiva en nuestro hotel.',
             ],
             [
-                'image' => 'images/home/Rectangle 4.jpg',
+                'image' => 'images/home/experiences-spa.png',
                 'video' => 'Copia de 02. Reel SPA Cigno ERMITA.mp4',
                 'label' => 'Spa',
                 'title' => 'Un santuario en Ermita',
                 'body' => 'Encuentra un espacio de calma absoluta con rituales de bienestar pensados para armonizar y complementar tu estancia.',
             ],
             [
-                'image' => 'images/home/ermita.png',
-                'video' => 'Ermita 7.mp4',
-                'label' => 'Naturaleza',
-                'title' => 'Cenotes y naturaleza sagrada',
-                'body' => 'Excursiones guiadas a aguas cristalinas y paisajes que conectan con la historia maya.',
-            ],
-            [
-                'image' => 'images/home/mejorada.png',
+                'image' => 'images/home/experiences-barrio.png',
                 'video' => 'Copia de 02. CIGNO Mejorada.mp4',
                 'label' => 'Patrimonio',
                 'title' => 'Arte, barrio y patrimonio',
