@@ -5,8 +5,8 @@
     $items = __('ermita.experiences_page.items');
     $groups = [
         ['class' => 'sm:grid-cols-2 lg:grid-cols-3', 'aspect' => 'aspect-[3/4]', 'items' => array_slice($items, 0, 3)],
-        ['class' => 'sm:grid-cols-2', 'aspect' => 'aspect-[5/4]', 'items' => array_slice($items, 3, 2)],
-        ['class' => 'sm:grid-cols-2', 'aspect' => 'aspect-[5/4]', 'items' => array_slice($items, 5, 2)],
+        ['class' => 'grid-cols-1', 'aspect' => 'aspect-[16/9] lg:aspect-[21/9]', 'items' => array_slice($items, 3, 1)],
+        ['class' => 'sm:grid-cols-2', 'aspect' => 'aspect-[5/4]', 'items' => array_slice($items, 4, 2)],
     ];
 @endphp
 

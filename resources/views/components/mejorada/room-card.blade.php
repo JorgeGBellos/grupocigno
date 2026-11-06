@@ -4,6 +4,7 @@
     'body',
     'people',
     'beds',
+    'bedsLabel' => null,
     'infoHref' => null,
     'reserveHref' => null,
 ])
@@ -11,6 +12,11 @@
 @php
     $infoHref = $infoHref ?: route('cigno-mejorada.rooms');
     $reserveHref = $reserveHref ?: route('cigno-mejorada').'#booking';
+    $bedsText = filled($bedsLabel)
+        ? $bedsLabel
+        : ($beds === 1
+            ? __('mejorada.rooms.beds_one')
+            : __('mejorada.rooms.beds_other', ['count' => $beds]));
 @endphp
 
 <article class="flex h-full flex-col">
@@ -27,9 +33,9 @@
             <img
                 src="{{ asset('images/ermita/Component 1 (7).svg') }}"
                 alt=""
-                width="44"
-                height="44"
-                class="size-11 shrink-0"
+                width="30"
+                height="auto"
+                class="h-auto w-[30px] shrink-0"
             >
             {{ $people === 1
                 ? __('mejorada.rooms.max_people_one')
@@ -37,19 +43,17 @@
         </span>
         <span class="type-label inline-flex items-center gap-3 text-black-500">
             <img
-                src="{{ asset('images/ermita/Component 1 (6).svg') }}"
+                src="{{ asset('images/ermita/icons/tortuga.svg') }}"
                 alt=""
-                width="44"
-                height="44"
-                class="size-11 shrink-0"
+                width="30"
+                height="auto"
+                class="h-auto w-[30px] shrink-0"
             >
-            {{ $beds === 1
-                ? __('mejorada.rooms.beds_one')
-                : __('mejorada.rooms.beds_other', ['count' => $beds]) }}
+            {{ $bedsText }}
         </span>
     </div>
 
-    <h3 class="type-h2 mt-6 text-balance">{{ $title }}</h3>
+    <h3 class="type-s2 mt-6 text-balance">{{ $title }}</h3>
     <p class="type-b3 mt-4 flex-1 text-pretty">{{ $body }}</p>
 
     <div class="mt-8 flex flex-col gap-3">

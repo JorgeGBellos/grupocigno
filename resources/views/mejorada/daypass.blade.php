@@ -8,10 +8,10 @@
     <section class="flex flex-1 flex-col bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
         <div class="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
             <img
-                src="{{ $cms->asset('daypass.mark', 'images/ermita/icons/Layer_1 (62).svg') }}"
+                src="{{ $cms->asset('daypass.mark', 'images/ermita/icons/palmera-daypass.png') }}"
                 alt=""
-                width="280"
-                class="h-auto w-[220px] sm:w-[260px]"
+                width="160"
+                class="h-auto w-[160px]"
             >
 
             <h1 class="type-h1 mt-8">{{ $cms->text('daypass.page_title', 'mejorada.daypass.page_title') }}</h1>

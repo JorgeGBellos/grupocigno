@@ -52,12 +52,7 @@
                 class="h-auto w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px]"
             >
 
-            <img
-                src="{{ asset('images/ermita/michelin.svg') }}"
-                alt="{{ __('nav.michelin_2025') }}"
-                height="20"
-                class="mt-6 h-5 w-auto"
-            >
+            <x-ermita.michelin-badges class="mt-6" />
         </div>
 
         <span class="type-btn-sm relative z-10 mt-10 inline-flex w-full max-w-md items-center justify-center rounded-[14px] border border-white bg-white px-6 py-4 text-blue-ermita-300 no-underline uppercase transition-colors duration-300 group-hover:border-blue-ermita-100 group-hover:bg-blue-ermita-100 group-hover:text-white">

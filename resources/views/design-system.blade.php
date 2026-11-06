@@ -70,7 +70,7 @@
                         name="Blue Ermita"
                         :shades="[
                             ['shade' => '100', 'hex' => '#1774B6', 'swatch' => 'bg-blue-ermita-100', 'token' => 'blue-ermita-100', 'light' => true],
-                            ['shade' => '300', 'hex' => '#026C7B', 'swatch' => 'bg-blue-ermita-300', 'token' => 'blue-ermita-300', 'light' => true],
+                            ['shade' => '300', 'hex' => '#02658E', 'swatch' => 'bg-blue-ermita-300', 'token' => 'blue-ermita-300', 'light' => true],
                             ['shade' => '500', 'hex' => '#01355A', 'swatch' => 'bg-blue-ermita-500', 'token' => 'blue-ermita-500', 'light' => true],
                         ]"
                     />

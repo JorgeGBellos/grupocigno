@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Cigno Hoteles | Room Selection</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="icon" type="image/x-icon" href="https://www.cignohotel.com/favicon.png" />
+        <link rel="preload" as="style" href="https://static.mirai.com/core/index.css"
+            onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="stylesheet" href="core-variables.css">
+    </head>
+
+    <body>
+        <div data-mirai-id="522722" data-type="chain"></div>
+        <div data-mirai-component="rates"></div>
+        <!-- Clear Mirai cached search when URL already has search criteria -->
+        <script>
+            (function () {
+                var params = new URLSearchParams(window.location.search);
+                var hasSearch = params.has('checkin') || params.has('nights') || params.has('parties');
+                if (!hasSearch) return;
+
+                function clearMiraiKeys(store) {
+                    try {
+                        Object.keys(store).forEach(function (key) {
+                            if (/mirai/i.test(key)) store.removeItem(key);
+                        });
+                    } catch (e) {}
+                }
+
+                clearMiraiKeys(window.sessionStorage);
+                clearMiraiKeys(window.localStorage);
+            })();
+        </script>
+        <script type="module" defer src="https://static.mirai.com/core/index.js" data-cookieconsent="necesary"></script>
+    </body>
+
+</html>

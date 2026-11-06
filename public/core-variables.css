@@ -1,0 +1,31 @@
+:root{
+	--corporative-color: #936f2e;
+}
+
+/* Hero: en móvil dejar espacio al finder en columna */
+@media (max-width: 1023px) {
+	section:has(> #booking) {
+		height: auto !important;
+		min-height: calc(100svh - var(--header-height));
+		overflow: visible;
+	}
+
+	section:has(> #booking) > #booking {
+		min-height: calc(100svh - var(--header-height));
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+	}
+}
+
+/* ================================= */
+/* CSS FOR NEW CLUB */
+[data-mirai-component="signup"] {
+    display: flex;
+    justify-content: center;
+}
+
+[data-mirai-component="profile"],
+[data-mirai-component="signup"] {
+    padding: 100px 0;
+}

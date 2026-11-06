@@ -21,13 +21,27 @@
 
     $menuBrands = $brands->map(function (array $brand): array {
         $items = collect(config('navigation.'.$brand['menu'], []))
-            ->map(fn (array $item): array => [
-                'label' => __($item['label']),
-                'href' => route($item['route']),
-                'route' => $item['route'],
-                'current' => request()->routeIs($item['route'])
-                    || request()->routeIs($item['route'].'.*'),
-            ])
+            ->map(function (array $item): array {
+                if (filled($item['url'] ?? null)) {
+                    $href = url($item['url']);
+                } else {
+                    $href = route($item['route'], $item['params'] ?? []);
+                    if (filled($item['hash'] ?? null)) {
+                        $href .= '#'.$item['hash'];
+                    }
+                }
+
+                return [
+                    'label' => __($item['label']),
+                    'href' => $href,
+                    'route' => $item['route'] ?? null,
+                    'current' => filled($item['route'] ?? null)
+                        && blank($item['hash'] ?? null)
+                        && blank($item['url'] ?? null)
+                        && (request()->routeIs($item['route'])
+                            || request()->routeIs($item['route'].'.*')),
+                ];
+            })
             ->values()
             ->all();
 
@@ -93,9 +107,9 @@
         class="fixed inset-x-0 top-0 z-50"
         @click.outside="langOpen = false"
     >
-        <div class="relative z-20 flex h-(--header-bar-height) items-center justify-between bg-off-white-300 px-5 sm:px-8 lg:px-12">
+        <div class="relative z-20 flex h-(--header-bar-height) items-center justify-between bg-off-white-300 px-4 sm:px-8 lg:px-12">
             {{-- Mobile: wordmark left. Desktop: menu + language left. --}}
-            <div class="flex items-center gap-3 sm:gap-4">
+            <div class="flex items-center gap-2 sm:gap-4">
                 <a
                     href="{{ route('home') }}"
                     class="transition-opacity duration-300 hover:opacity-50 lg:hidden"
@@ -104,7 +118,7 @@
                         src="{{ asset('images/Logotipo (3).svg') }}"
                         alt="{{ config('app.name') }}"
                         width="128"
-                        class="h-auto w-[110px] sm:w-[128px]"
+                        class="h-auto w-[88px] sm:w-[110px]"
                     >
                 </a>
 
@@ -169,10 +183,10 @@
             </a>
 
             {{-- Mobile: language + menu. Desktop: book CTA. --}}
-            <div class="flex items-center gap-1 sm:gap-2">
+            <div class="flex items-center gap-0.5 sm:gap-2">
                 <button
                     type="button"
-                    class="flex size-[48px] items-center justify-center transition-opacity duration-300 hover:opacity-40 lg:hidden"
+                    class="flex size-10 items-center justify-center transition-opacity duration-300 hover:opacity-40 lg:hidden"
                     @click="langOpen = ! langOpen"
                     :aria-expanded="langOpen"
                     aria-controls="language-menu"
@@ -182,15 +196,15 @@
                     <img
                         src="{{ asset('images/Language.svg') }}"
                         alt=""
-                        width="48"
-                        height="48"
-                        class="size-[48px]"
+                        width="40"
+                        height="40"
+                        class="size-10"
                     >
                 </button>
 
                 <button
                     type="button"
-                    class="flex size-[48px] items-center justify-center transition-opacity duration-300 hover:opacity-40 lg:hidden"
+                    class="flex size-10 items-center justify-center transition-opacity duration-300 hover:opacity-40 lg:hidden"
                     @click="menuOpen ? closeMenu() : openMenu()"
                     :aria-expanded="menuOpen"
                     aria-controls="site-menu"
@@ -199,18 +213,18 @@
                     <img
                         src="{{ asset('images/menu-icon.svg') }}"
                         alt=""
-                        width="48"
-                        height="48"
-                        class="size-[48px]"
+                        width="40"
+                        height="40"
+                        class="size-10"
                         x-show="! menuOpen"
                         x-cloak
                     >
                     <img
                         src="{{ asset('images/cierre.svg') }}"
                         alt=""
-                        width="48"
-                        height="48"
-                        class="size-[48px]"
+                        width="40"
+                        height="40"
+                        class="size-10"
                         x-show="menuOpen"
                         x-cloak
                     >
@@ -240,11 +254,22 @@
                     >
                         @foreach ($branchItems as $item)
                             @php
-                                $isItemActive = request()->routeIs($item['route'])
-                                    || request()->routeIs($item['route'].'.*');
+                                if (filled($item['url'] ?? null)) {
+                                    $itemHref = url($item['url']);
+                                } else {
+                                    $itemHref = route($item['route'], $item['params'] ?? []);
+                                    if (filled($item['hash'] ?? null)) {
+                                        $itemHref .= '#'.$item['hash'];
+                                    }
+                                }
+                                $isItemActive = filled($item['route'] ?? null)
+                                    && blank($item['hash'] ?? null)
+                                    && blank($item['url'] ?? null)
+                                    && (request()->routeIs($item['route'])
+                                        || request()->routeIs($item['route'].'.*'));
                             @endphp
                             <a
-                                href="{{ route($item['route']) }}"
+                                href="{{ $itemHref }}"
                                 @class([
                                     'type-b2 whitespace-nowrap transition-opacity duration-300',
                                     'text-black-500' => $isItemActive,
@@ -426,38 +451,35 @@
                         ></a>
                     </div>
 
-                    <div class="mt-auto flex items-center gap-5 pt-10">
-                        <a
-                            href="{{ route('contact') }}"
-                            class="transition-opacity duration-300 hover:opacity-50"
-                            aria-label="{{ __('ui.call') }}"
-                            @click="closeMenu()"
-                        >
-                            <img
-                                src="{{ asset('images/footer/llamada.svg') }}"
-                                alt=""
-                                class="size-7 brightness-0 invert"
+                    <div class="mt-auto flex flex-col gap-6 pt-10">
+                        <div class="flex items-center gap-5">
+                            <a
+                                href="{{ route('contact') }}"
+                                class="transition-opacity duration-300 hover:opacity-50"
+                                aria-label="{{ __('ui.call') }}"
+                                @click="closeMenu()"
                             >
-                        </a>
-                        <a
-                            href="#"
-                            class="transition-opacity duration-300 hover:opacity-50"
-                            aria-label="{{ __('ui.instagram') }}"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src="{{ asset('images/footer/ig.svg') }}"
-                                alt=""
-                                class="size-7 brightness-0 invert"
+                                <img
+                                    src="{{ asset('images/footer/llamada.svg') }}"
+                                    alt=""
+                                    class="size-7 brightness-0 invert"
+                                >
+                            </a>
+                            <a
+                                href="#"
+                                class="transition-opacity duration-300 hover:opacity-50"
+                                aria-label="{{ __('ui.instagram') }}"
+                                rel="noopener noreferrer"
                             >
-                        </a>
+                                <img
+                                    src="{{ asset('images/footer/ig.svg') }}"
+                                    alt=""
+                                    class="size-7 brightness-0 invert"
+                                >
+                            </a>
+                        </div>
                         <template x-if="active.showMichelin">
-                            <img
-                                src="{{ asset('images/ermita/michelin.svg') }}"
-                                alt="{{ __('nav.michelin_2025') }}"
-                                height="20"
-                                class="h-5 w-auto brightness-0 invert"
-                            >
+                            <x-ermita.michelin-badges size="menu" class="justify-start" />
                         </template>
                     </div>
                 </div>
@@ -482,12 +504,12 @@
                     class="flex min-h-0 flex-1 flex-col justify-center"
                     aria-label="{{ __('ui.brand_nav') }}"
                 >
-                    <ul class="flex flex-col gap-8 xl:gap-[60px]">
+                    <ul class="flex flex-col gap-5 xl:gap-10 2xl:gap-[60px]">
                         <template x-for="brand in brands" :key="'d-brand-' + brand.key">
                             <li>
                                 <button
                                     type="button"
-                                    class="type-h3 text-left transition-opacity duration-300 hover:opacity-70"
+                                    class="site-menu-brand text-left transition-opacity duration-300 hover:opacity-70"
                                     :class="menuCol2 && menuBrand === brand.key ? 'underline underline-offset-[10px] decoration-1' : 'opacity-80'"
                                     @click="selectMenuBrand(brand.key)"
                                     @mouseenter="selectMenuBrand(brand.key)"
@@ -499,41 +521,37 @@
                     </ul>
                 </nav>
 
-                <div class="flex shrink-0 items-center gap-5 pt-8 xl:pt-10">
-                    <a
-                        href="{{ route('contact') }}"
-                        class="transition-opacity duration-300 hover:opacity-50"
-                        aria-label="{{ __('ui.call') }}"
-                        @click="closeMenu()"
-                    >
-                        <img
-                            src="{{ asset('images/footer/llamada.svg') }}"
-                            alt=""
-                            class="size-7"
-                            :class="active.panel === 'light' ? '' : 'brightness-0 invert'"
+                <div class="flex shrink-0 flex-col gap-3 pt-6 xl:gap-5 xl:pt-10">
+                    <div class="flex items-center gap-4 xl:gap-5">
+                        <a
+                            href="{{ route('contact') }}"
+                            class="transition-opacity duration-300 hover:opacity-50"
+                            aria-label="{{ __('ui.call') }}"
+                            @click="closeMenu()"
                         >
-                    </a>
-                    <a
-                        href="#"
-                        class="transition-opacity duration-300 hover:opacity-50"
-                        aria-label="{{ __('ui.instagram') }}"
-                        rel="noopener noreferrer"
-                    >
-                        <img
-                            src="{{ asset('images/footer/ig.svg') }}"
-                            alt=""
-                            class="size-7"
-                            :class="active.panel === 'light' ? '' : 'brightness-0 invert'"
+                            <img
+                                src="{{ asset('images/footer/llamada.svg') }}"
+                                alt=""
+                                class="size-6 xl:size-7"
+                                :class="active.panel === 'light' ? '' : 'brightness-0 invert'"
+                            >
+                        </a>
+                        <a
+                            href="#"
+                            class="transition-opacity duration-300 hover:opacity-50"
+                            aria-label="{{ __('ui.instagram') }}"
+                            rel="noopener noreferrer"
                         >
-                    </a>
+                            <img
+                                src="{{ asset('images/footer/ig.svg') }}"
+                                alt=""
+                                class="size-6 xl:size-7"
+                                :class="active.panel === 'light' ? '' : 'brightness-0 invert'"
+                            >
+                        </a>
+                    </div>
                     <template x-if="active.showMichelin">
-                        <img
-                            src="{{ asset('images/ermita/michelin.svg') }}"
-                            alt="{{ __('nav.michelin_2025') }}"
-                            height="20"
-                            class="h-5 w-auto"
-                            :class="active.panel === 'light' ? '' : 'brightness-0 invert'"
-                        >
+                        <x-ermita.michelin-badges size="menu" class="justify-start" />
                     </template>
                 </div>
             </div>

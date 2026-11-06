@@ -16,9 +16,11 @@ return [
     'hotels' => [
         'cigno-mejorada' => [
             'selector' => env('BOOKING_MEJORADA_SELECTOR', '76818'),
+            'mirai_id' => env('BOOKING_MEJORADA_MIRAI_ID', '100380967'),
         ],
         'cigno-ermita' => [
             'selector' => env('BOOKING_ERMITA_SELECTOR', '76818'),
+            'mirai_id' => env('BOOKING_ERMITA_MIRAI_ID', '100378202'),
         ],
     ],
 ];

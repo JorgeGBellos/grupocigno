@@ -1,0 +1,8 @@
+# Bloquea el acceso HTTP a la app si quedó dentro de public_html.
+# PHP sigue pudiendo leer estos archivos.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Deny from all
+</IfModule>

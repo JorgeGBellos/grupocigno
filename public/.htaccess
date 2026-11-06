@@ -18,6 +18,13 @@
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
+    # Mirai Core: el motor pide /bookingstep1 (sin .html); los archivos del ZIP son .html
+    RewriteRule ^bookingstep1/?$ bookingstep1.html [L,QSA]
+    RewriteRule ^bookingstep2/?$ bookingstep2.html [L,QSA]
+    RewriteRule ^bookingstep3/?$ bookingstep3.html [L,QSA]
+    RewriteRule ^signup/?$ signup.html [L,QSA]
+    RewriteRule ^profile/?$ profile.html [L,QSA]
+
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f

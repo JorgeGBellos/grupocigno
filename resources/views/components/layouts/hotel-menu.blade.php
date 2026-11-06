@@ -13,12 +13,22 @@
     @foreach ($columns as $column)
         <ul class="flex flex-col {{ $listAlign }} gap-5">
             @foreach ($column as $item)
+                @php
+                    if (filled($item['url'] ?? null)) {
+                        $itemHref = url($item['url']);
+                    } else {
+                        $itemHref = route($item['route'], $item['params'] ?? []);
+                        if (filled($item['hash'] ?? null)) {
+                            $itemHref .= '#'.$item['hash'];
+                        }
+                    }
+                @endphp
                 <li>
                     <a
-                        href="{{ route($item['route']) }}"
+                        href="{{ $itemHref }}"
                         class="{{ $linkClass }} transition-opacity duration-300 hover:opacity-40"
                         @click="menuOpen = false"
-                        @if (request()->routeIs($item['route']))
+                        @if (filled($item['route'] ?? null) && blank($item['hash'] ?? null) && blank($item['url'] ?? null) && request()->routeIs($item['route']))
                             aria-current="page"
                         @endif
                     >{{ __($item['label']) }}</a>

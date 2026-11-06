@@ -32,6 +32,7 @@
                         :body="$room['body']"
                         :people="$room['people']"
                         :beds="$room['beds']"
+                        :beds-label="$room['beds_label'] ?? null"
                         :info-href="route('cigno-ermita.rooms.show', $room['slug'])"
                     />
                 @endforeach

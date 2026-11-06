@@ -53,9 +53,5 @@
         </figure>
     </div>
 
-    <img
-        src="{{ asset('images/ermita/michelin-2025-black.png') }}"
-        alt="{{ __('nav.michelin_2025') }}"
-        class="mx-auto mt-16 h-5 w-auto lg:mt-20"
-    >
+    <x-ermita.michelin-badges tone="dark" class="mx-auto mt-16 lg:mt-20" />
 </section>

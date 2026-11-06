@@ -11,8 +11,8 @@
                 <img
                     src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
                     alt=""
-                    width="120"
-                    class="h-auto w-[96px] sm:w-[120px]"
+                    width="274"
+                    class="h-auto w-[220px] sm:w-[260px]"
                 >
 
                 <h1 class="type-h1 mt-10">{{ $cms->text('rooms_page.title', 'mejorada.rooms_page.title') }}</h1>
@@ -31,6 +31,7 @@
                         :body="$room['body']"
                         :people="$room['people']"
                         :beds="$room['beds']"
+                        :beds-label="$room['beds_label'] ?? null"
                         :info-href="route('cigno-mejorada.rooms.show', $room['slug'])"
                         :reserve-href="route('cigno-mejorada').'#booking'"
                     />

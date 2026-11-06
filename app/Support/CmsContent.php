@@ -170,27 +170,34 @@ class CmsContent
      */
     public function ermitaRooms(): array
     {
+        $langBySlug = collect(trans('ermita.rooms_page.items'))->keyBy('slug');
+
         if ($this->pageEnabled(CmsPageSlug::ErmitaRooms) && ErmitaRoom::query()->published()->exists()) {
             return ErmitaRoom::query()
                 ->published()
                 ->ordered()
                 ->get()
-                ->map(fn (ErmitaRoom $room): array => [
-                    'slug' => $room->slug,
-                    'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
-                    'title' => $room->localizedTitle(),
-                    'body' => $room->localizedBody(),
-                    'detail' => $room->localizedDetail(),
-                    'price' => $room->localizedPrice(),
-                    'size' => $room->localizedSize(),
-                    'people' => (int) $room->people,
-                    'beds' => (int) $room->beds,
-                    'exclusive' => array_values(array_filter((array) ($room->exclusive ?? []))),
-                ])
+                ->map(function (ErmitaRoom $room) use ($langBySlug): array {
+                    $lang = $langBySlug->get($room->slug, []);
+
+                    return [
+                        'slug' => $room->slug,
+                        'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
+                        'title' => filled($lang['title'] ?? null) ? (string) $lang['title'] : $room->localizedTitle(),
+                        'body' => filled($lang['body'] ?? null) ? (string) $lang['body'] : $room->localizedBody(),
+                        'detail' => filled($lang['detail'] ?? null) ? (string) $lang['detail'] : $room->localizedDetail(),
+                        'price' => filled($lang['price'] ?? null) ? (string) $lang['price'] : $room->localizedPrice(),
+                        'size' => filled($lang['size'] ?? null) ? (string) $lang['size'] : $room->localizedSize(),
+                        'people' => (int) ($lang['people'] ?? $room->people),
+                        'beds' => (int) ($lang['beds'] ?? $room->beds),
+                        'beds_label' => $lang['beds_label'] ?? null,
+                        'exclusive' => array_values($lang['exclusive'] ?? array_filter((array) ($room->exclusive ?? []))),
+                    ];
+                })
                 ->all();
         }
 
-        return collect(trans('ermita.rooms_page.items'))
+        return $langBySlug
             ->map(fn (array $room): array => [
                 'slug' => $room['slug'],
                 'image' => $room['image'],
@@ -201,8 +208,10 @@ class CmsContent
                 'size' => $room['size'],
                 'people' => (int) $room['people'],
                 'beds' => (int) $room['beds'],
+                'beds_label' => $room['beds_label'] ?? null,
                 'exclusive' => array_values($room['exclusive'] ?? []),
             ])
+            ->values()
             ->all();
     }
 
@@ -213,29 +222,18 @@ class CmsContent
      */
     public function ermitaRoomTeasers(): array
     {
-        if ($this->pageEnabled(CmsPageSlug::ErmitaRooms) && ErmitaRoom::query()->published()->exists()) {
-            return ErmitaRoom::query()
-                ->published()
-                ->ordered()
-                ->get()
-                ->map(fn (ErmitaRoom $room): array => [
-                    'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
-                    'title' => $room->localizedTitle(),
-                    'body' => $room->localizedBody(),
-                    'people' => (int) $room->people,
-                    'beds' => (int) $room->beds,
-                ])
-                ->all();
-        }
-
-        return collect(trans('ermita.rooms.items'))
+        return collect($this->ermitaRooms())
+            ->take(3)
             ->map(fn (array $room): array => [
+                'slug' => $room['slug'],
                 'image' => $room['image'],
                 'title' => $room['title'],
                 'body' => $room['body'],
                 'people' => (int) $room['people'],
                 'beds' => (int) $room['beds'],
+                'beds_label' => $room['beds_label'] ?? null,
             ])
+            ->values()
             ->all();
     }
 
@@ -296,27 +294,35 @@ class CmsContent
      */
     public function mejoradaRooms(): array
     {
+        $langBySlug = collect(trans('mejorada.rooms_page.items'))->keyBy('slug');
+
         if (MejoradaRoom::query()->published()->exists()) {
             return MejoradaRoom::query()
                 ->published()
                 ->ordered()
                 ->get()
-                ->map(fn (MejoradaRoom $room): array => [
-                    'slug' => $room->slug,
-                    'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
-                    'title' => $room->localizedTitle(),
-                    'body' => $room->localizedBody(),
-                    'detail' => $room->localizedDetail(),
-                    'price' => $room->localizedPrice(),
-                    'size' => $room->localizedSize(),
-                    'people' => (int) $room->people,
-                    'beds' => (int) $room->beds,
-                    'exclusive' => array_values(array_filter((array) ($room->exclusive ?? []))),
-                ])
+                ->map(function (MejoradaRoom $room) use ($langBySlug): array {
+                    $lang = $langBySlug->get($room->slug, []);
+
+                    return [
+                        'slug' => $room->slug,
+                        'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
+                        'title' => filled($lang['title'] ?? null) ? (string) $lang['title'] : $room->localizedTitle(),
+                        'body' => filled($lang['body'] ?? null) ? (string) $lang['body'] : $room->localizedBody(),
+                        'detail' => filled($lang['detail'] ?? null) ? (string) $lang['detail'] : $room->localizedDetail(),
+                        'price' => filled($lang['price'] ?? null) ? (string) $lang['price'] : $room->localizedPrice(),
+                        'size' => filled($lang['size'] ?? null) ? (string) $lang['size'] : $room->localizedSize(),
+                        'people' => (int) ($lang['people'] ?? $room->people),
+                        'beds' => (int) ($lang['beds'] ?? $room->beds),
+                        'beds_label' => $lang['beds_label'] ?? null,
+                        'exclusive' => array_values($lang['exclusive'] ?? array_filter((array) ($room->exclusive ?? []))),
+                    ];
+                })
+                ->values()
                 ->all();
         }
 
-        return collect(trans('mejorada.rooms_page.items'))
+        return $langBySlug
             ->map(fn (array $room): array => [
                 'slug' => $room['slug'],
                 'image' => $room['image'],
@@ -327,8 +333,10 @@ class CmsContent
                 'size' => $room['size'],
                 'people' => (int) $room['people'],
                 'beds' => (int) $room['beds'],
+                'beds_label' => $room['beds_label'] ?? null,
                 'exclusive' => array_values($room['exclusive'] ?? []),
             ])
+            ->values()
             ->all();
     }
 
@@ -339,30 +347,18 @@ class CmsContent
      */
     public function mejoradaRoomTeasers(): array
     {
-        if (MejoradaRoom::query()->published()->exists()) {
-            return MejoradaRoom::query()
-                ->published()
-                ->ordered()
-                ->get()
-                ->map(fn (MejoradaRoom $room): array => [
-                    'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
-                    'title' => $room->localizedTitle(),
-                    'body' => $room->localizedBody(),
-                    'people' => (int) $room->people,
-                    'beds' => (int) $room->beds,
-                ])
-                ->all();
-        }
-
-        return collect(trans('mejorada.rooms_page.items'))
+        return collect($this->mejoradaRooms())
             ->take(3)
             ->map(fn (array $room): array => [
+                'slug' => $room['slug'],
                 'image' => $room['image'],
                 'title' => $room['title'],
                 'body' => $room['body'],
                 'people' => (int) $room['people'],
                 'beds' => (int) $room['beds'],
+                'beds_label' => $room['beds_label'] ?? null,
             ])
+            ->values()
             ->all();
     }
 

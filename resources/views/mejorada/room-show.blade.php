@@ -32,19 +32,35 @@
             </div>
 
             <div class="mx-auto mt-12 max-w-2xl text-center">
-                <h1 class="type-h1">{{ $room['title'] }}</h1>
+                <h1 class="type-s2">{{ $room['title'] }}</h1>
                 <p class="type-b2 mt-4">{{ $room['price'] }}</p>
 
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
                     <span class="type-label inline-flex items-center gap-3">
+                        <img
+                            src="{{ asset('images/ermita/Component 1 (7).svg') }}"
+                            alt=""
+                            width="30"
+                            height="auto"
+                            class="h-auto w-[30px] shrink-0"
+                        >
                         {{ $room['people'] === 1
                             ? __('mejorada.rooms.max_people_one')
                             : __('mejorada.rooms.max_people', ['count' => $room['people']]) }}
                     </span>
                     <span class="type-label inline-flex items-center gap-3">
-                        {{ $room['beds'] === 1
-                            ? __('mejorada.rooms.beds_one')
-                            : __('mejorada.rooms.beds_other', ['count' => $room['beds']]) }}
+                        <img
+                            src="{{ asset('images/ermita/icons/tortuga.svg') }}"
+                            alt=""
+                            width="30"
+                            height="auto"
+                            class="h-auto w-[30px] shrink-0"
+                        >
+                        {{ filled($room['beds_label'] ?? null)
+                            ? $room['beds_label']
+                            : ($room['beds'] === 1
+                                ? __('mejorada.rooms.beds_one')
+                                : __('mejorada.rooms.beds_other', ['count' => $room['beds']])) }}
                     </span>
                 </div>
 

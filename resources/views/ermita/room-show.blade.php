@@ -32,7 +32,7 @@
             </div>
 
             <div class="mx-auto mt-12 max-w-2xl text-center">
-                <h1 class="type-h1">{{ $room['title'] }}</h1>
+                <h1 class="type-s2">{{ $room['title'] }}</h1>
                 <p class="type-b2 mt-4">{{ $room['price'] }}</p>
 
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
@@ -40,9 +40,9 @@
                         <img
                             src="{{ asset('images/ermita/Component 1 (7).svg') }}"
                             alt=""
-                            width="44"
-                            height="44"
-                            class="size-11 shrink-0"
+                            width="30"
+                            height="auto"
+                            class="h-auto w-[30px] shrink-0"
                         >
                         {{ $room['people'] === 1
                             ? __('ermita.rooms.max_people_one')
@@ -50,15 +50,17 @@
                     </span>
                     <span class="type-label inline-flex items-center gap-3">
                         <img
-                            src="{{ asset('images/ermita/Component 1 (6).svg') }}"
+                            src="{{ asset('images/ermita/icons/tortuga.svg') }}"
                             alt=""
-                            width="44"
-                            height="44"
-                            class="size-11 shrink-0"
+                            width="30"
+                            height="auto"
+                            class="h-auto w-[30px] shrink-0"
                         >
-                        {{ $room['beds'] === 1
-                            ? __('ermita.rooms.beds_one')
-                            : __('ermita.rooms.beds_other', ['count' => $room['beds']]) }}
+                        {{ filled($room['beds_label'] ?? null)
+                            ? $room['beds_label']
+                            : ($room['beds'] === 1
+                                ? __('ermita.rooms.beds_one')
+                                : __('ermita.rooms.beds_other', ['count' => $room['beds']])) }}
                     </span>
                 </div>
 

@@ -52,20 +52,20 @@
                     class="aspect-[4/3] w-full object-cover"
                 >
 
-                <div class="type-b2 mt-6 max-w-xl space-y-1">
+                <div class="type-b2 mt-6 w-full space-y-1">
                     <p>{{ __('ermita.story.lead_1') }}</p>
                     <p>{{ __('ermita.story.lead_2') }}</p>
                 </div>
             </div>
 
-            <div class="lg:max-w-sm lg:justify-self-end">
+            <div class="w-full lg:justify-self-end">
                 <img
                     src="{{ asset('images/ermita/barrio/Rectangle 3 (26).png') }}"
                     alt="{{ __('ermita.hero.line_1') }} {{ __('ermita.hero.line_2') }}"
-                    class="aspect-[5/4] w-full object-cover"
+                    class="aspect-[400/515] w-full object-cover"
                 >
 
-                <p class="type-b2 mt-6">{{ __('ermita.hero.line_1') }} {{ __('ermita.hero.line_2') }}</p>
+                <p class="type-b2 mt-6 w-full">{{ __('ermita.hero.line_1') }} {{ __('ermita.hero.line_2') }}</p>
             </div>
         </div>
     </section>

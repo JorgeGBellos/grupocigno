@@ -9,7 +9,7 @@
 }
 
 :root {
-    --header-bar-height: 110px;
+    --header-bar-height: 72px;
     --branch-row-height: 0px;
     --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
 }
@@ -45,8 +45,29 @@
     container-type: size;
 }
 
+/* Menu col. 1 brands: smaller on laptop, full scale on wide screens */
+.site-menu-brand {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.625rem; /* 26px — laptop / short viewports */
+    line-height: 1.15;
+    text-wrap: balance;
+}
+
+@media (min-width: 80rem) {
+    .site-menu-brand {
+        font-size: 2.25rem; /* 36px */
+    }
+}
+
+@media (min-width: 90rem) {
+    .site-menu-brand {
+        font-size: 3.125rem; /* 50px — matches type-h3 desktop */
+    }
+}
+
 .has-branch-row {
-    --branch-row-height: 48px;
+    --branch-row-height: 40px;
     --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
 }
 
@@ -116,7 +137,7 @@
     --color-blue-500: #003a42;
 
     --color-blue-ermita-100: #1774b6;
-    --color-blue-ermita-300: #026c7b;
+    --color-blue-ermita-300: #02658e;
     --color-blue-ermita-500: #01355a;
 
     --color-blue-mejorada-100: #4f5c43;

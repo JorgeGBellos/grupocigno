@@ -72,9 +72,9 @@
                                         <img
                                             src="{{ asset('images/ermita/Component 1 (7).svg') }}"
                                             alt=""
-                                            width="28"
-                                            height="28"
-                                            class="size-7 shrink-0"
+                                            width="30"
+                                            height="auto"
+                                            class="h-auto w-[30px] shrink-0"
                                         >
                                         {{ $item['people'] === 1
                                             ? __('ermita.rooms.max_people_one')
@@ -82,15 +82,17 @@
                                     </span>
                                     <span class="type-label inline-flex items-center gap-2.5 text-black-500">
                                         <img
-                                            src="{{ asset('images/ermita/Component 1 (6).svg') }}"
+                                            src="{{ asset('images/ermita/icons/tortuga.svg') }}"
                                             alt=""
-                                            width="28"
-                                            height="28"
-                                            class="size-7 shrink-0"
+                                            width="30"
+                                            height="auto"
+                                            class="h-auto w-[30px] shrink-0"
                                         >
-                                        {{ $item['beds'] === 1
-                                            ? __('ermita.rooms.beds_one')
-                                            : __('ermita.rooms.beds_other', ['count' => $item['beds']]) }}
+                                        {{ filled($item['beds_label'] ?? null)
+                                            ? $item['beds_label']
+                                            : ($item['beds'] === 1
+                                                ? __('ermita.rooms.beds_one')
+                                                : __('ermita.rooms.beds_other', ['count' => $item['beds']])) }}
                                     </span>
                                 </div>
 

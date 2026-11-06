@@ -67,15 +67,31 @@
                                 </div>
 
                                 <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
-                                    <span class="type-label text-black-500">
+                                    <span class="type-label inline-flex items-center gap-2.5 text-black-500">
+                                        <img
+                                            src="{{ asset('images/ermita/Component 1 (7).svg') }}"
+                                            alt=""
+                                            width="30"
+                                            height="auto"
+                                            class="h-auto w-[30px] shrink-0"
+                                        >
                                         {{ $item['people'] === 1
                                             ? __('mejorada.rooms.max_people_one')
                                             : __('mejorada.rooms.max_people', ['count' => $item['people']]) }}
                                     </span>
-                                    <span class="type-label text-black-500">
-                                        {{ $item['beds'] === 1
-                                            ? __('mejorada.rooms.beds_one')
-                                            : __('mejorada.rooms.beds_other', ['count' => $item['beds']]) }}
+                                    <span class="type-label inline-flex items-center gap-2.5 text-black-500">
+                                        <img
+                                            src="{{ asset('images/ermita/icons/tortuga.svg') }}"
+                                            alt=""
+                                            width="30"
+                                            height="auto"
+                                            class="h-auto w-[30px] shrink-0"
+                                        >
+                                        {{ filled($item['beds_label'] ?? null)
+                                            ? $item['beds_label']
+                                            : ($item['beds'] === 1
+                                                ? __('mejorada.rooms.beds_one')
+                                                : __('mejorada.rooms.beds_other', ['count' => $item['beds']])) }}
                                     </span>
                                 </div>
 
