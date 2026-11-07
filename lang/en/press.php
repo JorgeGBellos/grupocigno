@@ -13,7 +13,7 @@ Our story is written in the restoration of 19th-century manors and the rescue of
 TEXT,
             'publication' => 'The New York Times',
             'logo' => 'images/home/newyork.svg',
-            'url' => null,
+            'url' => 'https://www.nytimes.com/interactive/2024/02/22/travel/things-to-do-merida-mexico.html',
             'featured' => true,
         ],
         [

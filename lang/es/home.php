@@ -72,7 +72,7 @@ return [
     ],
     'tiendita' => [
         'tagline' => 'Lleva un pedazo de Yucatán a casa',
-        'body' => 'Tiendita es una ventana a nuestra identidad local. Te invitamos a descubrir una colección donde los textiles artesanales y el diseño sustentable se encuentran para celebrar el patrimonio contemporáneo.',
+        'body' => 'Tiendita es una ventana a nuestra identidad local.',
         'cta' => 'Ver más',
     ],
     'press' => [

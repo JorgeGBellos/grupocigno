@@ -72,7 +72,7 @@ return [
     ],
     'tiendita' => [
         'tagline' => 'Take a piece of Yucatán home',
-        'body' => 'Tiendita is a window into our local identity. We invite you to discover a collection where artisanal textiles and sustainable design come together to celebrate contemporary heritage.',
+        'body' => 'Tiendita is a window into our local identity.',
         'cta' => 'See more',
     ],
     'press' => [

@@ -3,8 +3,8 @@
     $items = __('mejorada.experiences.items');
 @endphp
 
-<section id="experiences" class="bg-off-white-300 px-6 py-20 text-black-500 lg:px-10 lg:py-28">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-20">
+<section id="experiences" class="bg-off-white-300 site-section text-black-500">
+    <div class="site-shell grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-20">
         <div class="lg:sticky lg:top-[calc(var(--header-height)+2rem)]">
             <img
                 src="{{ $cms->asset('experiences.icon', 'images/ermita/icons/Isolation_Mode (7).svg') }}"

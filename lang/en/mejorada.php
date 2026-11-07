@@ -352,8 +352,8 @@ return [
         'page_title' => 'Cocina Vidente',
         'lead' => 'We invite you to a visionary practice where food transcends nutrition to become a multisensory journey of discovery.',
         'book' => 'Book your table in Mejorada',
-        'see_menu' => 'See menu',
-        'menu_url' => '#',
+        'see_menu_food' => 'See food menu',
+        'see_menu_drinks' => 'See drinks menu',
         'gallery_alt' => 'Cocina Vidente at Cigno Mejorada',
         'gallery' => [
             'images/cocina/725621555_982617504576688_4481192901537941310_n.jpg',

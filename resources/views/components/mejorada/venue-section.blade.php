@@ -2,8 +2,8 @@
     $cms = cms('cigno-mejorada');
 @endphp
 
-<section class="bg-beige-500 px-6 py-20 text-black-500 lg:px-10 lg:py-28" aria-labelledby="mejorada-venue-title">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+<section class="bg-beige-500 site-section text-black-500" aria-labelledby="mejorada-venue-title">
+    <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
         <div class="flex max-w-xl flex-col">
             <img
                 src="{{ asset('images/ermita/icons/Vector (16).svg') }}"

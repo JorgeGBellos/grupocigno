@@ -5,7 +5,7 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('title', 'cocina.title').' — '.config('app.name')">
-    <div class="flex flex-1 flex-col bg-black-500 px-6 py-16 text-white lg:px-10 lg:py-24">
+    <div class="flex flex-1 flex-col bg-black-500 site-section text-white">
         {{-- Hero --}}
         <section class="mx-auto grid w-full max-w-[100rem] grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-24">
             <div class="mx-auto flex w-full max-w-md flex-col items-center justify-center text-center lg:py-8">
@@ -24,7 +24,7 @@
 
                 <div class="mt-10 flex w-full flex-col gap-4">
                     <x-home.outline-button
-                        :href="route('cigno-ermita.restaurant')"
+                        :href="hotel_phone_tel('ermita')"
                         variant="white-solid"
                         class="w-full"
                     >
@@ -32,35 +32,21 @@
                     </x-home.outline-button>
 
                     <x-home.outline-button
-                        :href="route('cigno-mejorada.restaurant')"
+                        :href="hotel_phone_tel('mejorada')"
                         variant="white-solid"
                         class="w-full"
                     >
                         {{ $cms->text('book_mejorada', 'cocina.book_mejorada') }}
                     </x-home.outline-button>
-
-                    <x-home.outline-button
-                        :href="$cms->text('menu_url', 'cocina.menu_url')"
-                        variant="white"
-                        class="w-full"
-                    >
-                        {{ $cms->text('see_menu', 'cocina.see_menu') }}
-                    </x-home.outline-button>
                 </div>
             </div>
 
-            @php
-                $cocinaHeroPoster = $cms->asset('hero_image', 'images/cocina/766674731_1038934385408593_3915687115600101391_n.jpg');
-            @endphp
             <div class="relative aspect-[900/800] w-full overflow-hidden">
-                <x-site-video
+                <img
+                    src="{{ $cms->asset('hero_image', 'images/cocina/766674731_1038934385408593_3915687115600101391_n.jpg') }}"
+                    alt="{{ $cms->text('hero_image_alt', 'cocina.hero_image_alt') }}"
                     class="absolute inset-0 size-full object-cover"
-                    preload="none"
-                    data-managed
-                    src="{{ $cms->asset('hero_video', 'videos/restaurante.mp4') }}"
-                    poster="{{ $cocinaHeroPoster }}"
-                    :aria-label="$cms->text('hero_image_alt', 'cocina.hero_image_alt')"
-                />
+                >
             </div>
         </section>
 

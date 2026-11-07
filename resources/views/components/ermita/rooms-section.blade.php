@@ -5,8 +5,8 @@
     $items = cms(CmsPageSlug::ErmitaRooms)->ermitaRoomTeasers();
 @endphp
 
-<section id="rooms" class="bg-off-white-300 px-6 py-16 text-black-500 sm:py-20 lg:px-10 lg:py-28">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(20rem,1.3fr)_minmax(0,1.7fr)] lg:gap-12 xl:gap-14">
+<section id="rooms" class="bg-off-white-300 site-section text-black-500">
+    <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(20rem,1.3fr)_minmax(0,1.7fr)] lg:gap-12 xl:gap-14">
         <div class="flex flex-col items-start lg:max-w-[26rem] xl:max-w-none">
             <img
                 src="{{ asset('images/home/Swan (1).svg') }}"
@@ -102,7 +102,7 @@
 
                                 <div class="mt-auto pt-6" @click="if (moved) $event.preventDefault()">
                                     <x-ermita.button
-                                        :href="route('cigno-ermita.rooms')"
+                                        :href="route('cigno-ermita.rooms.show', $item['slug'] ?? 'classic-room-king')"
                                         variant="outline"
                                         class="w-full px-6"
                                     >

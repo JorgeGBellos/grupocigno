@@ -3,7 +3,7 @@
 @endphp
 
 <x-layouts.app :title="__('ermita.offers_section.page_title').' — '.__('nav.ermita')">
-    <section class="bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <img
                 src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
@@ -18,8 +18,8 @@
         </div>
     </section>
 
-    <section class="bg-off-white-300 px-6 pb-16 text-black-500 lg:px-10 lg:pb-24">
-        <div class="mx-auto flex max-w-6xl flex-col gap-16 lg:gap-24">
+    <section class="bg-off-white-300 site-section site-section--flush-top text-black-500">
+        <div class="site-shell flex flex-col gap-16 lg:gap-24">
             @foreach ($offers as $offer)
                 <article class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
                     <div class="min-h-[16rem] overflow-hidden sm:min-h-[20rem] lg:min-h-full">

@@ -5,8 +5,10 @@ return [
     'lead' => 'We invite you to a visionary practice where food transcends nutrition to become a multisensory journey of discovery.',
     'book_ermita' => 'Book your table in Ermita',
     'book_mejorada' => 'Book your table in Mejorada',
-    'see_menu' => 'See menu',
-    'menu_url' => '#',
+    'see_menu_food_ermita' => 'Ermita food menu',
+    'see_menu_drinks_ermita' => 'Ermita drinks menu',
+    'see_menu_food_mejorada' => 'Mejorada food menu',
+    'see_menu_drinks_mejorada' => 'Mejorada drinks menu',
     'hero_image_alt' => 'Cocina Vidente',
     'chef' => [
         'title' => 'Meet the visionary: Chef Daniel Ron',

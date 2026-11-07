@@ -5,9 +5,9 @@
     $items = __('home.experiences.items');
 @endphp
 
-<section id="experiences" class="bg-off-white-300 px-6 py-20 text-black-500 lg:px-10 lg:py-28">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-20">
-        <div class="lg:sticky lg:top-[calc(var(--header-height)+2rem)]">
+<section id="experiences" class="site-section bg-off-white-300 text-black-500">
+    <div class="site-shell grid grid-cols-1 items-start gap-[var(--site-gap)] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-[clamp(2.5rem,5vw,5rem)]">
+        <div class="min-w-0 lg:sticky lg:top-[calc(var(--header-height)+2rem)]">
             <img
                 src="{{ $cms->asset('experiences.icon', 'images/home/experiences-icon.png') }}"
                 alt=""
@@ -20,7 +20,7 @@
                 {{ $cms->text('experiences.title', 'home.experiences.title') }}
             </h2>
 
-            <div class="type-b2 mt-6 max-w-xl space-y-4">
+            <div class="type-b2 mt-6 max-w-[36rem] space-y-4">
                 <p>{{ $cms->text('experiences.lead_1', 'home.experiences.lead_1') }}</p>
                 <p>{{ $cms->text('experiences.lead_2', 'home.experiences.lead_2') }}</p>
             </div>
@@ -54,16 +54,13 @@
                                 @if ($copy !== 1) aria-hidden="true" @endif
                             >
                                 <div class="relative aspect-[650/600] overflow-hidden bg-beige-300">
-                                    <x-site-video
+                                    <img
+                                        src="{{ asset($item['image']) }}"
+                                        alt="{{ $copy === 1 ? $item['title'] : '' }}"
                                         class="absolute inset-0 size-full object-cover"
-                                        preload="metadata"
-                                        src="{{ asset('videos/'.$item['video']) }}"
-                                        poster="{{ asset($item['image']) }}"
-                                        :aria-label="$copy === 1 ? $item['title'] : null"
-                                        :aria-hidden="$copy !== 1"
                                         draggable="false"
-                                        data-carousel-video
-                                    />
+                                        @if ($copy !== 1) aria-hidden="true" @endif
+                                    >
                                 </div>
 
                                 @if (! empty($item['label']))

@@ -11,7 +11,7 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('experiences_page.title', 'ermita.experiences_page.title').' — '.__('nav.ermita')">
-    <section class="bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <img
                 src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
@@ -33,8 +33,8 @@
     </section>
 
     @foreach ($groups as $group)
-        <section class="bg-off-white-300 px-6 pb-16 text-black-500 lg:px-10 lg:pb-20">
-            <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 {{ $group['class'] }} lg:gap-8">
+        <section class="site-section site-section--flush-top bg-off-white-300 text-black-500">
+            <div class="site-shell grid grid-cols-1 gap-12 {{ $group['class'] }} lg:gap-8">
                 @foreach ($group['items'] as $item)
                     <article>
                         @if (! empty($item['video']))

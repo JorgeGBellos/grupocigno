@@ -22,8 +22,8 @@
     ];
 @endphp
 
-<section class="relative isolate flex min-h-[750px] items-center overflow-hidden bg-yellow-gold-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
-    <div class="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+<section class="site-section relative isolate flex min-h-[750px] items-center overflow-hidden bg-yellow-gold-300 text-black-500">
+    <div class="site-shell relative z-10 flex w-full max-w-5xl flex-col items-center text-center">
         <h1 class="type-h1 text-black-500">
             {{ $cms->text('club.title', 'home.club.title') }}
         </h1>

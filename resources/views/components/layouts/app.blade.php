@@ -37,9 +37,7 @@
         @livewireStyles
     </head>
     @php
-        $hasBranchRow = collect(config('navigation.brands'))->contains(
-            fn (array $brand): bool => filled($brand['match'] ?? null) && request()->routeIs($brand['match'])
-        );
+        $hasBranchRow = true;
 
         $miraiChainId = (string) config('booking.idchain');
         $miraiHotelId = null;

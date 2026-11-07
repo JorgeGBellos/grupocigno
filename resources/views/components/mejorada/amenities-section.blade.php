@@ -12,7 +12,7 @@
     $lead ??= $cms->text('amenities.lead', 'mejorada.amenities.lead');
     $items ??= __('mejorada.amenities.items');
 @endphp
-<section @if (! $banner) {{ $attributes->class(['bg-blue-mejorada-300 px-6 py-16 text-white sm:py-20 lg:px-10 lg:py-28']) }} @endif>
+<section @if (! $banner) {{ $attributes->class(['bg-blue-mejorada-300 site-section text-white']) }} @endif>
     @if ($banner)
         <div class="bg-green-mejorada-500 text-white">
             <img
@@ -21,7 +21,7 @@
                 class="aspect-[21/9] w-full object-cover"
             >
 
-            <div class="mx-auto flex max-w-5xl flex-col items-center px-6 py-16 text-center sm:py-20 lg:py-24">
+            <div class="site-shell flex max-w-5xl flex-col items-center py-[var(--site-section-y)] text-center">
                 <h2 class="type-h2 max-sm:whitespace-normal sm:whitespace-nowrap text-white">{{ filled($lead) ? $lead : $title }}</h2>
 
                 <div class="mt-12 flex w-full flex-wrap items-start justify-center gap-20 sm:mt-16">
@@ -41,7 +41,7 @@
             </div>
         </div>
     @else
-    <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
+    <div class="site-shell flex max-w-5xl flex-col items-center text-center">
         <img
             src="{{ str_starts_with($mark, 'http') || str_starts_with($mark, '/') ? $mark : asset($mark) }}"
             alt=""

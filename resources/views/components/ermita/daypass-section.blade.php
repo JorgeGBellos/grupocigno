@@ -4,8 +4,8 @@
     $cms = cms(CmsPageSlug::Ermita);
 @endphp
 
-<section id="daypass" class="bg-off-white-300 px-6 py-20 text-black-500 lg:px-10 lg:py-28">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+<section id="daypass" class="bg-off-white-300 site-section text-black-500">
+    <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
         <img
             src="{{ $cms->asset('daypass.image', 'images/ermita/home/daypass.png') }}"
             alt="{{ __('ermita.daypass.image_alt') }}"
@@ -32,7 +32,7 @@
             <p class="type-btn-sm no-underline mt-6">{{ $cms->text('daypass.restrictions', 'ermita.daypass.restrictions') }}</p>
 
             <div class="mt-8 flex w-full max-w-md flex-col gap-4">
-                <x-ermita.button href="#booking" class="w-full">
+                <x-ermita.button :href="hotel_phone_tel('ermita')" class="w-full">
                     {{ $cms->text('daypass.cta_primary', 'ermita.daypass.cta_primary') }}
                 </x-ermita.button>
 

@@ -2,7 +2,7 @@
     $cms = cms('cigno-mejorada');
 @endphp
 
-<section id="offers" class="relative isolate overflow-hidden px-6 py-20 lg:px-10 lg:py-28">
+<section id="offers" class="relative isolate overflow-hidden site-section">
     <img
         src="{{ $cms->asset('offers.background', 'images/mejorada/home/celebrate.jpg') }}"
         alt=""

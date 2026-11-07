@@ -4,18 +4,21 @@
 
 /* Hero: en móvil dejar espacio al finder en columna */
 @media (max-width: 1023px) {
+	.site-hero,
 	section:has(> #booking) {
 		height: auto !important;
 		min-height: calc(100svh - var(--header-height));
 		overflow: visible;
 	}
 
+	.site-hero__booking,
 	section:has(> #booking) > #booking {
 		min-height: calc(100svh - var(--header-height));
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
 	}
+
 }
 
 /* ================================= */

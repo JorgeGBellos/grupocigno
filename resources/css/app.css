@@ -9,14 +9,105 @@
 }
 
 :root {
-    --header-bar-height: 72px;
+    --header-bar-height: 76px;
     --branch-row-height: 0px;
     --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
+    /* Mirai expand necesita ~900px+; no bajar de esto o se corta el botón Buscar */
+    --hero-finder-max: min(56.25rem, calc(100vw - 2rem));
+    --hero-booking-pad-x: 1rem;
+    --hero-booking-pad-b: 1.5rem;
+    /*
+     * Márgenes laterales proporcionales al viewport.
+     * En 1920, 12.5vw ≈ 240px (mismo aire que max-w-6xl centrado).
+     * En MacBook ~1512, 12.5vw ≈ 189px (mantiene la proporción; antes caía a ~40px).
+     */
+    --site-gutter: 1.5rem;
+    --site-gap: 2rem;
+    --site-shell-max: 105rem;
+    --site-section-y: 5rem;
 }
 
 @media (min-width: 64rem) {
     :root {
+        --site-gutter: clamp(2.5rem, 12.5vw, 15rem);
+        --site-gap: clamp(2rem, 3.75vw, 5rem);
+        --site-section-y: clamp(5rem, 7vw, 7rem);
+    }
+}
+
+/* Contenedor de sección: padding fluido + shell centrado */
+.site-section {
+    padding-inline: var(--site-gutter);
+    padding-block: var(--site-section-y);
+}
+
+.site-section--flush-top {
+    padding-top: 0;
+}
+
+.site-section--flush-y {
+    padding-block: 0;
+}
+
+.site-section--x {
+    padding-inline: var(--site-gutter);
+}
+
+.site-shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--site-shell-max);
+}
+
+/*
+ * Escalado del chrome del hero:
+ * - Laptop / MacBook 14 (~1440–1512 × ~900–982): compacto
+ * - 1600–1800: intermedio
+ * - ≥1920: escala de diseño original
+ */
+@media (min-width: 64rem) {
+    :root {
+        --header-bar-height: 92px;
+        --hero-finder-max: min(56.25rem, calc(100vw - 3rem));
+        --hero-booking-pad-x: clamp(1rem, 2vw, 2.5rem);
+        --hero-booking-pad-b: 1.25rem;
+    }
+}
+
+@media (min-width: 80rem) {
+    :root {
+        --header-bar-height: 98px;
+        --hero-booking-pad-b: 1.5rem;
+    }
+}
+
+@media (min-width: 100rem) {
+    :root {
+        --header-bar-height: 105px;
+        --hero-booking-pad-b: 2rem;
+    }
+}
+
+@media (min-width: 120rem) {
+    :root {
         --header-bar-height: 110px;
+        --hero-booking-pad-x: 2.5rem;
+        --hero-booking-pad-b: 2.5rem;
+    }
+}
+
+/* Altura útil de laptop: solo compacta header/padding, NO el ancho del finder Mirai */
+@media (min-width: 64rem) and (max-height: 1040px) {
+    :root {
+        --header-bar-height: 88px;
+        --hero-booking-pad-b: 1rem;
+    }
+}
+
+@media (min-width: 64rem) and (max-height: 860px) {
+    :root {
+        --header-bar-height: 80px;
+        --hero-booking-pad-b: 0.75rem;
     }
 }
 
@@ -49,20 +140,42 @@
 .site-menu-brand {
     font-family: var(--font-serif);
     font-weight: 400;
-    font-size: 1.625rem; /* 26px — laptop / short viewports */
+    font-size: 1.625rem; /* 26px — base / laptop */
     line-height: 1.15;
     text-wrap: balance;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 1px;
+}
+
+.site-menu-brand.is-active {
+    text-decoration-color: currentColor;
 }
 
 @media (min-width: 80rem) {
     .site-menu-brand {
-        font-size: 2.25rem; /* 36px */
+        font-size: 2rem; /* 32px — Mac / laptop wide */
     }
 }
 
-@media (min-width: 90rem) {
+@media (min-width: 100rem) {
+    .site-menu-brand {
+        font-size: 2.5rem; /* 40px */
+    }
+}
+
+/* Desktop full (~1920+): tamaño original */
+@media (min-width: 120rem) {
     .site-menu-brand {
         font-size: 3.125rem; /* 50px — matches type-h3 desktop */
+    }
+}
+
+/* MacBook / altura corta: más chico que desktop full */
+@media (min-width: 64rem) and (max-height: 1040px) {
+    .site-menu-brand {
+        font-size: 1.75rem;
     }
 }
 
@@ -73,9 +186,69 @@
 
 @media (min-width: 64rem) {
     .has-branch-row {
+        --branch-row-height: 42px;
+        --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
+    }
+}
+
+@media (min-width: 80rem) {
+    .has-branch-row {
+        --branch-row-height: 44px;
+        --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
+    }
+}
+
+@media (min-width: 100rem) {
+    .has-branch-row {
+        --branch-row-height: 50px;
+        --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
+    }
+}
+
+@media (min-width: 120rem) {
+    .has-branch-row {
         --branch-row-height: 56px;
         --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
     }
+}
+
+@media (min-width: 64rem) and (max-height: 1040px) {
+    .has-branch-row {
+        --branch-row-height: 40px;
+        --header-height: calc(var(--header-bar-height) + var(--branch-row-height));
+    }
+}
+
+/* Hero full-bleed: altura de viewport menos header, buscador anclado abajo */
+.site-hero {
+    position: relative;
+    isolation: isolate;
+    height: calc(100svh - var(--header-height));
+    min-height: 28rem;
+    overflow-x: clip;
+    overflow-y: hidden;
+    color: #fff;
+}
+
+.site-hero__booking {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: var(--hero-booking-pad-x);
+    padding-bottom: max(var(--hero-booking-pad-b), env(safe-area-inset-bottom));
+    overflow: visible;
+}
+
+.site-hero__finder {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--hero-finder-max);
+    overflow: visible;
 }
 
 @font-face {

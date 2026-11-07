@@ -11,6 +11,8 @@ class BrandTabsTest extends TestCase
         $this->get(route('home'))
             ->assertOk()
             ->assertSee('images/Logotipo (3).svg', false)
+            ->assertSee('images/hoteles.svg', false)
+            ->assertSee('has-branch-row', false)
             ->assertSee(__('nav.menu_cigno_ermita'), false)
             ->assertSee(__('nav.menu_cigno_mejorada'), false)
             ->assertSee(__('nav.book_in_cigno'), false)

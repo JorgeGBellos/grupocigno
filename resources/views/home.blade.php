@@ -7,23 +7,10 @@
 <x-layouts.app>
     <h1 class="sr-only">{{ config('app.name') }}</h1>
 
-    <section class="relative isolate h-[calc(100svh-var(--header-height))] overflow-hidden text-white">
-        <x-site-video
-            class="absolute inset-0 size-full object-cover object-center"
-            preload="metadata"
-            aria-hidden="true"
-            data-managed
-            src="{{ $cms->asset('hero.video', 'videos/01. WEB Cignos (1).mp4') }}"
-            poster="{{ $cms->asset('hero.background', 'images/home/Home (1).png') }}"
-        />
-
-        <div class="relative z-10 flex h-full flex-col justify-end px-6 pb-8 lg:px-10 lg:pb-10" id="booking">
-            <div class="mx-auto w-full max-w-[900px]">
-                <x-mirai.finder layout="column" :mobile="true" class="w-full" />
-                <x-mirai.finder layout="expand" :desktop="true" class="w-full" />
-            </div>
-        </div>
-    </section>
+    <x-site-hero
+        :video="$cms->asset('hero.video', 'videos/01. WEB Cignos (1).mp4')"
+        :poster="$cms->asset('hero.background', 'images/home/Home (1).png')"
+    />
 
     <x-home.story-section />
 

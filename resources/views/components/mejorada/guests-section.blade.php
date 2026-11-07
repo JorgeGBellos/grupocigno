@@ -3,7 +3,7 @@
     $items = __('mejorada.guests.items');
 @endphp
 
-<section class="bg-off-white-300 px-6 py-20 text-black-500 lg:px-10 lg:py-28">
+<section class="bg-off-white-300 site-section text-black-500">
     <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
         <img
             src="{{ asset('images/home/Swan (1).svg') }}"

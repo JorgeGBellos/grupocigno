@@ -8,10 +8,10 @@
     ]);
 @endphp
 
-<section class="bg-off-white-500 px-6 py-20 text-black-500 lg:px-10 lg:py-28">
+<section class="bg-off-white-500 site-section text-black-500">
     <h2 class="sr-only">{{ $cms->text('story.title', 'mejorada.story.title') }}</h2>
 
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-14 lg:grid-cols-[minmax(0,9fr)_minmax(0,4fr)] lg:gap-24 xl:gap-32">
+    <div class="site-shell grid grid-cols-1 items-start gap-14 lg:grid-cols-[minmax(0,9fr)_minmax(0,4fr)] lg:gap-24 xl:gap-32">
         <figure class="lg:mt-28 xl:mt-36">
             <div class="aspect-[900/700] overflow-hidden">
                 <img

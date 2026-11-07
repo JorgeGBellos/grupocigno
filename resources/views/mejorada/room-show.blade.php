@@ -3,7 +3,7 @@
 @endphp
 
 <x-layouts.app :title="$room['title'].' — '.__('nav.mejorada')">
-    <section class="flex flex-1 flex-col bg-off-white-300 px-6 py-12 text-black-500 lg:px-10 lg:py-16">
+    <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="mx-auto w-full max-w-4xl">
             <div class="text-center">
                 <a

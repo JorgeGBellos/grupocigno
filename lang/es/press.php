@@ -13,7 +13,7 @@ Nuestra historia se escribe en la restauración de casonas del siglo XIX y en el
 TEXT,
             'publication' => 'The New York Times',
             'logo' => 'images/home/newyork.svg',
-            'url' => null,
+            'url' => 'https://www.nytimes.com/interactive/2024/02/22/travel/things-to-do-merida-mexico.html',
             'featured' => true,
         ],
         [

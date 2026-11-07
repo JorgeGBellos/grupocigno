@@ -9,11 +9,18 @@
     $contactRoute = collect($items)->last(
         fn (array $item): bool => str_contains($item['route'], 'contact') || ($item['label'] ?? '') === 'nav.contact'
     )['route'] ?? 'contact';
+
+    $brandKey = $activeBrand['key'] ?? 'main';
+    $instagramUrl = config('social.instagram.'.$brandKey) ?? config('social.instagram.main');
+    $phone = config('social.phone.'.$brandKey);
+    $phoneHref = filled($phone)
+        ? 'tel:'.preg_replace('/\D+/', '', (string) $phone)
+        : route($contactRoute);
 @endphp
 
 <footer class="bg-off-white-500 text-black-500">
     {{-- Mobile: icon + stacked menu + social --}}
-    <div class="mx-auto flex max-w-[105rem] flex-col items-center px-6 py-14 sm:px-8 lg:hidden">
+    <div class="site-shell flex flex-col items-center px-[var(--site-gutter)] py-14 lg:hidden">
         <img
             src="{{ asset('images/footer/Swan.svg') }}"
             alt=""
@@ -48,7 +55,7 @@
 
             <div class="mt-8 flex items-center justify-center gap-5">
                 <a
-                    href="{{ route($contactRoute) }}"
+                    href="{{ $phoneHref }}"
                     class="transition-opacity duration-300 hover:opacity-40"
                     aria-label="{{ __('ui.call') }}"
                 >
@@ -59,9 +66,10 @@
                     >
                 </a>
                 <a
-                    href="#"
+                    href="{{ $instagramUrl }}"
                     class="transition-opacity duration-300 hover:opacity-40"
                     aria-label="{{ __('ui.instagram') }}"
+                    target="_blank"
                     rel="noopener noreferrer"
                 >
                     <img
@@ -75,7 +83,7 @@
     </div>
 
     {{-- Desktop: centered swan --}}
-    <div class="mx-auto hidden max-w-[105rem] justify-center px-12 py-16 lg:flex">
+    <div class="site-shell hidden justify-center px-[var(--site-gutter)] py-16 lg:flex">
         <img
             src="{{ asset('images/footer/Swan.svg') }}"
             alt=""
@@ -84,35 +92,35 @@
         >
     </div>
 
-    {{-- Partner logos (desktop) --}}
+    {{-- Partner logos (desktop): una sola fila, escala con el ancho --}}
     <div class="hidden border-y border-black-500 lg:block">
-        <div class="mx-auto flex max-w-[105rem] flex-wrap items-center justify-center gap-x-16 gap-y-8 px-12 py-10 xl:gap-x-20">
+        <div class="site-shell flex items-center justify-center gap-[50px] px-[var(--site-gutter)] py-6 xl:py-8">
             <img
                 src="{{ asset('images/footer/cigno.png') }}"
                 alt="Cigno"
-                class="h-9 w-auto object-contain object-center"
+                class="h-[clamp(1rem,1.35vw,1.5rem)] w-auto shrink-0"
             >
             <img
                 src="{{ asset('images/footer/amate61.png') }}"
                 alt="Casa Amate 61"
-                class="h-9 w-auto object-contain object-center"
+                class="h-[clamp(1rem,1.35vw,1.5rem)] w-auto shrink-0"
             >
             <img
                 src="{{ asset('images/footer/totem.png') }}"
                 alt="Tōtem"
-                class="h-9 w-auto object-contain object-center"
+                class="h-[clamp(1rem,1.35vw,1.5rem)] w-auto shrink-0"
             >
             <img
                 src="{{ asset('images/footer/amate62.png') }}"
                 alt="Casa Amate 62"
-                class="h-9 w-auto object-contain object-center"
+                class="h-[clamp(1rem,1.35vw,1.5rem)] w-auto shrink-0"
             >
         </div>
     </div>
 
     {{-- Black Swan + legales (+ social on desktop) --}}
     <div class="border-t border-black-500 lg:border-t-0">
-        <div class="mx-auto flex max-w-[105rem] flex-col items-center gap-6 px-6 py-8 lg:grid lg:grid-cols-3 lg:items-center lg:gap-8 lg:px-12 lg:py-10">
+        <div class="site-shell flex flex-col items-center gap-6 px-[var(--site-gutter)] py-8 lg:grid lg:grid-cols-3 lg:items-center lg:gap-8 lg:py-10">
             <img
                 src="{{ asset('images/footer/black.svg') }}"
                 alt="Black Swan"
@@ -130,7 +138,7 @@
 
             <div class="hidden items-center justify-end gap-5 lg:flex lg:justify-self-end">
                 <a
-                    href="{{ route($contactRoute) }}"
+                    href="{{ $phoneHref }}"
                     class="transition-opacity duration-300 hover:opacity-40"
                     aria-label="{{ __('ui.call') }}"
                 >
@@ -141,9 +149,10 @@
                     >
                 </a>
                 <a
-                    href="#"
+                    href="{{ $instagramUrl }}"
                     class="transition-opacity duration-300 hover:opacity-40"
                     aria-label="{{ __('ui.instagram') }}"
+                    target="_blank"
                     rel="noopener noreferrer"
                 >
                     <img

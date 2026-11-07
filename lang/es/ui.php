@@ -9,6 +9,7 @@ return [
     'menu' => 'Menú',
     'main_nav' => 'Principal',
     'brand_nav' => 'Hoteles',
+    'back_to_main_menu' => 'Ir a menú principal',
     'footer_nav' => 'Pie de página',
     'legal_nav' => 'Legal',
     'call' => 'Llamar',

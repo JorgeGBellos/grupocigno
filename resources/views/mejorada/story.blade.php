@@ -4,7 +4,7 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('barrio.page_title', 'mejorada.story.barrio_page_title').' — '.__('nav.mejorada')">
-    <section class="bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <img
                 src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
@@ -26,7 +26,7 @@
             </x-mejorada.button>
         </div>
 
-        <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-20 lg:gap-8">
+        <div class="site-shell mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-20 lg:gap-8">
             <img
                 src="{{ asset('images/mejorada/barrio/tiles.png') }}"
                 alt="{{ $cms->text('barrio.page_title', 'mejorada.story.barrio_page_title') }}"
@@ -47,8 +47,8 @@
         </div>
     </section>
 
-    <section class="bg-blue-mejorada-300 px-6 py-16 text-white lg:px-10 lg:py-24">
-        <div class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.62fr)] lg:gap-x-20 lg:gap-y-10">
+    <section class="bg-blue-mejorada-300 site-section text-white">
+        <div class="site-shell grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.62fr)] lg:gap-x-20 lg:gap-y-10">
             <div>
                 <img
                     src="{{ asset('images/mejorada/barrio/banner.png') }}"
@@ -75,8 +75,8 @@
         </div>
     </section>
 
-    <section class="bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
-        <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+    <section class="bg-off-white-300 site-section text-black-500">
+        <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
             <div class="flex max-w-xl flex-col">
                 <img
                     src="{{ asset('images/ermita/icons/Vector (16).svg') }}"

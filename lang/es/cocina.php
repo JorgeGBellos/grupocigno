@@ -5,8 +5,10 @@ return [
     'lead' => 'Te invitamos a una práctica visionaria donde la comida trasciende la nutrición para convertirse en un viaje multisensorial de descubrimiento.',
     'book_ermita' => 'Reservar mesa en Ermita',
     'book_mejorada' => 'Reservar mesa en Mejorada',
-    'see_menu' => 'Ver menú',
-    'menu_url' => '#',
+    'see_menu_food_ermita' => 'Menú alimentos Ermita',
+    'see_menu_drinks_ermita' => 'Menú bebidas Ermita',
+    'see_menu_food_mejorada' => 'Menú alimentos Mejorada',
+    'see_menu_drinks_mejorada' => 'Menú bebidas Mejorada',
     'hero_image_alt' => 'Cocina Vidente',
     'chef' => [
         'title' => 'Conoce al visionario: Chef Daniel Ron',

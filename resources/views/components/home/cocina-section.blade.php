@@ -5,24 +5,21 @@
     $cocinaPoster = $cms->asset('cocina.poster', 'images/cocina/gallery-meat.png');
 @endphp
 
-<section class="relative isolate overflow-hidden px-6 py-20 text-white lg:px-10 lg:py-28">
+<section class="site-section relative isolate overflow-hidden text-white">
     <img
         src="{{ $cms->asset('cocina.background', 'images/home/About (1).png') }}"
         alt=""
         class="absolute inset-0 size-full object-cover"
     >
 
-    <div class="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+    <div class="site-shell relative z-10 grid grid-cols-1 items-center gap-[var(--site-gap)] lg:grid-cols-2 lg:gap-[clamp(2.5rem,5vw,5rem)]">
         <div class="carousel-square order-2 w-full max-w-[40rem] justify-self-center overflow-hidden lg:order-1 lg:max-w-none">
             <div class="relative aspect-square overflow-hidden">
-                <x-site-video
+                <img
+                    src="{{ $cocinaPoster }}"
+                    alt="{{ __('home.cocina.image_alt') }}"
                     class="absolute inset-0 size-full object-cover"
-                    preload="none"
-                    data-managed
-                    src="{{ $cms->asset('cocina.video', 'videos/Cocina.mp4') }}"
-                    poster="{{ $cocinaPoster }}"
-                    :aria-label="__('home.cocina.image_alt')"
-                />
+                >
             </div>
         </div>
 
@@ -36,20 +33,20 @@
                 class="h-auto w-[220px] lg:w-[297px]"
             >
 
-            <p class="type-s2 mt-8 max-w-md text-white">
+            <p class="type-b3 mt-8 max-w-md text-white">
                 {{ $cms->text('cocina.body', 'home.cocina.body') }}
             </p>
 
             <div class="mt-10 flex w-full max-w-md flex-col gap-4">
                 <x-home.outline-button
-                    :href="route('cigno-ermita.restaurant')"
+                    :href="hotel_phone_tel('ermita')"
                     variant="white-solid"
                     class="w-full"
                 >
                     {{ $cms->text('cocina.book_ermita', 'home.cocina.book_ermita') }}
                 </x-home.outline-button>
                 <x-home.outline-button
-                    :href="route('cigno-mejorada.restaurant')"
+                    :href="hotel_phone_tel('mejorada')"
                     variant="white-solid"
                     class="w-full"
                 >

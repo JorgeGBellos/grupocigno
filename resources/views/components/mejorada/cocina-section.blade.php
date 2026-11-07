@@ -2,24 +2,21 @@
     $cms = cms('cigno-mejorada');
 @endphp
 
-<section class="relative isolate overflow-hidden px-6 py-20 text-white lg:px-10 lg:py-28">
+<section class="relative isolate overflow-hidden site-section text-white">
     <img
         src="{{ asset('images/home/About (1).png') }}"
         alt=""
         class="absolute inset-0 size-full object-cover"
     >
 
-    <div class="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+    <div class="relative z-10 site-shell grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20">
         <div class="carousel-square order-2 w-full max-w-[40rem] justify-self-center overflow-hidden lg:order-1 lg:max-w-none">
             <div class="relative aspect-square overflow-hidden">
-                <x-site-video
+                <img
+                    src="{{ asset('images/cocina/725621555_982617504576688_4481192901537941310_n.jpg') }}"
+                    alt="{{ $cms->text('cocina.title', 'mejorada.cocina.title') }}"
                     class="absolute inset-0 size-full object-cover"
-                    preload="none"
-                    data-managed
-                    src="{{ asset('videos/Cocina.mp4') }}"
-                    poster="{{ asset('images/cocina/725621555_982617504576688_4481192901537941310_n.jpg') }}"
-                    :aria-label="$cms->text('cocina.title', 'mejorada.cocina.title')"
-                />
+                >
             </div>
         </div>
 
@@ -39,7 +36,7 @@
 
             <div class="mt-10 flex w-full max-w-md flex-col gap-4">
                 <x-mejorada.button
-                    :href="route('cigno-mejorada.restaurant')"
+                    :href="hotel_phone_tel('mejorada')"
                     variant="white-solid"
                     class="w-full"
                 >

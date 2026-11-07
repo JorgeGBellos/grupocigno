@@ -8,7 +8,7 @@
 @endphp
 
 <x-layouts.app :title="__('nav.press').' — '.config('app.name')">
-    <section class="flex flex-1 flex-col bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="mx-auto w-full max-w-[100rem]">
             <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
                 <h1 class="type-h1">{{ __('nav.press') }}</h1>

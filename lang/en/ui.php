@@ -9,6 +9,7 @@ return [
     'menu' => 'Menu',
     'main_nav' => 'Main',
     'brand_nav' => 'Hotels',
+    'back_to_main_menu' => 'Go to main menu',
     'footer_nav' => 'Footer',
     'legal_nav' => 'Legal',
     'call' => 'Call',

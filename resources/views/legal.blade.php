@@ -8,7 +8,7 @@
 @endphp
 
 <x-layouts.app :title="$title.' — '.config('app.name')">
-    <section class="flex flex-1 flex-col bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="mx-auto w-full max-w-3xl">
             <p class="type-label text-black-300">{{ __('pages.legal_label') }}</p>
 

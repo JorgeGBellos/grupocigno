@@ -352,8 +352,8 @@ return [
         'page_title' => 'Cocina Vidente',
         'lead' => 'Te invitamos a una práctica visionaria donde la comida trasciende la nutrición y se convierte en un viaje multisensorial de descubrimiento.',
         'book' => 'Reservar mesa en Mejorada',
-        'see_menu' => 'Ver menú',
-        'menu_url' => '#',
+        'see_menu_food' => 'Ver menú de alimentos',
+        'see_menu_drinks' => 'Ver menú de bebidas',
         'gallery_alt' => 'Cocina Vidente en Cigno Mejorada',
         'gallery' => [
             'images/cocina/725621555_982617504576688_4481192901537941310_n.jpg',

@@ -6,7 +6,7 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('venue.title', 'ermita.venue.title').' — '.__('nav.ermita')">
-    <section class="bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <img
                 src="{{ asset('images/ermita/icons/tortugaentera.svg') }}"
@@ -24,8 +24,8 @@
         </div>
     </section>
 
-    <section class="bg-off-white-300 px-6 pb-16 text-black-500 lg:px-10 lg:pb-24">
-        <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+    <section class="bg-off-white-300 site-section site-section--flush-top text-black-500">
+        <div class="site-shell grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             @foreach ($spaces as $space)
                 <article>
                     <img
@@ -40,8 +40,8 @@
         </div>
     </section>
 
-    <section class="bg-beige-100 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
-        <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+    <section class="bg-beige-100 site-section text-black-500">
+        <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
             <div class="flex max-w-xl flex-col">
                 <img
                     src="{{ asset('images/ermita/icons/Vector (16).svg') }}"
@@ -68,7 +68,7 @@
         </div>
     </section>
 
-    <section id="venue-inquiry" class="bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section id="venue-inquiry" class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <p class="type-b2 max-w-2xl">{{ $cms->text('venue.form_lead', 'ermita.venue.form_lead') }}</p>
 

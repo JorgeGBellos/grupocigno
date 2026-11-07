@@ -6,7 +6,7 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('daypass.page_title', 'ermita.daypass.page_title').' — '.__('nav.ermita')">
-    <section class="flex flex-1 flex-col bg-off-white-300 px-6 py-16 text-black-500 lg:px-10 lg:py-24">
+    <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
             <img
                 src="{{ $cms->asset('daypass.mark', 'images/ermita/icons/palmera-daypass.png') }}"
@@ -26,7 +26,7 @@
             </div>
 
             <x-ermita.button
-                :href="route('cigno-ermita').'#booking'"
+                :href="hotel_phone_tel('ermita')"
                 class="mt-10 w-full max-w-md px-8"
             >
                 {{ $cms->text('daypass.page_cta', 'ermita.daypass.page_cta') }}

@@ -1,5 +1,5 @@
-<section class="bg-beige-500 px-6 py-20 text-black-500 lg:px-10 lg:py-28" aria-labelledby="ermita-barrio-title">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+<section class="bg-beige-500 site-section text-black-500" aria-labelledby="ermita-barrio-title">
+    <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
         <img
             src="{{ asset('images/ermita/home/barrio.png') }}"
             alt="{{ __('ermita.barrio.image_alt') }}"

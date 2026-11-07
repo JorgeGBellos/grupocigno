@@ -7,14 +7,14 @@
     $mejoradaVideo = $cms->asset('hotels.mejorada_video', 'videos/agua.mp4');
 @endphp
 
-<section class="relative isolate grid min-h-[min(100svh,56rem)] grid-cols-1 lg:min-h-[48rem] lg:grid-cols-2" aria-label="{{ $title }}">
+<section class="relative isolate grid grid-cols-1 lg:min-h-[48rem] lg:grid-cols-2" aria-label="{{ $title }}">
     <h2 class="type-s2 pointer-events-none absolute inset-x-0 top-10 z-20 px-6 text-center text-white lg:top-14">
         {{ $title }}
     </h2>
 
     <a
         href="{{ route('cigno-ermita') }}"
-        class="group relative flex min-h-[28rem] flex-col items-center justify-between overflow-hidden px-8 py-16 text-center text-white lg:min-h-0 lg:px-12 lg:py-20"
+        class="group relative flex min-h-[100svh] flex-col items-center justify-between overflow-hidden px-8 py-16 text-center text-white lg:min-h-0 lg:px-12 lg:py-20"
         @if ($videosEnabled)
             x-data="hoverVideo"
             @mouseenter="start()"
@@ -62,7 +62,7 @@
 
     <a
         href="{{ route('cigno-mejorada') }}"
-        class="group relative flex min-h-[28rem] flex-col items-center justify-between overflow-hidden px-8 py-16 text-center text-white lg:min-h-0 lg:px-12 lg:py-20"
+        class="group relative flex min-h-[100svh] flex-col items-center justify-between overflow-hidden px-8 py-16 text-center text-white lg:min-h-0 lg:px-12 lg:py-20"
         @if ($videosEnabled)
             x-data="hoverVideo"
             @mouseenter="start()"

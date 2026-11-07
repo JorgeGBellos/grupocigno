@@ -5,8 +5,8 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('restaurant.page_title', 'ermita.restaurant.page_title').' — '.__('nav.ermita')">
-    <section class="-mt-(--header-height) flex min-h-[100vh] flex-col justify-center bg-black-500 px-6 pt-[calc(var(--header-height)+4rem)] pb-16 text-white lg:px-10">
-        <div class="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+    <section class="-mt-(--header-height) site-section--x flex min-h-[100vh] flex-col justify-center bg-black-500 pt-[calc(var(--header-height)+4rem)] pb-16 text-white">
+        <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
             <div class="flex flex-col items-center text-center">
                 <h1 class="sr-only">{{ $cms->text('restaurant.page_title', 'ermita.restaurant.page_title') }}</h1>
 
@@ -23,7 +23,7 @@
 
                 <div class="mt-10 flex w-full max-w-md flex-col gap-4">
                     <x-ermita.button
-                        :href="route('cigno-ermita.contact')"
+                        :href="hotel_phone_tel('ermita')"
                         variant="white-solid"
                         class="w-full"
                     >
@@ -31,24 +31,33 @@
                     </x-ermita.button>
 
                     <x-ermita.button
-                        :href="$cms->text('restaurant.menu_url', 'ermita.restaurant.menu_url')"
+                        :href="restaurant_menu_url('ermita', 'food')"
                         variant="white"
                         class="w-full"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        {{ $cms->text('restaurant.see_menu', 'ermita.restaurant.see_menu') }}
+                        {{ $cms->text('restaurant.see_menu_food', 'ermita.restaurant.see_menu_food') }}
+                    </x-ermita.button>
+
+                    <x-ermita.button
+                        :href="restaurant_menu_url('ermita', 'drinks')"
+                        variant="white"
+                        class="w-full"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {{ $cms->text('restaurant.see_menu_drinks', 'ermita.restaurant.see_menu_drinks') }}
                     </x-ermita.button>
                 </div>
             </div>
 
             <div class="relative aspect-[900/800] w-full overflow-hidden">
-                <x-site-video
+                <img
+                    src="{{ $cms->asset('restaurant.hero_poster', 'images/ermita/home/restaurante.png') }}"
+                    alt="{{ $cms->text('restaurant.gallery_alt', 'ermita.restaurant.gallery_alt') }}"
                     class="absolute inset-0 size-full object-cover"
-                    preload="none"
-                    data-managed
-                    src="{{ $cms->asset('restaurant.hero_video', 'videos/restaurante.mp4') }}"
-                    poster="{{ $cms->asset('restaurant.hero_poster', 'images/ermita/home/restaurante.png') }}"
-                    :aria-label="$cms->text('restaurant.gallery_alt', 'ermita.restaurant.gallery_alt')"
-                />
+                >
             </div>
         </div>
     </section>

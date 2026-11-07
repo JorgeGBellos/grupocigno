@@ -35,9 +35,7 @@ class HomePageTest extends TestCase
         $response->assertSee('images/home/Logotipo.svg', false);
         $response->assertSee('images/home/mejorada.svg', false);
         $response->assertSee(__('home.hotels.explore_ermita'), false);
-        $response->assertSee('images/ermita/michelin-2024.svg', false);
-        $response->assertSee('images/ermita/michelin-2025.svg', false);
-        $response->assertSee('images/ermita/michelin-2026.svg', false);
+        $response->assertSee('images/Llaves.svg', false);
         $response->assertDontSee(__('home.club.title'), false);
         $response->assertSee('Cocina Vidente.svg', false);
         $response->assertSee('images/home/About (1).png', false);

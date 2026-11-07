@@ -14,7 +14,7 @@
     $lead ??= $cms->text('amenities.lead', 'ermita.amenities.lead');
     $items ??= __('ermita.amenities.items');
 @endphp
-<section @if (! $banner) {{ $attributes->class(['bg-blue-ermita-300 px-6 py-16 text-white sm:py-20 lg:px-10 lg:py-28']) }} @endif>
+<section @if (! $banner) {{ $attributes->class(['bg-blue-ermita-300 site-section text-white']) }} @endif>
     @if ($banner)
         <div class="bg-beige-500 text-black-500">
             <img
@@ -23,7 +23,7 @@
                 class="aspect-[21/9] w-full object-cover"
             >
 
-            <div class="mx-auto flex max-w-5xl flex-col items-center px-6 py-16 text-center sm:py-20 lg:py-24">
+            <div class="site-shell flex max-w-5xl flex-col items-center py-[var(--site-section-y)] text-center">
                 <h2 class="type-h2 max-sm:whitespace-normal sm:whitespace-nowrap">{{ $lead }}</h2>
 
                 <div class="mt-12 flex w-full flex-wrap items-start justify-center gap-20 sm:mt-16">
@@ -43,7 +43,7 @@
             </div>
         </div>
     @else
-    <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
+    <div class="site-shell flex max-w-5xl flex-col items-center text-center">
         <img
             src="{{ str_starts_with($mark, 'http') || str_starts_with($mark, '/') ? $mark : asset($mark) }}"
             alt=""
