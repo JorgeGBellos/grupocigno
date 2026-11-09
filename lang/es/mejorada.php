@@ -226,7 +226,7 @@ return [
                 'detail' => 'En esta suite, el confort se eleva a forma de arte. El acceso a un balcón privado, con vista a vegetación nativa y muros de chukum, invita a una experiencia de tranquilidad plena. La amplitud del espacio, la calidad de los materiales y el mobiliario a medida crean un mundo propio donde cada huésped define su visión personal del lujo.',
                 'price' => 'Desde 210$ por noche',
                 'size' => '30 m² / 323 pies cuadrados',
-                'people' => 4,
+                'people' => 3,
                 'beds' => 2,
                 'beds_label' => '2 camas queen',
                 'exclusive' => ['Balcón'],

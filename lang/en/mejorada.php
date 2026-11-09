@@ -226,7 +226,7 @@ return [
                 'detail' => 'In this suite, comfort is elevated to an art form. Access to a private balcony, overlooking native vegetation and chukum walls, invites you to enjoy an experience of complete tranquility. The spaciousness of the room, the quality of the materials, and the custom-made furniture create a world of its own where guests can define their own personal vision of luxury.',
                 'price' => 'From 210$ per night',
                 'size' => '30 m² / 323 square feet',
-                'people' => 4,
+                'people' => 3,
                 'beds' => 2,
                 'beds_label' => '2 queen beds',
                 'exclusive' => ['Balcony'],
