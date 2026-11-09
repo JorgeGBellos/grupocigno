@@ -85,6 +85,8 @@
         langOpen: false,
         menuBrand: null,
         menuCol2: false,
+        branchVisible: true,
+        lastScrollY: 0,
         brands: {{ \Illuminate\Support\Js::from($menuBrands) }},
         get active() {
             if (! this.menuBrand) {
@@ -92,6 +94,13 @@
             }
 
             return this.brands.find((brand) => brand.key === this.menuBrand) || this.brands[0];
+        },
+        get branchShown() {
+            return this.branchVisible || this.menuOpen;
+        },
+        init() {
+            this.lastScrollY = window.scrollY || 0;
+            this.onWindowScroll();
         },
         openMenu() {
             this.menuBrand = null;
@@ -112,10 +121,35 @@
             this.menuBrand = null;
             this.menuCol2 = false;
         },
+        onWindowScroll() {
+            if (this.menuOpen) {
+                this.branchVisible = true;
+                this.lastScrollY = window.scrollY || window.pageYOffset || 0;
+
+                return;
+            }
+
+            const y = window.scrollY || window.pageYOffset || 0;
+
+            if (y <= 12) {
+                this.branchVisible = true;
+            } else if (y > this.lastScrollY + 4) {
+                this.branchVisible = false;
+            } else if (y < this.lastScrollY - 4) {
+                this.branchVisible = true;
+            }
+
+            this.lastScrollY = y;
+        },
     }"
     @keydown.escape.window="langOpen ? langOpen = false : menuOpen = false"
-    x-effect="document.body.classList.toggle('overflow-hidden', menuOpen)"
+    @scroll.window="onWindowScroll()"
+    x-effect="
+        document.body.classList.toggle('overflow-hidden', menuOpen);
+        document.body.classList.toggle('is-branch-collapsed', ! branchShown);
+    "
     @class(['has-branch-row' => $showBranchRow])
+    :class="{ 'is-branch-collapsed': ! branchShown }"
 >
     <header
         class="fixed inset-x-0 top-0 z-50"
@@ -255,7 +289,8 @@
 
         @if ($showBranchRow)
             <div
-                class="relative z-10 flex h-(--branch-row-height) items-center justify-center border-t border-beige-300/80 bg-off-white-100 px-[var(--site-gutter)]"
+                class="site-branch-row relative z-10 flex items-center justify-center border-t border-beige-300/80 bg-off-white-100 px-[var(--site-gutter)]"
+                :aria-hidden="branchShown ? 'false' : 'true'"
             >
                 @if ($isHotelMenu)
                     <div class="flex h-full max-w-full items-center justify-center gap-5 overflow-x-auto lg:gap-6 xl:gap-10 2xl:gap-12">
@@ -340,7 +375,7 @@
         </div>
     </header>
 
-    <div class="h-(--header-height)" aria-hidden="true"></div>
+    <div class="h-(--header-height) transition-[height] duration-300 ease-out" aria-hidden="true"></div>
 
     <div
         id="site-menu"
