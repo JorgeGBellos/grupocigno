@@ -55,15 +55,28 @@ class CmsContent
             $path = data_get($this->page()?->content, "media.{$key}");
 
             if (filled($path)) {
-                if (str_starts_with($path, 'http') || str_starts_with($path, 'images/') || str_starts_with($path, 'videos/')) {
-                    return asset($path);
+                if (str_starts_with($path, 'http')) {
+                    return (string) $path;
+                }
+
+                if (str_starts_with($path, 'images/') || str_starts_with($path, 'videos/')) {
+                    return $this->publicUrl($path);
                 }
 
                 return Storage::disk('public')->url($path);
             }
         }
 
-        return asset($fallbackPath);
+        return $this->publicUrl($fallbackPath);
+    }
+
+    private function publicUrl(string $path): string
+    {
+        $encoded = collect(explode('/', ltrim($path, '/')))
+            ->map(fn (string $segment): string => rawurlencode($segment))
+            ->implode('/');
+
+        return asset($encoded);
     }
 
     /**

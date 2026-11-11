@@ -315,7 +315,7 @@ return [
     'experiences_page' => [
         'title' => 'Colección de experiencias 2026',
         'lead' => 'Descubre el alma de Yucatán a través de los sentidos.',
-        'intro' => 'En Cigno no solo ofrecemos actividades; ofrecemos portales al Yucatán auténtico. De cenotes ocultos a rituales ancestrales, déjate llevar por nuestras experiencias.',
+        'intro' => '',
         'book' => 'Reserva una experiencia',
         'see_more' => 'Ver más',
         'see_less' => 'Ver menos',
@@ -389,18 +389,12 @@ return [
     'offers_section' => [
         'title' => 'Ofertas',
         'page_title' => 'Nuestras ofertas',
-        'lead' => 'Nuestras ofertas están pensadas para quienes buscan una conexión honesta con la historia de Mérida. Reserva directo y disfruta una estancia fluida al mejor precio.',
+        'lead' => 'Nuestras ofertas están diseñadas para quienes buscan una conexión honesta con la historia de Mérida.',
         'cta' => 'Ver nuestras ofertas',
         'includes' => 'Esta oferta incluye:',
         'note' => '*Sujeto a disponibilidad.',
         'book' => 'Reservar esta oferta',
         'items' => [
-            [
-                'image' => 'images/ermita/offers/offer-1.png',
-                'title' => '¡Venta de fin de semana!',
-                'dates' => '35% de descuento en viajes del 6 de agosto al 30 de septiembre',
-                'perks' => ['Cóctel de bienvenida', 'Desayuno incluido', 'Entrada anticipada y salida tardía*'],
-            ],
             [
                 'image' => 'images/ermita/offers/offer-2.png',
                 'title' => 'Tercera noche por nuestra cuenta (Paga 2 y llévate 3)',
@@ -412,12 +406,6 @@ return [
                 'title' => 'Estancia boutique y experiencia de spa',
                 'dates' => '25% de descuento en viajes del 26 de agosto al 30 de septiembre de 2026',
                 'perks' => ['Cóctel de bienvenida', 'Desayuno incluido', 'Entrada anticipada y salida tardía*', 'Crédito de 25 USD en el spa'],
-            ],
-            [
-                'image' => 'images/ermita/offers/offer-4.png',
-                'title' => '¡VIVA MÉXICO! (cóctel de bienvenida con tequila)',
-                'dates' => '30% de descuento en viajes del 1 de agosto al 30 de septiembre de 2026',
-                'perks' => ['Cóctel de bienvenida', 'Desayuno incluido', 'Entrada anticipada y salida tardía*'],
             ],
             [
                 'image' => 'images/ermita/offers/offer-5.png',

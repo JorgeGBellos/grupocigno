@@ -7,14 +7,7 @@
 <x-layouts.app :title="$cms->text('venue.title', 'mejorada.venue.title').' — '.__('nav.mejorada')">
     <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-            <img
-                src="{{ asset('images/ermita/icons/tortugaentera.svg') }}"
-                alt=""
-                width="220"
-                class="h-auto w-[180px] sm:w-[220px]"
-            >
-
-            <h1 class="type-h1 mt-10 max-w-2xl text-balance">{{ $cms->text('venue.title', 'mejorada.venue.title') }}</h1>
+            <h1 class="type-h1 max-w-2xl text-balance">{{ $cms->text('venue.title', 'mejorada.venue.title') }}</h1>
 
             <div class="type-b2 mt-8 max-w-xl space-y-1">
                 <p>{{ $cms->text('venue.lead', 'mejorada.venue.lead') }}</p>

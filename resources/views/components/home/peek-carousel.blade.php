@@ -54,7 +54,7 @@
         ></button>
     </div>
 
-    <div class="mx-auto mt-8 h-px w-full max-w-xl {{ $trackClass }}" aria-hidden="true">
+    <div class="mx-auto mt-5 h-px w-full max-w-xl lg:mt-6 {{ $trackClass }}" aria-hidden="true">
         <div class="h-px {{ $barClass }}" :style="`width: ${progress}%`"></div>
     </div>
 </div>

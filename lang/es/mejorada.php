@@ -273,31 +273,11 @@ return [
         ],
         'offers_catalog' => [
         'page_title' => 'Nuestras ofertas',
-        'lead' => 'Nuestras ofertas están diseñadas para quienes buscan una conexión honesta con la historia de Mérida. Reserva directamente para disfrutar una experiencia impecable al mejor precio.',
+        'lead' => 'Nuestras ofertas están diseñadas para quienes buscan una conexión honesta con la historia de Mérida.',
         'book' => 'Reservar esta oferta',
         'includes' => 'Esta oferta incluye:',
         'note' => '*SUJETO A DISPONIBILIDAD.',
         'items' => [
-            [
-                'image' => 'images/mejorada/offers/offer-1.png',
-                'title' => 'Venta de fin de semana',
-                'dates' => '45% de descuento en viajes del 1 de agosto al 30 de septiembre de 2026.',
-                'perks' => [
-                    'Desayuno americano incluido',
-                    'Entrada anticipada y salida tardía',
-                    'Cóctel de bienvenida',
-                ],
-            ],
-            [
-                'image' => 'images/mejorada/offers/offer-2.png',
-                'title' => "VIVA MEXICO!\n(cóctel de bienvenida con tequila)",
-                'dates' => '30% de descuento en viajes del 1 de agosto al 30 de septiembre de 2026.',
-                'perks' => [
-                    'Desayuno americano de cortesía.',
-                    'Cóctel de tequila de bienvenida a tu llegada.',
-                    'Entrada anticipada y salida tardía.*',
-                ],
-            ],
             [
                 'image' => 'images/mejorada/offers/offer-3.png',
                 'title' => 'Vive la temporada de tradiciones',
@@ -407,7 +387,7 @@ return [
     'experiences_page' => [
         'title' => 'Colección de experiencias 2026',
         'lead' => 'Descubre el alma de Yucatán a través de los sentidos.',
-        'intro' => 'En Cigno no solo ofrecemos actividades; ofrecemos portales al Yucatán auténtico. De cenotes ocultos a rituales ancestrales, déjate llevar por nuestras experiencias.',
+        'intro' => '',
         'book' => 'Reserva una experiencia',
         'see_more' => 'Ver más',
         'see_less' => 'Ver menos',

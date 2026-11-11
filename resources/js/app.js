@@ -866,44 +866,132 @@ const registerHoverVideo = (Alpine) => {
     Alpine.data('hoverVideo', () => ({
         active: false,
         loaded: false,
+        wantsPlay: false,
+        onReady: null,
+
+        ensureSource() {
+            const video = this.$refs.video;
+
+            if (! (video instanceof HTMLVideoElement) || this.loaded) {
+                return video;
+            }
+
+            const src = video.dataset.src;
+
+            if (! src) {
+                return null;
+            }
+
+            video.muted = true;
+            video.defaultMuted = true;
+            video.playsInline = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+            video.src = src;
+            this.loaded = true;
+            video.load();
+
+            return video;
+        },
+
+        playWhenReady() {
+            const video = this.ensureSource();
+
+            if (! (video instanceof HTMLVideoElement)) {
+                return;
+            }
+
+            this.wantsPlay = true;
+
+            const tryPlay = () => {
+                if (! this.wantsPlay) {
+                    return;
+                }
+
+                video.muted = true;
+
+                video.play()
+                    .then(() => {
+                        if (this.wantsPlay) {
+                            this.active = true;
+                        }
+                    })
+                    .catch(() => {
+                        this.active = false;
+                    });
+            };
+
+            if (video.readyState >= 3) {
+                tryPlay();
+
+                return;
+            }
+
+            if (! this.onReady) {
+                this.onReady = () => {
+                    video.removeEventListener('canplay', this.onReady);
+                    video.removeEventListener('loadeddata', this.onReady);
+                    this.onReady = null;
+                    tryPlay();
+                };
+
+                video.addEventListener('canplay', this.onReady);
+                video.addEventListener('loadeddata', this.onReady);
+            }
+        },
 
         start() {
             if (prefersReducedMotion()) {
                 return;
             }
 
-            const video = this.$refs.video;
-
-            if (! (video instanceof HTMLVideoElement)) {
-                return;
-            }
-
-            if (! this.loaded) {
-                const src = video.dataset.src;
-
-                if (! src) {
-                    return;
-                }
-
-                video.src = src;
-                this.loaded = true;
-                video.load();
-            }
-
-            this.active = true;
-            video.play().catch(() => {});
+            this.playWhenReady();
         },
 
         stop() {
             const video = this.$refs.video;
 
+            this.wantsPlay = false;
             this.active = false;
+
+            if (this.onReady && video instanceof HTMLVideoElement) {
+                video.removeEventListener('canplay', this.onReady);
+                video.removeEventListener('loadeddata', this.onReady);
+                this.onReady = null;
+            }
 
             if (! (video instanceof HTMLVideoElement) || video.paused) {
                 return;
             }
 
             video.pause();
+        },
+
+        init() {
+            const root = this.$el;
+
+            if (! (root instanceof HTMLElement) || prefersReducedMotion()) {
+                return;
+            }
+
+            // Precarga cerca del viewport para que el hover no espere el archivo completo.
+            const video = this.$refs.video;
+
+            if (! (video instanceof HTMLVideoElement)) {
+                return;
+            }
+
+            const observer = new IntersectionObserver(([entry]) => {
+                if (! entry?.isIntersecting) {
+                    return;
+                }
+
+                this.ensureSource();
+                observer.disconnect();
+            }, { rootMargin: '200px 0px', threshold: 0.05 });
+
+            observer.observe(root);
         },
     }));
 };

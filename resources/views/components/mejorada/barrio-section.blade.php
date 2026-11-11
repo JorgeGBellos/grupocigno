@@ -22,7 +22,8 @@
             >
 
             <h2 id="mejorada-barrio-title" class="type-h1 mt-8">
-                {{ $cms->text('barrio.title', 'mejorada.story.barrio_title') }}
+                Barrio<br>
+                <span class="whitespace-nowrap">“La Mejorada”</span>
             </h2>
 
             <div class="type-b2 mt-6 space-y-4">

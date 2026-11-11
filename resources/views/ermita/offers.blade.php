@@ -5,14 +5,7 @@
 <x-layouts.app :title="__('ermita.offers_section.page_title').' — '.__('nav.ermita')">
     <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-            <img
-                src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
-                alt=""
-                width="274"
-                class="h-auto w-[220px] sm:w-[260px]"
-            >
-
-            <h1 class="type-h1 mt-10">{{ __('ermita.offers_section.page_title') }}</h1>
+            <h1 class="type-h1">{{ __('ermita.offers_section.page_title') }}</h1>
 
             <p class="type-b2 mt-8 max-w-xl">{{ __('ermita.offers_section.lead') }}</p>
         </div>

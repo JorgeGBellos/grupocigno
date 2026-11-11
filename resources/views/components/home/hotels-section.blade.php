@@ -17,8 +17,8 @@
         class="group relative flex min-h-[100svh] flex-col items-center justify-between overflow-hidden px-8 py-16 text-center text-white lg:min-h-0 lg:px-12 lg:py-20"
         @if ($videosEnabled)
             x-data="hoverVideo"
-            @mouseenter="start()"
-            @mouseleave="stop()"
+            @pointerenter="start()"
+            @pointerleave="stop()"
             @focusin="start()"
             @focusout="stop()"
         @endif
@@ -27,6 +27,7 @@
             src="{{ $ermitaPoster }}"
             alt=""
             class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            @if ($videosEnabled) :class="{ 'opacity-0': active }" @endif
         >
 
         @if ($videosEnabled)
@@ -37,7 +38,7 @@
                 muted
                 loop
                 playsinline
-                preload="none"
+                preload="metadata"
                 data-src="{{ $ermitaVideo }}"
                 poster="{{ $ermitaPoster }}"
                 aria-hidden="true"
@@ -65,8 +66,8 @@
         class="group relative flex min-h-[100svh] flex-col items-center justify-between overflow-hidden px-8 py-16 text-center text-white lg:min-h-0 lg:px-12 lg:py-20"
         @if ($videosEnabled)
             x-data="hoverVideo"
-            @mouseenter="start()"
-            @mouseleave="stop()"
+            @pointerenter="start()"
+            @pointerleave="stop()"
             @focusin="start()"
             @focusout="stop()"
         @endif
@@ -75,6 +76,7 @@
             src="{{ $mejoradaPoster }}"
             alt=""
             class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            @if ($videosEnabled) :class="{ 'opacity-0': active }" @endif
         >
 
         @if ($videosEnabled)
@@ -85,7 +87,7 @@
                 muted
                 loop
                 playsinline
-                preload="none"
+                preload="metadata"
                 data-src="{{ $mejoradaVideo }}"
                 poster="{{ $mejoradaPoster }}"
                 aria-hidden="true"

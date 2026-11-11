@@ -9,14 +9,7 @@
     <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="site-shell">
             <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
-                <img
-                    src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
-                    alt=""
-                    width="274"
-                    class="h-auto w-[220px] sm:w-[260px]"
-                >
-
-                <h1 class="type-h1 mt-10">{{ $cms->text('rooms_page.title', 'ermita.rooms_page.title') }}</h1>
+                <h1 class="type-h1">{{ $cms->text('rooms_page.title', 'ermita.rooms_page.title') }}</h1>
 
                 <div class="type-b2 mt-8 max-w-xl space-y-1">
                     <p>{{ $cms->text('rooms_page.lead_1', 'ermita.rooms_page.lead_1') }}</p>

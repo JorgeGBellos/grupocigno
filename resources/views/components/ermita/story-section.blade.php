@@ -13,7 +13,7 @@
     <h2 class="sr-only">{{ $cms->text('story.title', 'ermita.story.title') }}</h2>
 
     <div class="site-shell grid grid-cols-1 items-start gap-14 lg:grid-cols-[minmax(0,9fr)_minmax(0,4fr)] lg:gap-24 xl:gap-32">
-        <figure class="lg:mt-28 xl:mt-36">
+        <figure class="lg:mt-[clamp(1rem,2vw,2.5rem)]">
             <div class="aspect-[900/700] overflow-hidden">
                 <img
                     src="{{ asset($gallery[0] ?? 'images/ermita/home/banner.png') }}"

@@ -19,82 +19,9 @@
 @endphp
 
 <footer class="bg-off-white-500 text-black-500">
-    {{-- Mobile: icon + stacked menu + social --}}
-    <div class="site-shell flex flex-col items-center px-[var(--site-gutter)] py-14 lg:hidden">
-        <img
-            src="{{ asset('images/footer/Swan.svg') }}"
-            alt=""
-            width="120"
-            class="h-auto w-[100px]"
-        >
-
-        <nav aria-label="{{ __('ui.footer_nav') }}" class="mt-10 w-full">
-            <ul class="flex flex-col items-center gap-4 text-center">
-                @foreach ($items as $item)
-                    @php
-                        if (filled($item['url'] ?? null)) {
-                            $itemHref = url($item['url']);
-                        } else {
-                            $itemHref = route($item['route'], $item['params'] ?? []);
-                            if (filled($item['hash'] ?? null)) {
-                                $itemHref .= '#'.$item['hash'];
-                            }
-                        }
-                    @endphp
-                    <li>
-                        <a
-                            href="{{ $itemHref }}"
-                            class="type-s2 transition-opacity duration-300 hover:opacity-40"
-                            @if (filled($item['route'] ?? null) && blank($item['hash'] ?? null) && blank($item['url'] ?? null) && request()->routeIs($item['route']))
-                                aria-current="page"
-                            @endif
-                        >{{ __($item['label']) }}</a>
-                    </li>
-                @endforeach
-            </ul>
-
-            <div class="mt-8 flex items-center justify-center gap-5">
-                <a
-                    href="{{ $phoneHref }}"
-                    class="transition-opacity duration-300 hover:opacity-40"
-                    aria-label="{{ __('ui.call') }}"
-                >
-                    <img
-                        src="{{ asset('images/footer/llamada.svg') }}"
-                        alt=""
-                        class="size-7"
-                    >
-                </a>
-                <a
-                    href="{{ $instagramUrl }}"
-                    class="transition-opacity duration-300 hover:opacity-40"
-                    aria-label="{{ __('ui.instagram') }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        src="{{ asset('images/footer/ig.svg') }}"
-                        alt=""
-                        class="size-7"
-                    >
-                </a>
-            </div>
-        </nav>
-    </div>
-
-    {{-- Desktop: centered swan --}}
-    <div class="site-shell hidden justify-center px-[var(--site-gutter)] py-16 lg:flex">
-        <img
-            src="{{ asset('images/footer/Swan.svg') }}"
-            alt=""
-            width="140"
-            class="h-auto w-[140px]"
-        >
-    </div>
-
-    {{-- Partner logos (desktop): una sola fila, escala con el ancho --}}
-    <div class="hidden border-y border-black-500 lg:block">
-        <div class="site-shell flex items-center justify-center gap-[50px] px-[var(--site-gutter)] py-6 xl:py-8">
+    {{-- Partner logos --}}
+    <div class="border-y border-black-500">
+        <div class="site-shell flex flex-wrap items-center justify-center gap-x-8 gap-y-5 px-[var(--site-gutter)] py-6 sm:gap-x-10 lg:gap-[50px] xl:py-8">
             <img
                 src="{{ asset('images/footer/cigno.png') }}"
                 alt="Cigno"
@@ -118,8 +45,8 @@
         </div>
     </div>
 
-    {{-- Black Swan + legales (+ social on desktop) --}}
-    <div class="border-t border-black-500 lg:border-t-0">
+    {{-- Black Swan + legales + social --}}
+    <div>
         <div class="site-shell flex flex-col items-center gap-6 px-[var(--site-gutter)] py-8 lg:grid lg:grid-cols-3 lg:items-center lg:gap-8 lg:py-10">
             <img
                 src="{{ asset('images/footer/black.svg') }}"
@@ -136,7 +63,7 @@
                 <a href="{{ route('cookie-settings') }}" class="type-label uppercase transition-opacity duration-300 hover:opacity-40">{{ __('pages.cookie_settings') }}</a>
             </nav>
 
-            <div class="hidden items-center justify-end gap-5 lg:flex lg:justify-self-end">
+            <div class="flex items-center justify-center gap-5 lg:justify-self-end">
                 <a
                     href="{{ $phoneHref }}"
                     class="transition-opacity duration-300 hover:opacity-40"

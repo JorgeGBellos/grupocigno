@@ -6,14 +6,7 @@
     >
 
     <div class="relative z-10 mx-auto flex w-full max-w-xl flex-col items-center rounded-[14px] bg-off-white-100 px-8 py-14 text-center text-black-500 sm:px-12 sm:py-16 lg:px-16">
-        <img
-            src="{{ asset('images/ermita/icons/Vector (16).svg') }}"
-            alt=""
-            width="56"
-            class="h-auto w-12 lg:w-14"
-        >
-
-        <h2 class="type-h1 mt-8">{{ __('ermita.offers_section.title') }}</h2>
+        <h2 class="type-h1">{{ __('ermita.offers_section.title') }}</h2>
 
         <p class="type-b2 mt-6 max-w-md">
             {{ __('ermita.offers_section.lead') }}

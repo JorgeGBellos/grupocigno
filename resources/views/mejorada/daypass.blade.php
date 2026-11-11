@@ -5,39 +5,37 @@
 @endphp
 
 <x-layouts.app :title="$cms->text('daypass.page_title', 'mejorada.daypass.page_title').' — '.__('nav.mejorada')">
-    <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
-        <div class="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
-            <img
-                src="{{ $cms->asset('daypass.mark', 'images/ermita/icons/palmera-daypass.png') }}"
-                alt=""
-                width="160"
-                class="h-auto w-[160px]"
-            >
-
-            <h1 class="type-h1 mt-8">{{ $cms->text('daypass.page_title', 'mejorada.daypass.page_title') }}</h1>
-
-            <div class="type-b2 mt-8 max-w-md space-y-1">
-                <p>{{ $cms->text('daypass.schedule_days', 'mejorada.daypass.schedule_days') }}</p>
-                <p>{{ $cms->text('daypass.schedule_hours', 'mejorada.daypass.schedule_hours') }}</p>
-                <p class="mt-4">{{ $cms->text('daypass.price', 'mejorada.daypass.price') }}</p>
-                <p>{{ $cms->text('daypass.includes', 'mejorada.daypass.includes') }}</p>
-                <p>{{ $cms->text('daypass.restrictions', 'mejorada.daypass.restrictions') }}</p>
+    <section class="flex flex-1 flex-col bg-off-white-300 text-black-500">
+        <div class="site-section site-section--flush-y pt-12 lg:pt-16">
+            <div class="site-shell">
+                <x-home.peek-carousel
+                    class="daypass-carousel"
+                    :images="$gallery"
+                    :alt="$cms->text('daypass.page_title', 'mejorada.daypass.image_alt')"
+                    bar-class="bg-blue-mejorada-300"
+                />
             </div>
-
-            <x-mejorada.button
-                :href="hotel_phone_tel('mejorada')"
-                class="mt-10 w-full max-w-md px-8"
-            >
-                {{ $cms->text('daypass.page_cta', 'mejorada.daypass.page_cta') }}
-            </x-mejorada.button>
         </div>
 
-        <div class="mx-auto mt-16 w-full max-w-5xl lg:mt-20">
-            <x-home.peek-carousel
-                :images="$gallery"
-                :alt="$cms->text('daypass.page_title', 'mejorada.daypass.image_alt')"
-                bar-class="bg-blue-mejorada-300"
-            />
+        <div class="site-section site-section--x pb-[var(--site-section-y)] pt-[50px]!">
+            <div class="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+                <h1 class="type-h1">{{ $cms->text('daypass.page_title', 'mejorada.daypass.page_title') }}</h1>
+
+                <div class="type-b2 mt-8 max-w-md space-y-1">
+                    <p>{{ $cms->text('daypass.schedule_days', 'mejorada.daypass.schedule_days') }}</p>
+                    <p>{{ $cms->text('daypass.schedule_hours', 'mejorada.daypass.schedule_hours') }}</p>
+                    <p class="mt-4">{{ $cms->text('daypass.price', 'mejorada.daypass.price') }}</p>
+                    <p>{{ $cms->text('daypass.includes', 'mejorada.daypass.includes') }}</p>
+                    <p>{{ $cms->text('daypass.restrictions', 'mejorada.daypass.restrictions') }}</p>
+                </div>
+
+                <x-mejorada.button
+                    :href="hotel_phone_tel('mejorada')"
+                    class="mt-10 w-full max-w-md px-8"
+                >
+                    {{ $cms->text('daypass.page_cta', 'mejorada.daypass.page_cta') }}
+                </x-mejorada.button>
+            </div>
         </div>
     </section>
 

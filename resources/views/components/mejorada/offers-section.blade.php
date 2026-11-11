@@ -11,16 +11,7 @@
     >
 
     <div class="relative z-10 mx-auto flex w-full max-w-xl flex-col items-center rounded-[14px] bg-off-white-100 px-8 py-14 text-center text-black-500 sm:px-12 sm:py-16 lg:px-16">
-        <img
-            src="{{ asset('images/ermita/icons/Vector (16).svg') }}"
-            alt=""
-            width="56"
-            height="56"
-            class="h-auto w-12 object-contain lg:w-14"
-            aria-hidden="true"
-        >
-
-        <h2 class="type-h1 mt-8">
+        <h2 class="type-h1">
             {{ $cms->text('offers.title', 'mejorada.rooms_page.home_offers_title') }}
         </h2>
 

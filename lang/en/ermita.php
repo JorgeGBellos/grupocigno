@@ -315,7 +315,7 @@ return [
     'experiences_page' => [
         'title' => '2026 Experience Collection',
         'lead' => 'Discover the soul of Yucatán through our senses.',
-        'intro' => 'At Cigno, we don\'t just offer activities; we offer portals to the authentic Yucatán. From hidden cenotes to ancestral rituals, let yourself be carried away by our experiences.',
+        'intro' => '',
         'book' => 'Book an experience',
         'see_more' => 'See more',
         'see_less' => 'See less',
@@ -367,7 +367,7 @@ return [
         'restrictions' => '*Restrictions apply.',
         'cta_primary' => 'Reserve our daypass',
         'cta_secondary' => 'See more',
-        'page_cta' => 'Reserve your daypass',
+        'page_cta' => 'Reserve your Daypass',
         'image_alt' => 'Daypass at Cigno Ermita',
         'gallery' => [
             'images/cocina/725621555_982617504576688_4481192901537941310_n.jpg',
@@ -389,18 +389,12 @@ return [
     'offers_section' => [
         'title' => 'Offers',
         'page_title' => 'Our Offers',
-        'lead' => 'Our offers are designed for those who seek an honest connection with Mérida\'s history. Book your stay directly to enjoy a seamless experience at the best price.',
+        'lead' => 'Our offers are designed for those who seek an honest connection with Mérida\'s history.',
         'cta' => 'Check our offers',
         'includes' => 'This offer includes:',
         'note' => '*Subject to availability.',
         'book' => 'Book this offer',
         'items' => [
-            [
-                'image' => 'images/ermita/offers/offer-1.png',
-                'title' => 'Weekend Sale!',
-                'dates' => '35% off on travel dates from August 6th to September 30th',
-                'perks' => ['Welcome cocktail', 'Breakfast included', 'Early check in, late check out*'],
-            ],
             [
                 'image' => 'images/ermita/offers/offer-2.png',
                 'title' => 'Third night on us (Pay 2 get 3)',
@@ -412,12 +406,6 @@ return [
                 'title' => 'Boutique Stay & Spa Experience',
                 'dates' => '25% off on travel dates August 26th to Sep 30th 2026',
                 'perks' => ['Welcome cocktail', 'Breakfast included', 'Early check in, late check out*', 'USD 25 Credit at Spa'],
-            ],
-            [
-                'image' => 'images/ermita/offers/offer-4.png',
-                'title' => 'VIVA MEXICO! (welcome cocktail with tequila)',
-                'dates' => '30% off on travel dates August 1st to September 30th, 2026',
-                'perks' => ['Welcome cocktail', 'Breakfast included', 'Early check in, late check out*'],
             ],
             [
                 'image' => 'images/ermita/offers/offer-5.png',

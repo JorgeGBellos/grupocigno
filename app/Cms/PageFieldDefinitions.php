@@ -538,7 +538,7 @@ class PageFieldDefinitions
                     ['key' => 'hero.line_1', 'label' => 'Línea 1', 'type' => 'text', 'fallback' => 'mejorada.hero.line_1'],
                     ['key' => 'hero.line_2', 'label' => 'Línea 2', 'type' => 'text', 'fallback' => 'mejorada.hero.line_2'],
                     ['key' => 'hero.background', 'label' => 'Póster / imagen de fondo', 'type' => 'image', 'fallback' => 'images/home/Home (1).png', 'media' => true],
-                    ['key' => 'hero.video', 'label' => 'Video de fondo', 'type' => 'video', 'fallback' => 'videos/03. Video MEJORADA Web Cignos.mp4', 'media' => true],
+                    ['key' => 'hero.video', 'label' => 'Video de fondo', 'type' => 'video', 'fallback' => 'videos/mejorada-home.mp4', 'media' => true],
                     ['key' => 'hero.logo', 'label' => 'Logo cisne', 'type' => 'image', 'fallback' => 'images/home/Swan (1).svg', 'media' => true],
                 ],
             ],

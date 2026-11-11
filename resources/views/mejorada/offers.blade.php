@@ -7,14 +7,7 @@
 <x-layouts.app :title="$cms->text('offers.page_title', 'mejorada.rooms_page.offers_catalog.page_title').' — '.__('nav.mejorada')">
     <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-            <img
-                src="{{ asset('images/ermita/icons/cisneentero.svg') }}"
-                alt=""
-                width="120"
-                class="h-auto w-[96px] sm:w-[120px]"
-            >
-
-            <h1 class="type-h1 mt-10">{{ $cms->text('offers.page_title', 'mejorada.rooms_page.offers_catalog.page_title') }}</h1>
+            <h1 class="type-h1">{{ $cms->text('offers.page_title', 'mejorada.rooms_page.offers_catalog.page_title') }}</h1>
 
             <p class="type-b2 mt-8 max-w-xl">{{ $cms->text('offers.lead', 'mejorada.rooms_page.offers_catalog.lead') }}</p>
         </div>

@@ -273,31 +273,11 @@ return [
         ],
         'offers_catalog' => [
         'page_title' => 'Our Offers',
-        'lead' => 'Our offers are designed for those who seek an honest connection with Mérida’s history. Book your stay directly to enjoy a seamless experience at the best price.',
+        'lead' => 'Our offers are designed for those who seek an honest connection with Mérida\'s history.',
         'book' => 'Book this offer',
         'includes' => 'This offer includes:',
         'note' => '*SUBJECT TO AVAILABILITY.',
         'items' => [
-            [
-                'image' => 'images/mejorada/offers/offer-1.png',
-                'title' => 'Weekend Sale',
-                'dates' => '45% off on travel dates August 1st to Sep 30th, 2026.',
-                'perks' => [
-                    'American Breakfast included',
-                    'Early check in, late check out',
-                    'Welcome cocktail',
-                ],
-            ],
-            [
-                'image' => 'images/mejorada/offers/offer-2.png',
-                'title' => "VIVA MEXICO!\n(welcome cocktail with tequila)",
-                'dates' => '30% off on travel dates August 1st to September 30th, 2026.',
-                'perks' => [
-                    'Complimentary American breakfast.',
-                    'A signature welcome Tequila cocktail upon arrival.',
-                    'Early check-in and late check-out.*',
-                ],
-            ],
             [
                 'image' => 'images/mejorada/offers/offer-3.png',
                 'title' => 'Experience the season of traditions',
@@ -407,7 +387,7 @@ return [
     'experiences_page' => [
         'title' => '2026 Experience Collection',
         'lead' => 'Discover the soul of Yucatán through our senses.',
-        'intro' => 'At Cigno, we don\'t just offer activities; we offer portals to the authentic Yucatán. From hidden cenotes to ancestral rituals, let yourself be carried away by our experiences.',
+        'intro' => '',
         'book' => 'Book an experience',
         'see_more' => 'See more',
         'see_less' => 'See less',
@@ -457,7 +437,7 @@ return [
         'restrictions' => '*Restrictions apply.',
         'cta_primary' => 'Reserve our daypass',
         'cta_secondary' => 'See more',
-        'page_cta' => 'Reserve your daypass',
+        'page_cta' => 'Reserve your Daypass',
         'image_alt' => 'Daypass at Cigno Mejorada',
         'gallery' => [
             'images/mejorada/daypass-hat.jpg',

@@ -6,16 +6,7 @@
 <section id="experiences" class="bg-off-white-300 site-section text-black-500">
     <div class="site-shell grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-20">
         <div class="lg:sticky lg:top-[calc(var(--header-height)+2rem)]">
-            <img
-                src="{{ $cms->asset('experiences.icon', 'images/ermita/icons/Isolation_Mode (7).svg') }}"
-                alt=""
-                width="56"
-                height="56"
-                class="h-14 w-auto object-contain"
-                aria-hidden="true"
-            >
-
-            <h2 class="type-h2 mt-8">
+            <h2 class="type-h2">
                 {{ $cms->text('experiences.title', 'mejorada.experiences.title') }}
             </h2>
 

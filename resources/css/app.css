@@ -515,6 +515,32 @@
         aspect-ratio: 1;
     }
 
+    /* Daypass: carrusel con peeks laterales, tamaño contenido */
+    .daypass-carousel {
+        --carousel-peek: 3.25rem;
+        --carousel-gap: 0.75rem;
+        max-width: 56rem;
+        margin-inline: auto;
+    }
+
+    .daypass-carousel .carousel-slide {
+        aspect-ratio: 3 / 4;
+        max-height: min(52svh, 28rem);
+    }
+
+    @media (min-width: 64rem) {
+        .daypass-carousel {
+            --carousel-peek: 4.5rem;
+            --carousel-gap: 1rem;
+            max-width: 64rem;
+        }
+
+        .daypass-carousel .carousel-slide {
+            aspect-ratio: 4 / 5;
+            max-height: min(56svh, 32rem);
+        }
+    }
+
     .experiences-carousel {
         --experiences-gap: 1.25rem;
     }

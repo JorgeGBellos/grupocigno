@@ -9,7 +9,7 @@
 
     <div class="site-shell grid grid-cols-1 items-start gap-[clamp(2.5rem,4vw,5rem)] lg:grid-cols-[minmax(0,9fr)_minmax(0,4fr)] lg:gap-[clamp(3rem,6vw,8rem)]">
         {{-- Left: landscape ~900, lower --}}
-        <figure class="min-w-0 lg:mt-[clamp(3rem,6vw,9rem)]">
+        <figure class="min-w-0 lg:mt-[clamp(1rem,2vw,2.5rem)]">
             <div class="aspect-[900/700] overflow-hidden">
                 <img
                     src="{{ $cms->asset('story.image_1', 'images/mejorada/home/story-2.png') }}"

@@ -6,16 +6,7 @@
 <section id="rooms" class="bg-off-white-300 site-section text-black-500">
     <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(20rem,1.3fr)_minmax(0,1.7fr)] lg:gap-12 xl:gap-14">
         <div class="flex flex-col items-start lg:max-w-[26rem] xl:max-w-none">
-            <img
-                src="{{ asset('images/home/Swan (1).svg') }}"
-                alt=""
-                width="62"
-                height="62"
-                class="h-auto w-[62px] object-contain"
-                aria-hidden="true"
-            >
-
-            <h2 class="type-h2 mt-8 max-w-[14em] text-balance">{{ $cms->text('rooms.title', 'mejorada.rooms.title') }}</h2>
+            <h2 class="type-h2 max-w-[14em] text-balance">{{ $cms->text('rooms.title', 'mejorada.rooms.title') }}</h2>
 
             <div class="type-b2 mt-8 max-w-lg space-y-4">
                 <p>{{ $cms->text('rooms.lead_1', 'mejorada.rooms.lead_1') }}</p>
