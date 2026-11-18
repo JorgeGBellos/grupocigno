@@ -18,7 +18,7 @@ class MejoradaRoomResource extends Resource
 {
     protected static ?string $model = MejoradaRoom::class;
 
-    protected static ?string $navigationLabel = 'Habitaciones Mejorada';
+    protected static ?string $navigationLabel = 'Catálogo habitaciones';
 
     protected static ?string $modelLabel = 'habitación';
 
@@ -28,7 +28,7 @@ class MejoradaRoomResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'Cigno Mejorada';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 20;
 
     protected static ?string $recordTitleAttribute = 'title.es';
 

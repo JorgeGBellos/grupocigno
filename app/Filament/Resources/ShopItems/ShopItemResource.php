@@ -18,7 +18,7 @@ class ShopItemResource extends Resource
 {
     protected static ?string $model = ShopItem::class;
 
-    protected static ?string $navigationLabel = 'Productos Tiendita';
+    protected static ?string $navigationLabel = 'Catálogo tiendita';
 
     protected static ?string $modelLabel = 'producto';
 
@@ -26,9 +26,9 @@ class ShopItemResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShoppingBag;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'CMS';
+    protected static string|\UnitEnum|null $navigationGroup = 'Sitio';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 21;
 
     protected static ?string $recordTitleAttribute = 'brand.es';
 

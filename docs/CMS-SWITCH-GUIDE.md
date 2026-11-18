@@ -9,12 +9,15 @@
 
 ## Página CMS vs catálogo CRUD
 
+En el admin los grupos son: **Sitio**, **Cigno Ermita**, **Cigno Mejorada**, **Consultas**, **Legal**.
+
 | Tipo | Dónde se edita | Ejemplos |
 |------|----------------|----------|
-| Página CMS | Menú **Páginas CMS** + switch | Home, hotel home, barrio, ofertas, venue, daypass, contact… |
-| Catálogo CRUD | Menú propio (sin switch de página, pero el listado del hotel respeta el switch de la página “Habitaciones/Experiencias”) | Habitaciones Ermita/Mejorada, Experiencias Ermita/Mejorada, Prensa, Tiendita |
+| Página CMS | Ítems “Página …” / Inicio / Ofertas… + switch | Textos y medios de esa URL |
+| Catálogo CRUD | **Catálogo habitaciones** / **Catálogo experiencias**, Prensa, Tiendita | Filas del listado (rooms/experiences) |
+| Consultas | **Contacto general** + **Venue (Ermita / Mejorada)** | Leads; venue filtra por hotel |
 
-Para habitaciones y experiencias: publica filas en el CRUD **y** enciende el switch de la página CMS correspondiente (`cigno-*-rooms` / `cigno-*-experiences`). Si el switch está OFF o no hay filas publicadas → lang.
+Para habitaciones y experiencias: publica filas en el catálogo **y** enciende el switch de la página CMS correspondiente (`cigno-*-rooms` / `cigno-*-experiences`). Si el switch está OFF o no hay filas publicadas → lang.
 
 ## Orden recomendado al activar
 

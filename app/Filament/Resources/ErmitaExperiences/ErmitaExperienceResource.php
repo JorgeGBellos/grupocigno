@@ -18,7 +18,7 @@ class ErmitaExperienceResource extends Resource
 {
     protected static ?string $model = ErmitaExperience::class;
 
-    protected static ?string $navigationLabel = 'Experiencias Ermita';
+    protected static ?string $navigationLabel = 'Catálogo experiencias';
 
     protected static ?string $modelLabel = 'experiencia';
 
@@ -28,7 +28,7 @@ class ErmitaExperienceResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'Cigno Ermita';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 21;
 
     protected static ?string $recordTitleAttribute = 'title.es';
 

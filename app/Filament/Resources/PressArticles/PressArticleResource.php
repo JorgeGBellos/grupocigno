@@ -18,7 +18,7 @@ class PressArticleResource extends Resource
 {
     protected static ?string $model = PressArticle::class;
 
-    protected static ?string $navigationLabel = 'Artículos de prensa';
+    protected static ?string $navigationLabel = 'Catálogo prensa';
 
     protected static ?string $modelLabel = 'artículo';
 
@@ -26,9 +26,9 @@ class PressArticleResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'CMS';
+    protected static string|\UnitEnum|null $navigationGroup = 'Sitio';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 20;
 
     protected static ?string $recordTitleAttribute = 'title.es';
 

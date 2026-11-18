@@ -17,17 +17,17 @@ class VenueInquiryResource extends Resource
 {
     protected static ?string $model = VenueInquiry::class;
 
-    protected static ?string $navigationLabel = 'Consultas Venue';
+    protected static ?string $navigationLabel = 'Venue (Ermita / Mejorada)';
 
-    protected static ?string $modelLabel = 'consulta';
+    protected static ?string $modelLabel = 'consulta venue';
 
-    protected static ?string $pluralModelLabel = 'Consultas Venue';
+    protected static ?string $pluralModelLabel = 'Consultas venue';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDays;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Cigno Ermita';
+    protected static string|\UnitEnum|null $navigationGroup = 'Consultas';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'name';
 

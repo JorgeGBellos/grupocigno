@@ -19,7 +19,13 @@ class VenueInquiryInfolist
                         TextEntry::make('email')->label('Correo'),
                         TextEntry::make('event_date')->label('Fecha del evento')->date('d/m/Y'),
                         TextEntry::make('event_type')->label('Tipo de evento'),
-                        TextEntry::make('hotel')->label('Hotel'),
+                        TextEntry::make('hotel')
+                            ->label('Hotel')
+                            ->formatStateUsing(fn (?string $state): string => match ($state) {
+                                'cigno-mejorada' => 'Cigno Mejorada',
+                                'cigno-ermita' => 'Cigno Ermita',
+                                default => $state ?: '—',
+                            }),
                         TextEntry::make('locale')->label('Idioma'),
                         TextEntry::make('created_at')->label('Recibido')->dateTime('d/m/Y H:i'),
                         TextEntry::make('additional_information')

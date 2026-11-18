@@ -18,7 +18,7 @@ class MejoradaExperienceResource extends Resource
 {
     protected static ?string $model = MejoradaExperience::class;
 
-    protected static ?string $navigationLabel = 'Experiencias Mejorada';
+    protected static ?string $navigationLabel = 'Catálogo experiencias';
 
     protected static ?string $modelLabel = 'experiencia';
 
@@ -26,9 +26,9 @@ class MejoradaExperienceResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Mejorada';
+    protected static string|\UnitEnum|null $navigationGroup = 'Cigno Mejorada';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 21;
 
     protected static ?string $recordTitleAttribute = 'title.es';
 

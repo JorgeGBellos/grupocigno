@@ -17,7 +17,7 @@ class ContactLeadResource extends Resource
 {
     protected static ?string $model = ContactLead::class;
 
-    protected static ?string $navigationLabel = 'Leads de contacto';
+    protected static ?string $navigationLabel = 'Contacto general';
 
     protected static ?string $modelLabel = 'lead';
 
@@ -25,9 +25,9 @@ class ContactLeadResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInbox;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'CMS';
+    protected static string|\UnitEnum|null $navigationGroup = 'Consultas';
 
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'name';
 

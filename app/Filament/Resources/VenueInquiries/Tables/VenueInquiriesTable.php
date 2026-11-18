@@ -4,6 +4,7 @@ namespace App\Filament\Resources\VenueInquiries\Tables;
 
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class VenueInquiriesTable
@@ -12,6 +13,21 @@ class VenueInquiriesTable
     {
         return $table
             ->columns([
+                TextColumn::make('hotel')
+                    ->label('Hotel')
+                    ->badge()
+                    ->formatStateUsing(fn (?string $state): string => match ($state) {
+                        'cigno-mejorada' => 'Mejorada',
+                        'cigno-ermita' => 'Ermita',
+                        default => $state ?: '—',
+                    })
+                    ->color(fn (?string $state): string => match ($state) {
+                        'cigno-mejorada' => 'success',
+                        'cigno-ermita' => 'info',
+                        default => 'gray',
+                    })
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('name')
                     ->label('Nombre')
                     ->searchable(['first_name', 'last_name'])
@@ -32,7 +48,14 @@ class VenueInquiriesTable
                     ->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
-            ->filters([])
+            ->filters([
+                SelectFilter::make('hotel')
+                    ->label('Hotel')
+                    ->options([
+                        'cigno-ermita' => 'Ermita',
+                        'cigno-mejorada' => 'Mejorada',
+                    ]),
+            ])
             ->recordActions([
                 ViewAction::make(),
             ])

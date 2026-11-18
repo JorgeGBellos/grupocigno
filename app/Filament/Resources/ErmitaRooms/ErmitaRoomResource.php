@@ -18,7 +18,7 @@ class ErmitaRoomResource extends Resource
 {
     protected static ?string $model = ErmitaRoom::class;
 
-    protected static ?string $navigationLabel = 'Habitaciones Ermita';
+    protected static ?string $navigationLabel = 'Catálogo habitaciones';
 
     protected static ?string $modelLabel = 'habitación';
 
@@ -28,7 +28,7 @@ class ErmitaRoomResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'Cigno Ermita';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 20;
 
     protected static ?string $recordTitleAttribute = 'title.es';
 
