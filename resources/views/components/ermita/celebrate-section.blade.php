@@ -1,3 +1,9 @@
+@php
+    use App\Enums\CmsPageSlug;
+
+    $cms = cms(CmsPageSlug::Ermita);
+@endphp
+
 <section class="bg-beige-500 site-section text-black-500" aria-labelledby="ermita-celebrate-title">
     <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
         <div class="flex max-w-xl flex-col">
@@ -9,20 +15,20 @@
             >
 
             <h2 id="ermita-celebrate-title" class="type-h1 mt-8 text-balance">
-                {{ __('ermita.celebrate.title') }}
+                {{ $cms->text('celebrate.title', 'ermita.celebrate.title') }}
             </h2>
 
             <p class="type-b2 mt-6 max-w-md">
-                {{ __('ermita.celebrate.lead') }}
+                {{ $cms->text('celebrate.lead', 'ermita.celebrate.lead') }}
             </p>
 
             <x-ermita.button :href="route('cigno-ermita.venue')" class="mt-10 w-full max-w-md">
-                {{ __('ermita.celebrate.cta') }}
+                {{ $cms->text('celebrate.cta', 'ermita.celebrate.cta') }}
             </x-ermita.button>
         </div>
 
         <img
-            src="{{ asset('images/ermita/home/barrio2.png') }}"
+            src="{{ $cms->asset('celebrate.image', 'images/ermita/home/barrio2.png') }}"
             alt="{{ __('ermita.celebrate.image_alt') }}"
             class="aspect-[5/4] w-full object-cover"
         >

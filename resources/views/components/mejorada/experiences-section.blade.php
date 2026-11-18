@@ -1,6 +1,8 @@
 @php
-    $cms = cms('cigno-mejorada');
-    $items = __('mejorada.experiences.items');
+    use App\Enums\CmsPageSlug;
+
+    $cms = cms(CmsPageSlug::Mejorada);
+    $items = cms(CmsPageSlug::MejoradaExperiences)->mejoradaExperienceTeasers();
 @endphp
 
 <section id="experiences" class="bg-off-white-300 site-section text-black-500">

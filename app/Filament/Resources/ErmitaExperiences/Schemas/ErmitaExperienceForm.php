@@ -41,6 +41,10 @@ class ErmitaExperienceForm
                             ->directory('cms/ermita-experiences')
                             ->visibility('public')
                             ->image(),
+                        TextInput::make('video')
+                            ->label('Video (ruta relativa)')
+                            ->helperText('Ej: videos/experience-gastro.mp4')
+                            ->maxLength(500),
                     ]),
                 Tabs::make('Contenido')
                     ->tabs([

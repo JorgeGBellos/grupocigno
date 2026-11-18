@@ -1,7 +1,8 @@
 @php
     use App\Enums\CmsPageSlug;
+
     $cms = cms(CmsPageSlug::MejoradaOffers);
-    $offers = __('mejorada.rooms_page.offers_catalog.items');
+    $offers = $cms->offers('mejorada.rooms_page.offers_catalog.items');
 @endphp
 
 <x-layouts.app :title="$cms->text('offers.page_title', 'mejorada.rooms_page.offers_catalog.page_title').' — '.__('nav.mejorada')">
@@ -19,7 +20,7 @@
                 <article class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
                     <div class="min-h-[16rem] overflow-hidden sm:min-h-[20rem] lg:min-h-full">
                         <img
-                            src="{{ asset($offer['image']) }}"
+                            src="{{ public_asset($offer['image']) }}"
                             alt="{{ $offer['title'] }}"
                             class="size-full object-cover"
                             loading="lazy"
@@ -32,7 +33,7 @@
 
                         <p class="type-b3 mt-8">{{ __('mejorada.rooms_page.offers_catalog.includes') }}</p>
                         <ul class="type-b3 mt-3 list-disc space-y-1 pl-5">
-                            @foreach ($offer['perks'] as $perk)
+                            @foreach ($offer['perks'] ?? [] as $perk)
                                 <li>{{ $perk }}</li>
                             @endforeach
                         </ul>

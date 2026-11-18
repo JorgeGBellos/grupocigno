@@ -2,7 +2,7 @@
     use App\Enums\CmsPageSlug;
 
     $cms = cms(CmsPageSlug::ErmitaExperiences);
-    $items = __('ermita.experiences_page.items');
+    $items = $cms->ermitaExperiences();
     $groups = [
         ['class' => 'sm:grid-cols-2 lg:grid-cols-3', 'aspect' => 'aspect-[3/4]', 'items' => array_slice($items, 0, 3)],
         ['class' => 'grid-cols-1', 'aspect' => 'aspect-[16/9] lg:aspect-[21/9]', 'items' => array_slice($items, 3, 1)],
@@ -17,8 +17,12 @@
 
             <p class="type-b2 mt-8 max-w-xl">{{ $cms->text('experiences_page.lead', 'ermita.experiences_page.lead') }}</p>
 
+            @if (filled($cms->text('experiences_page.intro', 'ermita.experiences_page.intro')))
+                <p class="type-b3 mt-4 max-w-xl">{{ $cms->text('experiences_page.intro', 'ermita.experiences_page.intro') }}</p>
+            @endif
+
             <x-ermita.button :href="route('cigno-ermita').'#booking'" class="mt-10 w-full max-w-lg">
-                {{ __('ermita.experiences_page.book') }}
+                {{ $cms->text('experiences_page.book', 'ermita.experiences_page.book') }}
             </x-ermita.button>
         </div>
     </section>
@@ -34,14 +38,14 @@
                                     class="absolute inset-0 size-full object-cover"
                                     preload="none"
                                     data-managed
-                                    src="{{ asset('videos/'.preg_replace('/\.mov$/i', '.mp4', $item['video'])) }}"
-                                    poster="{{ asset($item['image']) }}"
+                                    src="{{ public_asset('videos/'.preg_replace('/\.mov$/i', '.mp4', $item['video'])) }}"
+                                    poster="{{ public_asset($item['image']) }}"
                                     :aria-label="$item['title']"
                                 />
                             </div>
                         @else
                             <img
-                                src="{{ asset($item['image']) }}"
+                                src="{{ public_asset($item['image']) }}"
                                 alt="{{ $item['title'] }}"
                                 class="{{ $group['aspect'] }} w-full object-cover"
                             >

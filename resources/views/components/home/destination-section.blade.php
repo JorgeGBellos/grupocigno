@@ -26,11 +26,22 @@
         </div>
 
         <div class="relative aspect-[650/600] min-w-0 overflow-hidden">
-            <img
-                src="{{ $cms->asset('destination.image', 'images/home/destinos.png') }}"
-                alt=""
-                class="absolute inset-0 size-full object-cover"
-            >
+            @if (config('media.videos_enabled'))
+                <x-site-video
+                    class="absolute inset-0 size-full object-cover"
+                    preload="none"
+                    data-managed
+                    src="{{ $cms->asset('destination.video', 'videos/destination.mp4') }}"
+                    poster="{{ $cms->asset('destination.image', 'images/home/destinos.png') }}"
+                    aria-label="{{ $cms->text('destination.title', 'home.destination.title') }}"
+                />
+            @else
+                <img
+                    src="{{ $cms->asset('destination.image', 'images/home/destinos.png') }}"
+                    alt=""
+                    class="absolute inset-0 size-full object-cover"
+                >
+            @endif
         </div>
     </div>
 </section>

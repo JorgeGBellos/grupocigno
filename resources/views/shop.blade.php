@@ -8,7 +8,14 @@
     <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="site-shell">
             <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
-                <h1 class="type-h1">{{ $cms->text('title', 'shop.title') }}</h1>
+                <img
+                    src="{{ $cms->asset('logo', 'images/home/Isolation_Mode (6).svg') }}"
+                    alt=""
+                    width="80"
+                    class="h-auto w-16 lg:w-20"
+                >
+
+                <h1 class="type-h1 mt-8">{{ $cms->text('title', 'shop.title') }}</h1>
 
                 <div class="type-b2 mt-6 max-w-2xl space-y-4">
                     <p>{{ $cms->text('lead_1', 'shop.lead_1') }}</p>

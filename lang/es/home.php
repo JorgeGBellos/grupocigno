@@ -42,21 +42,21 @@ return [
         'items' => [
             [
                 'image' => 'images/home/experiences-gastro.png',
-                'video' => 'Copia de 02. Reel sensaciones.mp4',
+                'video' => 'experience-gastro.mp4',
                 'label' => 'Gastronomía local',
                 'title' => 'Sabores y tradiciones',
                 'body' => 'Sumérgete en la historia y tradición auténticas de Yucatán con una experiencia culinaria exclusiva en nuestro hotel.',
             ],
             [
                 'image' => 'images/home/experiences-spa.png',
-                'video' => 'Copia de 02. Reel SPA Cigno ERMITA.mp4',
+                'video' => 'experience-spa.mp4',
                 'label' => 'Spa',
                 'title' => 'Un santuario en Ermita',
                 'body' => 'Encuentra un espacio de calma absoluta con rituales de bienestar pensados para armonizar y complementar tu estancia.',
             ],
             [
                 'image' => 'images/home/experiences-barrio.png',
-                'video' => 'Copia de 02. CIGNO Mejorada.mp4',
+                'video' => 'experience-barrio.mp4',
                 'label' => 'Patrimonio',
                 'title' => 'Arte, barrio y patrimonio',
                 'body' => 'Recorridos por casonas, talleres artesanales y la vida cultural de los barrios históricos.',

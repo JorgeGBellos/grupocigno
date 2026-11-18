@@ -19,6 +19,8 @@ class PageFieldDefinitions
             CmsPageSlug::Shop => self::shopSections(),
             CmsPageSlug::Cocina => self::cocinaSections(),
             CmsPageSlug::Ermita => self::ermitaHomeSections(),
+            CmsPageSlug::ErmitaBarrio => self::ermitaBarrioSections(),
+            CmsPageSlug::ErmitaOffers => self::ermitaOffersSections(),
             CmsPageSlug::ErmitaRooms => self::ermitaRoomsSections(),
             CmsPageSlug::ErmitaRestaurant => self::ermitaRestaurantSections(),
             CmsPageSlug::ErmitaDaypass => self::ermitaDaypassSections(),
@@ -48,7 +50,7 @@ class PageFieldDefinitions
                 'section' => 'Hero',
                 'fields' => [
                     ['key' => 'hero.background', 'label' => 'Póster / imagen de fondo', 'type' => 'image', 'fallback' => 'images/home/Home (1).png', 'media' => true],
-                    ['key' => 'hero.video', 'label' => 'Video de fondo', 'type' => 'video', 'fallback' => 'videos/01. WEB Cignos (1).mp4', 'media' => true],
+                    ['key' => 'hero.video', 'label' => 'Video de fondo', 'type' => 'video', 'fallback' => 'videos/home-hero.mp4', 'media' => true],
                 ],
             ],
             [
@@ -69,7 +71,7 @@ class PageFieldDefinitions
                     ['key' => 'destination.lead_2', 'label' => 'Párrafo 2', 'type' => 'textarea', 'fallback' => 'home.destination.lead_2'],
                     ['key' => 'destination.icon', 'label' => 'Icono', 'type' => 'image', 'fallback' => 'images/home/Vector (15).svg', 'media' => true],
                     ['key' => 'destination.image', 'label' => 'Póster / imagen', 'type' => 'image', 'fallback' => 'images/home/destinos.png', 'media' => true],
-                    ['key' => 'destination.video', 'label' => 'Video', 'type' => 'video', 'fallback' => 'videos/Copia de Reel 02 Barrio de La Mejorada.mp4', 'media' => true],
+                    ['key' => 'destination.video', 'label' => 'Video', 'type' => 'video', 'fallback' => 'videos/destination.mp4', 'media' => true],
                 ],
             ],
             [
@@ -82,22 +84,6 @@ class PageFieldDefinitions
                     ['key' => 'hotels.mejorada_video', 'label' => 'Video Mejorada (hover)', 'type' => 'video', 'fallback' => 'videos/agua.mp4', 'media' => true],
                     ['key' => 'hotels.ermita_logo', 'label' => 'Logo Ermita', 'type' => 'image', 'fallback' => 'images/home/Logotipo.svg', 'media' => true],
                     ['key' => 'hotels.mejorada_logo', 'label' => 'Logo Mejorada', 'type' => 'image', 'fallback' => 'images/home/mejorada.svg', 'media' => true],
-                ],
-            ],
-            [
-                'section' => 'Cigno Club (teaser)',
-                'fields' => [
-                    ['key' => 'club.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'home.club.title'],
-                    ['key' => 'club.line_1', 'label' => 'Línea 1', 'type' => 'text', 'fallback' => 'home.club.line_1'],
-                    ['key' => 'club.line_2', 'label' => 'Línea 2', 'type' => 'text', 'fallback' => 'home.club.line_2'],
-                    ['key' => 'club.discount_title', 'label' => 'Descuento — título', 'type' => 'text', 'fallback' => 'home.club.discount_title'],
-                    ['key' => 'club.discount_body', 'label' => 'Descuento — texto', 'type' => 'textarea', 'fallback' => 'home.club.discount_body'],
-                    ['key' => 'club.gifts_title', 'label' => 'Regalos — título', 'type' => 'text', 'fallback' => 'home.club.gifts_title'],
-                    ['key' => 'club.gifts_body', 'label' => 'Regalos — texto', 'type' => 'textarea', 'fallback' => 'home.club.gifts_body'],
-                    ['key' => 'club.vip_title', 'label' => 'VIP — título', 'type' => 'text', 'fallback' => 'home.club.vip_title'],
-                    ['key' => 'club.vip_body', 'label' => 'VIP — texto', 'type' => 'textarea', 'fallback' => 'home.club.vip_body'],
-                    ['key' => 'club.vip_note', 'label' => 'Nota (label)', 'type' => 'text', 'fallback' => 'home.club.vip_note'],
-                    ['key' => 'club.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/home/Cigno Club (1).png', 'media' => true],
                 ],
             ],
             [
@@ -118,33 +104,24 @@ class PageFieldDefinitions
                     ['key' => 'cocina.see_more', 'label' => 'CTA ver más', 'type' => 'text', 'fallback' => 'home.cocina.see_more'],
                     ['key' => 'cocina.logo', 'label' => 'Logo', 'type' => 'image', 'fallback' => 'images/home/Cocina Vidente.svg', 'media' => true],
                     ['key' => 'cocina.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/home/About (1).png', 'media' => true],
-                    ['key' => 'cocina.video', 'label' => 'Video (media)', 'type' => 'video', 'fallback' => 'videos/Cocina.mp4', 'media' => true],
-                    ['key' => 'cocina.poster', 'label' => 'Póster del video', 'type' => 'image', 'fallback' => 'images/cocina/gallery-meat.png', 'media' => true],
-                    [
-                        'key' => 'cocina.gallery',
-                        'label' => 'Galería',
-                        'type' => 'gallery',
-                        'fallback' => 'images/cocina/gallery-meat.png, images/cocina/gallery-mole.png, images/cocina/gallery-carpaccio.png',
-                        'media' => true,
-                    ],
+                    ['key' => 'cocina.poster', 'label' => 'Imagen lateral', 'type' => 'image', 'fallback' => 'images/cocina/gallery-meat.png', 'media' => true],
                 ],
             ],
             [
                 'section' => 'Tiendita (teaser)',
                 'fields' => [
-                    ['key' => 'tiendita.tagline', 'label' => 'Tagline', 'type' => 'text', 'fallback' => 'home.tiendita.tagline'],
+                    ['key' => 'tiendita.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'home.tiendita.title'],
                     ['key' => 'tiendita.body', 'label' => 'Texto', 'type' => 'textarea', 'fallback' => 'home.tiendita.body'],
                     ['key' => 'tiendita.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'home.tiendita.cta'],
-                    ['key' => 'tiendita.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/home/Experience Collection.png', 'media' => true],
+                    ['key' => 'tiendita.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/home/Cigno Club.png', 'media' => true],
                 ],
             ],
             [
                 'section' => 'Prensa (teaser)',
                 'fields' => [
-                    ['key' => 'press.tagline', 'label' => 'Tagline', 'type' => 'text', 'fallback' => 'home.press.tagline'],
                     ['key' => 'press.body', 'label' => 'Texto', 'type' => 'textarea', 'fallback' => 'home.press.body'],
                     ['key' => 'press.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'home.press.cta'],
-                    ['key' => 'press.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/home/Cigno Club.png', 'media' => true],
+                    ['key' => 'press.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/home/Experience Collection.png', 'media' => true],
                 ],
             ],
         ];
@@ -266,8 +243,10 @@ class PageFieldDefinitions
             [
                 'section' => 'Hero',
                 'fields' => [
+                    ['key' => 'hero.line_1', 'label' => 'Línea 1', 'type' => 'text', 'fallback' => 'ermita.hero.line_1'],
+                    ['key' => 'hero.line_2', 'label' => 'Línea 2', 'type' => 'text', 'fallback' => 'ermita.hero.line_2'],
                     ['key' => 'hero.background', 'label' => 'Póster / imagen de fondo', 'type' => 'image', 'fallback' => 'images/ermita/home/banner.png', 'media' => true],
-                    ['key' => 'hero.video', 'label' => 'Video de fondo', 'type' => 'video', 'fallback' => 'videos/02. Video ERMITA Web Cignos (1).mp4', 'media' => true],
+                    ['key' => 'hero.video', 'label' => 'Video de fondo', 'type' => 'video', 'fallback' => 'videos/ermita-home.mp4', 'media' => true],
                 ],
             ],
             [
@@ -283,6 +262,16 @@ class PageFieldDefinitions
                         'fallback' => 'images/home/ermita.png, images/home/Rectangle 4.jpg, images/home/Rectangle 2 (5).png',
                         'media' => true,
                     ],
+                ],
+            ],
+            [
+                'section' => 'Barrio Mágico (teaser)',
+                'fields' => [
+                    ['key' => 'barrio.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'ermita.barrio.title'],
+                    ['key' => 'barrio.lead_1', 'label' => 'Párrafo 1', 'type' => 'textarea', 'fallback' => 'ermita.barrio.lead_1'],
+                    ['key' => 'barrio.lead_2', 'label' => 'Párrafo 2', 'type' => 'textarea', 'fallback' => 'ermita.barrio.lead_2'],
+                    ['key' => 'barrio.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'ermita.barrio.cta'],
+                    ['key' => 'barrio.image', 'label' => 'Imagen', 'type' => 'image', 'fallback' => 'images/ermita/home/barrio.png', 'media' => true],
                 ],
             ],
             [
@@ -311,7 +300,7 @@ class PageFieldDefinitions
                         'key' => 'cocina.gallery',
                         'label' => 'Galería',
                         'type' => 'gallery',
-                        'fallback' => 'images/cocina/…',
+                        'fallback' => 'images/cocina/gallery-meat.png, images/cocina/gallery-mole.png, images/cocina/gallery-carpaccio.png',
                         'media' => true,
                     ],
                 ],
@@ -323,6 +312,24 @@ class PageFieldDefinitions
                     ['key' => 'experiences.tagline', 'label' => 'Tagline', 'type' => 'text', 'fallback' => 'ermita.experiences.tagline'],
                     ['key' => 'experiences.body', 'label' => 'Texto', 'type' => 'textarea', 'fallback' => 'ermita.experiences.body'],
                     ['key' => 'experiences.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'ermita.experiences.cta'],
+                ],
+            ],
+            [
+                'section' => 'Ofertas (teaser)',
+                'fields' => [
+                    ['key' => 'offers.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'ermita.offers_section.title'],
+                    ['key' => 'offers.lead', 'label' => 'Texto', 'type' => 'textarea', 'fallback' => 'ermita.offers_section.lead'],
+                    ['key' => 'offers.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'ermita.offers_section.cta'],
+                    ['key' => 'offers.background', 'label' => 'Fondo', 'type' => 'image', 'fallback' => 'images/ermita/home/offers.png', 'media' => true],
+                ],
+            ],
+            [
+                'section' => 'Celebrar (teaser)',
+                'fields' => [
+                    ['key' => 'celebrate.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'ermita.celebrate.title'],
+                    ['key' => 'celebrate.lead', 'label' => 'Texto', 'type' => 'textarea', 'fallback' => 'ermita.celebrate.lead'],
+                    ['key' => 'celebrate.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'ermita.celebrate.cta'],
+                    ['key' => 'celebrate.image', 'label' => 'Imagen', 'type' => 'image', 'fallback' => 'images/ermita/home/barrio2.png', 'media' => true],
                 ],
             ],
             [
@@ -353,6 +360,67 @@ class PageFieldDefinitions
                     ['key' => 'location.body', 'label' => 'Texto', 'type' => 'textarea', 'fallback' => 'ermita.location.body'],
                     ['key' => 'location.cta', 'label' => 'CTA', 'type' => 'text', 'fallback' => 'ermita.location.cta'],
                     ['key' => 'location.map_url', 'label' => 'URL del mapa', 'type' => 'text', 'fallback' => 'ermita.location.map_url'],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{section: string, fields: list<array<string, mixed>>}>
+     */
+    private static function ermitaBarrioSections(): array
+    {
+        return [
+            [
+                'section' => 'Página',
+                'fields' => [
+                    ['key' => 'barrio.page_title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'ermita.barrio.page_title'],
+                    ['key' => 'barrio.page_lead', 'label' => 'Introducción', 'type' => 'textarea', 'fallback' => 'ermita.location.body'],
+                    ['key' => 'barrio.book', 'label' => 'CTA reservar', 'type' => 'text', 'fallback' => 'ermita.story.book'],
+                    ['key' => 'barrio.history_1', 'label' => 'Historia — párrafo 1', 'type' => 'textarea', 'fallback' => 'ermita.barrio.history_1'],
+                    ['key' => 'barrio.history_2', 'label' => 'Historia — párrafo 2', 'type' => 'textarea', 'fallback' => 'ermita.barrio.history_2'],
+                    ['key' => 'barrio.story_lead_1', 'label' => 'Bloque azul — párrafo 1', 'type' => 'textarea', 'fallback' => 'ermita.story.lead_1'],
+                    ['key' => 'barrio.story_lead_2', 'label' => 'Bloque azul — párrafo 2', 'type' => 'textarea', 'fallback' => 'ermita.story.lead_2'],
+                    ['key' => 'barrio.hero_line', 'label' => 'Línea hero (bloque azul)', 'type' => 'text', 'fallback' => 'ermita.hero.line_1'],
+                    [
+                        'key' => 'barrio.gallery',
+                        'label' => 'Galería superior (3)',
+                        'type' => 'gallery',
+                        'fallback' => 'images/ermita/barrio/Rectangle 3 (22).png, images/ermita/barrio/Rectangle 3 (23).png, images/ermita/barrio/Rectangle 3 (24).png',
+                        'media' => true,
+                    ],
+                    ['key' => 'barrio.video', 'label' => 'Video central', 'type' => 'video', 'fallback' => 'videos/ermita-barrio.mp4', 'media' => true],
+                    ['key' => 'barrio.story_image', 'label' => 'Imagen bloque azul (izq)', 'type' => 'image', 'fallback' => 'images/ermita/barrio/Rectangle 3 (25).png', 'media' => true],
+                    ['key' => 'barrio.hero_image', 'label' => 'Imagen bloque azul (der)', 'type' => 'image', 'fallback' => 'images/ermita/barrio/Rectangle 3 (26).png', 'media' => true],
+                    ['key' => 'barrio.history_image', 'label' => 'Imagen historia', 'type' => 'image', 'fallback' => 'images/ermita/barrio/Rectangle 3 (27).png', 'media' => true],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @return list<array{section: string, fields: list<array<string, mixed>>}>
+     */
+    private static function ermitaOffersSections(): array
+    {
+        return [
+            [
+                'section' => 'Página',
+                'fields' => [
+                    ['key' => 'offers.page_title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'ermita.offers_section.page_title'],
+                    ['key' => 'offers.lead', 'label' => 'Introducción', 'type' => 'textarea', 'fallback' => 'ermita.offers_section.lead'],
+                    [
+                        'key' => 'offers.items',
+                        'label' => 'Ofertas',
+                        'type' => 'repeater',
+                        'fallback' => 'ermita.offers_section.items',
+                        'item_fields' => [
+                            ['key' => 'image', 'label' => 'Imagen', 'type' => 'image'],
+                            ['key' => 'title', 'label' => 'Título', 'type' => 'text'],
+                            ['key' => 'dates', 'label' => 'Fechas / descuento', 'type' => 'text'],
+                            ['key' => 'perks', 'label' => 'Beneficios (uno por línea)', 'type' => 'textarea'],
+                        ],
+                    ],
                 ],
             ],
         ];
@@ -451,7 +519,7 @@ class PageFieldDefinitions
                         'key' => 'daypass.gallery',
                         'label' => 'Galería',
                         'type' => 'gallery',
-                        'fallback' => 'images/cocina/…, images/home/ermita.png',
+                        'fallback' => 'images/cocina/725621555_982617504576688_4481192901537941310_n.jpg, images/home/ermita.png',
                         'media' => true,
                     ],
                     ['key' => 'daypass.mark', 'label' => 'Icono / marca', 'type' => 'image', 'fallback' => 'images/home/Union (3).svg', 'media' => true],
@@ -479,6 +547,7 @@ class PageFieldDefinitions
                     ['key' => 'experiences_page.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'ermita.experiences_page.title'],
                     ['key' => 'experiences_page.lead', 'label' => 'Lead', 'type' => 'textarea', 'fallback' => 'ermita.experiences_page.lead'],
                     ['key' => 'experiences_page.intro', 'label' => 'Intro', 'type' => 'textarea', 'fallback' => 'ermita.experiences_page.intro'],
+                    ['key' => 'experiences_page.book', 'label' => 'CTA reservar', 'type' => 'text', 'fallback' => 'ermita.experiences_page.book'],
                 ],
             ],
         ];
@@ -497,12 +566,20 @@ class PageFieldDefinitions
                     ['key' => 'venue.lead', 'label' => 'Lead', 'type' => 'textarea', 'fallback' => 'ermita.venue.lead'],
                     ['key' => 'venue.intro', 'label' => 'Intro', 'type' => 'textarea', 'fallback' => 'ermita.venue.intro'],
                     ['key' => 'venue.form_lead', 'label' => 'Lead del formulario', 'type' => 'textarea', 'fallback' => 'ermita.venue.form_lead'],
+                    ['key' => 'venue.story_1', 'label' => 'Historia — párrafo 1', 'type' => 'textarea', 'fallback' => 'ermita.venue.story_1'],
+                    ['key' => 'venue.story_2', 'label' => 'Historia — párrafo 2', 'type' => 'textarea', 'fallback' => 'ermita.venue.story_2'],
+                    ['key' => 'venue.story_cta', 'label' => 'CTA historia', 'type' => 'text', 'fallback' => 'ermita.venue.story_cta'],
+                    ['key' => 'venue.story_image', 'label' => 'Imagen historia', 'type' => 'image', 'fallback' => 'images/ermita/venues/Rectangle 3 (13).png', 'media' => true],
                     [
-                        'key' => 'venue.gallery',
-                        'label' => 'Galería',
-                        'type' => 'gallery',
-                        'fallback' => 'images/cocina/…, images/home/ermita.png',
-                        'media' => true,
+                        'key' => 'venue.spaces',
+                        'label' => 'Espacios',
+                        'type' => 'repeater',
+                        'fallback' => 'ermita.venue.spaces',
+                        'item_fields' => [
+                            ['key' => 'image', 'label' => 'Imagen', 'type' => 'image'],
+                            ['key' => 'title', 'label' => 'Título', 'type' => 'text'],
+                            ['key' => 'body', 'label' => 'Texto', 'type' => 'textarea'],
+                        ],
                     ],
                 ],
             ],
@@ -686,6 +763,18 @@ class PageFieldDefinitions
             'fields' => [
                 ['key' => 'offers.page_title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'mejorada.rooms_page.offers_catalog.page_title'],
                 ['key' => 'offers.lead', 'label' => 'Introducción', 'type' => 'textarea', 'fallback' => 'mejorada.rooms_page.offers_catalog.lead'],
+                [
+                    'key' => 'offers.items',
+                    'label' => 'Ofertas',
+                    'type' => 'repeater',
+                    'fallback' => 'mejorada.rooms_page.offers_catalog.items',
+                    'item_fields' => [
+                        ['key' => 'image', 'label' => 'Imagen', 'type' => 'image'],
+                        ['key' => 'title', 'label' => 'Título', 'type' => 'text'],
+                        ['key' => 'dates', 'label' => 'Fechas / descuento', 'type' => 'text'],
+                        ['key' => 'perks', 'label' => 'Beneficios (uno por línea)', 'type' => 'textarea'],
+                    ],
+                ],
             ],
         ]];
     }
@@ -720,7 +809,7 @@ class PageFieldDefinitions
                     ['key' => 'restaurant.gallery_alt', 'label' => 'Alt galería', 'type' => 'text', 'fallback' => 'mejorada.restaurant.gallery_alt'],
                     ['key' => 'restaurant.logo', 'label' => 'Logo', 'type' => 'image', 'fallback' => 'images/home/Cocina Vidente.svg', 'media' => true],
                     ['key' => 'restaurant.hero_poster', 'label' => 'Póster video', 'type' => 'image', 'fallback' => 'images/ermita/home/restaurante.png', 'media' => true],
-                    ['key' => 'restaurant.hero_video', 'label' => 'Video hero', 'type' => 'video', 'fallback' => 'videos/Copia de 01. Reel RESTAURANTE Cigno MEJORADA 2.mp4', 'media' => true],
+                    ['key' => 'restaurant.hero_video', 'label' => 'Video hero', 'type' => 'video', 'fallback' => 'videos/mejorada-restaurant.mp4', 'media' => true],
                     ['key' => 'restaurant.gallery', 'label' => 'Galería', 'type' => 'gallery', 'fallback' => 'images/mejorada/daypass-hat.jpg', 'media' => true],
                 ],
             ],
@@ -786,6 +875,7 @@ class PageFieldDefinitions
                 ['key' => 'experiences_page.title', 'label' => 'Título', 'type' => 'text', 'fallback' => 'mejorada.experiences_page.title'],
                 ['key' => 'experiences_page.lead', 'label' => 'Bajada', 'type' => 'textarea', 'fallback' => 'mejorada.experiences_page.lead'],
                 ['key' => 'experiences_page.intro', 'label' => 'Introducción', 'type' => 'textarea', 'fallback' => 'mejorada.experiences_page.intro'],
+                ['key' => 'experiences_page.book', 'label' => 'CTA reservar', 'type' => 'text', 'fallback' => 'mejorada.experiences_page.book'],
             ],
         ]];
     }
@@ -800,7 +890,21 @@ class PageFieldDefinitions
                 ['key' => 'venue.lead', 'label' => 'Bajada', 'type' => 'text', 'fallback' => 'mejorada.venue.lead'],
                 ['key' => 'venue.intro', 'label' => 'Introducción', 'type' => 'textarea', 'fallback' => 'mejorada.venue.intro'],
                 ['key' => 'venue.form_lead', 'label' => 'Texto formulario', 'type' => 'textarea', 'fallback' => 'mejorada.venue.form_lead'],
-                ['key' => 'venue.gallery', 'label' => 'Galería', 'type' => 'gallery', 'fallback' => 'images/mejorada/offers/offer-1.jpg', 'media' => true],
+                ['key' => 'venue.story_1', 'label' => 'Historia — párrafo 1', 'type' => 'textarea', 'fallback' => 'mejorada.venue.story_1'],
+                ['key' => 'venue.story_2', 'label' => 'Historia — párrafo 2', 'type' => 'textarea', 'fallback' => 'mejorada.venue.story_2'],
+                ['key' => 'venue.story_cta', 'label' => 'CTA historia', 'type' => 'text', 'fallback' => 'mejorada.venue.story_cta'],
+                ['key' => 'venue.story_image', 'label' => 'Imagen historia', 'type' => 'image', 'fallback' => 'images/mejorada/venues/story.png', 'media' => true],
+                [
+                    'key' => 'venue.spaces',
+                    'label' => 'Espacios',
+                    'type' => 'repeater',
+                    'fallback' => 'mejorada.venue.spaces',
+                    'item_fields' => [
+                        ['key' => 'image', 'label' => 'Imagen', 'type' => 'image'],
+                        ['key' => 'title', 'label' => 'Título', 'type' => 'text'],
+                        ['key' => 'body', 'label' => 'Texto', 'type' => 'textarea'],
+                    ],
+                ],
             ],
         ]];
     }

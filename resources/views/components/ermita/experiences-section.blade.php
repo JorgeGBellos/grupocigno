@@ -2,7 +2,7 @@
     use App\Enums\CmsPageSlug;
 
     $cms = cms(CmsPageSlug::Ermita);
-    $items = __('ermita.experiences.items');
+    $items = cms(CmsPageSlug::ErmitaExperiences)->ermitaExperienceTeasers();
 @endphp
 
 <section id="experiences" class="bg-off-white-300 site-section text-black-500">

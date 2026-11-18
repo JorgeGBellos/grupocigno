@@ -11,7 +11,14 @@
     <section class="flex flex-1 flex-col bg-off-white-300 site-section text-black-500">
         <div class="mx-auto w-full max-w-[100rem]">
             <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
-                <h1 class="type-h1">{{ __('nav.press') }}</h1>
+                <img
+                    src="{{ $cms->asset('logo', 'images/home/Union (3)2.svg') }}"
+                    alt=""
+                    width="80"
+                    class="h-auto w-16 lg:w-20"
+                >
+
+                <h1 class="type-h1 mt-8">{{ __('nav.press') }}</h1>
                 <p class="type-b1 mt-4 max-w-xl lg:mt-6">
                     @if ($cms->enabled())
                         {{ $cms->text('intro', 'press.intro') }}

@@ -1,13 +1,16 @@
 @php
-    $offers = __('ermita.offers_section.items');
+    use App\Enums\CmsPageSlug;
+
+    $cms = cms(CmsPageSlug::ErmitaOffers);
+    $offers = $cms->offers('ermita.offers_section.items');
 @endphp
 
-<x-layouts.app :title="__('ermita.offers_section.page_title').' — '.__('nav.ermita')">
+<x-layouts.app :title="$cms->text('offers.page_title', 'ermita.offers_section.page_title').' — '.__('nav.ermita')">
     <section class="bg-off-white-300 site-section text-black-500">
         <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-            <h1 class="type-h1">{{ __('ermita.offers_section.page_title') }}</h1>
+            <h1 class="type-h1">{{ $cms->text('offers.page_title', 'ermita.offers_section.page_title') }}</h1>
 
-            <p class="type-b2 mt-8 max-w-xl">{{ __('ermita.offers_section.lead') }}</p>
+            <p class="type-b2 mt-8 max-w-xl">{{ $cms->text('offers.lead', 'ermita.offers_section.lead') }}</p>
         </div>
     </section>
 
@@ -17,7 +20,7 @@
                 <article class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
                     <div class="min-h-[16rem] overflow-hidden sm:min-h-[20rem] lg:min-h-full">
                         <img
-                            src="{{ asset($offer['image']) }}"
+                            src="{{ public_asset($offer['image']) }}"
                             alt="{{ $offer['title'] }}"
                             class="size-full object-cover"
                         >
@@ -29,7 +32,7 @@
 
                         <p class="type-b3 mt-8">{{ __('ermita.offers_section.includes') }}</p>
                         <ul class="type-b3 mt-3 list-disc space-y-1 pl-5">
-                            @foreach ($offer['perks'] as $perk)
+                            @foreach ($offer['perks'] ?? [] as $perk)
                                 <li>{{ $perk }}</li>
                             @endforeach
                         </ul>

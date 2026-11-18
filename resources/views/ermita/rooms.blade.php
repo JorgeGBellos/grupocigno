@@ -3,6 +3,8 @@
 
     $cms = cms(CmsPageSlug::ErmitaRooms);
     $rooms = $cms->ermitaRooms();
+    $moreInfoLabel = $cms->text('rooms_page.more_info', 'ermita.rooms_page.more_info');
+    $reserveLabel = $cms->text('rooms_page.reserve', 'ermita.rooms_page.reserve');
 @endphp
 
 <x-layouts.app :title="$cms->text('rooms_page.title', 'ermita.rooms_page.title').' — '.__('nav.ermita')">
@@ -27,6 +29,8 @@
                         :beds="$room['beds']"
                         :beds-label="$room['beds_label'] ?? null"
                         :info-href="route('cigno-ermita.rooms.show', $room['slug'])"
+                        :more-info-label="$moreInfoLabel"
+                        :reserve-label="$reserveLabel"
                     />
                 @endforeach
             </div>

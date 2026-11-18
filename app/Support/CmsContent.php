@@ -6,6 +6,7 @@ use App\Enums\CmsPageSlug;
 use App\Models\CmsPage;
 use App\Models\ErmitaExperience;
 use App\Models\ErmitaRoom;
+use App\Models\MejoradaExperience;
 use App\Models\MejoradaRoom;
 use App\Models\PressArticle;
 use App\Models\ShopItem;
@@ -270,39 +271,7 @@ class CmsContent
                 ->published()
                 ->ordered()
                 ->get()
-                ->map(function (ErmitaExperience $experience): array {
-                    $item = [
-                        'image' => $this->mediaPublicPath($experience->image, 'images/home/ermita.png'),
-                        'title' => $experience->localizedTitle(),
-                        'paragraphs' => $experience->localizedParagraphs(),
-                    ];
-
-                    if (filled($experience->localizedTag())) {
-                        $item['tag'] = $experience->localizedTag();
-                    }
-
-                    if (filled($experience->localizedSubtitle())) {
-                        $item['subtitle'] = $experience->localizedSubtitle();
-                    }
-
-                    if (filled($experience->localizedSubtitleBody())) {
-                        $item['subtitle_body'] = $experience->localizedSubtitleBody();
-                    }
-
-                    if ($experience->expandable) {
-                        $item['expandable'] = true;
-                    }
-
-                    if (filled($experience->localizedCta())) {
-                        $item['cta'] = $experience->localizedCta();
-                    }
-
-                    if (filled($experience->cta_url)) {
-                        $item['cta_url'] = $experience->cta_url;
-                    }
-
-                    return $item;
-                })
+                ->map(fn (ErmitaExperience $experience): array => $this->mapExperienceModel($experience))
                 ->all();
         }
 
@@ -310,6 +279,112 @@ class CmsContent
             ->map(fn (array $item): array => $item)
             ->values()
             ->all();
+    }
+
+    /**
+     * @return list<array{image: string, label: ?string, title: string, body: string}>
+     */
+    public function ermitaExperienceTeasers(): array
+    {
+        if ($this->pageEnabled(CmsPageSlug::ErmitaExperiences) && ErmitaExperience::query()->published()->exists()) {
+            return collect($this->ermitaExperiences())
+                ->take(3)
+                ->map(fn (array $item): array => [
+                    'image' => $item['image'],
+                    'label' => $item['tag'] ?? $item['label'] ?? null,
+                    'title' => $item['title'],
+                    'body' => $item['body'] ?? '',
+                ])
+                ->values()
+                ->all();
+        }
+
+        return collect(trans('ermita.experiences.items'))
+            ->map(fn (array $item): array => $item)
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function listItems(string $key, string $fallbackLangKey): array
+    {
+        $locale = app()->getLocale();
+
+        if ($this->enabled()) {
+            $items = data_get($this->page()?->content, "{$locale}.{$key}");
+            $esItems = data_get($this->page()?->content, "es.{$key}");
+
+            if (is_array($items) && count($items) > 0) {
+                return collect($items)
+                    ->values()
+                    ->map(function (mixed $item, int $index) use ($esItems): array {
+                        $item = is_array($item) ? $item : [];
+                        $esItem = is_array($esItems[$index] ?? null) ? $esItems[$index] : [];
+
+                        $image = $item['image'] ?? $esItem['image'] ?? null;
+                        $perks = $item['perks'] ?? $esItem['perks'] ?? [];
+
+                        if (is_string($perks)) {
+                            $perks = preg_split("/\r\n|\n|\r/", $perks) ?: [];
+                        }
+
+                        $body = $item['body'] ?? null;
+                        if (blank($body) && isset($item['paragraphs']) && is_array($item['paragraphs'])) {
+                            $body = implode(' ', array_filter($item['paragraphs']));
+                        }
+
+                        $normalized = [
+                            'image' => $this->mediaPublicPath(
+                                filled($image) ? (string) $image : null,
+                                'images/home/ermita.png'
+                            ),
+                            'title' => (string) ($item['title'] ?? ''),
+                            'body' => (string) ($body ?? ''),
+                            'dates' => (string) ($item['dates'] ?? ''),
+                            'perks' => array_values(array_filter(array_map(
+                                fn (mixed $perk): string => trim((string) $perk),
+                                is_array($perks) ? $perks : [],
+                            ))),
+                        ];
+
+                        foreach (['label', 'tag', 'subtitle', 'cta', 'cta_url', 'video'] as $optional) {
+                            if (filled($item[$optional] ?? null)) {
+                                $normalized[$optional] = $item[$optional];
+                            }
+                        }
+
+                        return $normalized;
+                    })
+                    ->filter(fn (array $item): bool => filled($item['title']) || filled($item['image']))
+                    ->values()
+                    ->all();
+            }
+        }
+
+        $fallback = trans($fallbackLangKey);
+
+        return collect(is_array($fallback) ? $fallback : [])
+            ->map(fn (array $item): array => $item)
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function offers(string $fallbackLangKey = 'ermita.offers_section.items'): array
+    {
+        return $this->listItems('offers.items', $fallbackLangKey);
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function venueSpaces(string $fallbackLangKey): array
+    {
+        return $this->listItems('venue.spaces', $fallbackLangKey);
     }
 
     /**
@@ -390,7 +465,77 @@ class CmsContent
      */
     public function mejoradaExperiences(): array
     {
+        if ($this->pageEnabled(CmsPageSlug::MejoradaExperiences) && MejoradaExperience::query()->published()->exists()) {
+            return MejoradaExperience::query()
+                ->published()
+                ->ordered()
+                ->get()
+                ->map(fn (MejoradaExperience $experience): array => $this->mapExperienceModel($experience))
+                ->all();
+        }
+
         return collect(trans('mejorada.experiences_page.items'))
+            ->map(fn (array $item): array => $item)
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return list<array{image: string, label: ?string, title: string, body: string}>
+     */
+    public function mejoradaExperienceTeasers(): array
+    {
+        if ($this->pageEnabled(CmsPageSlug::MejoradaExperiences) && MejoradaExperience::query()->published()->exists()) {
+            return collect($this->mejoradaExperiences())
+                ->take(3)
+                ->map(fn (array $item): array => [
+                    'image' => $item['image'],
+                    'label' => $item['tag'] ?? $item['label'] ?? null,
+                    'title' => $item['title'],
+                    'body' => $item['body'] ?? '',
+                ])
+                ->values()
+                ->all();
+        }
+
+        return collect(trans('mejorada.experiences.items'))
+            ->map(fn (array $item): array => $item)
+            ->values()
+            ->all();
+    }
+
+    /**
+     * Home carousel: prefer published hotel experiences when their CMS pages are on; else lang.
+     *
+     * @return list<array{image: string, label: ?string, title: string, body: string, video?: string}>
+     */
+    public function homeExperienceTeasers(): array
+    {
+        $ermita = self::for(CmsPageSlug::ErmitaExperiences)->ermitaExperienceTeasers();
+        $mejorada = self::for(CmsPageSlug::MejoradaExperiences)->mejoradaExperienceTeasers();
+
+        $fromCms = collect($ermita)
+            ->merge($mejorada)
+            ->unique(fn (array $item): string => mb_strtolower((string) ($item['title'] ?? '')))
+            ->take(3)
+            ->values()
+            ->all();
+
+        if (
+            count($fromCms) > 0
+            && (
+                self::for(CmsPageSlug::ErmitaExperiences)->enabled()
+                || self::for(CmsPageSlug::MejoradaExperiences)->enabled()
+            )
+            && (
+                ErmitaExperience::query()->published()->exists()
+                || MejoradaExperience::query()->published()->exists()
+            )
+        ) {
+            return $fromCms;
+        }
+
+        return collect(trans('home.experiences.items'))
             ->map(fn (array $item): array => $item)
             ->values()
             ->all();
@@ -401,13 +546,64 @@ class CmsContent
         return self::for($slug)->enabled();
     }
 
+    /**
+     * @param  ErmitaExperience|MejoradaExperience  $experience
+     * @return array<string, mixed>
+     */
+    private function mapExperienceModel(ErmitaExperience|MejoradaExperience $experience): array
+    {
+        $paragraphs = $experience->localizedParagraphs();
+        $body = implode(' ', $paragraphs);
+
+        $item = [
+            'image' => $this->mediaPublicPath($experience->image, 'images/home/ermita.png'),
+            'title' => $experience->localizedTitle(),
+            'body' => $body,
+            'paragraphs' => $paragraphs,
+        ];
+
+        if (filled($experience->localizedTag())) {
+            $item['tag'] = $experience->localizedTag();
+            $item['label'] = $experience->localizedTag();
+        }
+
+        if (filled($experience->localizedSubtitle())) {
+            $item['subtitle'] = $experience->localizedSubtitle();
+        }
+
+        if (filled($experience->localizedSubtitleBody())) {
+            $item['subtitle_body'] = $experience->localizedSubtitleBody();
+        }
+
+        if ($experience->expandable) {
+            $item['expandable'] = true;
+        }
+
+        if (filled($experience->localizedCta())) {
+            $item['cta'] = $experience->localizedCta();
+        }
+
+        if (filled($experience->cta_url)) {
+            $item['cta_url'] = $experience->cta_url;
+        }
+
+        if (filled($experience->video)) {
+            $video = (string) $experience->video;
+            $item['video'] = str_starts_with($video, 'videos/')
+                ? basename($video)
+                : (str_contains($video, '/') ? basename($video) : $video);
+        }
+
+        return $item;
+    }
+
     private function mediaPublicPath(?string $path, string $fallback): string
     {
         if (blank($path)) {
             return $fallback;
         }
 
-        if (str_starts_with($path, 'http') || str_starts_with($path, 'images/') || str_starts_with($path, 'storage/')) {
+        if (str_starts_with($path, 'http') || str_starts_with($path, 'images/') || str_starts_with($path, 'videos/') || str_starts_with($path, 'storage/')) {
             return $path;
         }
 

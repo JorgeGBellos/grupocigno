@@ -5,6 +5,6 @@
 @endphp
 
 <x-site-hero
-    :video="$cms->asset('hero.video', 'videos/02. Video ERMITA Web Cignos (1).mp4')"
+    :video="$cms->asset('hero.video', 'videos/ermita-home.mp4')"
     :poster="$cms->asset('hero.background', 'images/ermita/home/banner.png')"
 />

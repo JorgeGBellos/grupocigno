@@ -2,7 +2,7 @@
     use App\Enums\CmsPageSlug;
 
     $cms = cms(CmsPageSlug::ErmitaVenue);
-    $spaces = __('ermita.venue.spaces');
+    $spaces = $cms->venueSpaces('ermita.venue.spaces');
 @endphp
 
 <x-layouts.app :title="$cms->text('venue.title', 'ermita.venue.title').' — '.__('nav.ermita')">
@@ -44,17 +44,17 @@
                 >
 
                 <div class="type-b2 mt-8 space-y-6">
-                    <p>{{ __('ermita.venue.story_1') }}</p>
-                    <p>{{ __('ermita.venue.story_2') }}</p>
+                    <p>{{ $cms->text('venue.story_1', 'ermita.venue.story_1') }}</p>
+                    <p>{{ $cms->text('venue.story_2', 'ermita.venue.story_2') }}</p>
                 </div>
 
                 <x-ermita.button href="#venue-inquiry" class="mt-10 w-full max-w-xs">
-                    {{ __('ermita.venue.story_cta') }}
+                    {{ $cms->text('venue.story_cta', 'ermita.venue.story_cta') }}
                 </x-ermita.button>
             </div>
 
             <img
-                src="{{ asset(__('ermita.venue.story_image')) }}"
+                src="{{ $cms->asset('venue.story_image', __('ermita.venue.story_image')) }}"
                 alt=""
                 class="aspect-[4/5] w-full object-cover"
             >

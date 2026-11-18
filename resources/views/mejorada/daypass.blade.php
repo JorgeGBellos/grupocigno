@@ -19,7 +19,14 @@
 
         <div class="site-section site-section--x pb-[var(--site-section-y)] pt-[50px]!">
             <div class="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
-                <h1 class="type-h1">{{ $cms->text('daypass.page_title', 'mejorada.daypass.page_title') }}</h1>
+                <img
+                    src="{{ $cms->asset('daypass.mark', 'images/ermita/icons/Layer_1 (62).svg') }}"
+                    alt=""
+                    width="72"
+                    class="h-auto w-14 lg:w-[72px]"
+                >
+
+                <h1 class="type-h1 mt-8">{{ $cms->text('daypass.page_title', 'mejorada.daypass.page_title') }}</h1>
 
                 <div class="type-b2 mt-8 max-w-md space-y-1">
                     <p>{{ $cms->text('daypass.schedule_days', 'mejorada.daypass.schedule_days') }}</p>

@@ -20,6 +20,7 @@ class ErmitaExperience extends Model
         'cta',
         'cta_url',
         'image',
+        'video',
         'expandable',
     ];
 
@@ -106,8 +107,12 @@ class ErmitaExperience extends Model
             return null;
         }
 
-        if (str_starts_with($this->image, 'http') || str_starts_with($this->image, 'images/')) {
-            return asset($this->image);
+        if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+            return $this->image;
+        }
+
+        if (str_starts_with($this->image, 'images/')) {
+            return public_asset($this->image);
         }
 
         return Storage::disk('public')->url($this->image);

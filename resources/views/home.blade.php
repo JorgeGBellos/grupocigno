@@ -8,7 +8,7 @@
     <h1 class="sr-only">{{ config('app.name') }}</h1>
 
     <x-site-hero
-        :video="$cms->asset('hero.video', 'videos/01. WEB Cignos (1).mp4')"
+        :video="$cms->asset('hero.video', 'videos/home-hero.mp4')"
         :poster="$cms->asset('hero.background', 'images/home/Home (1).png')"
     />
 

@@ -1,5 +1,8 @@
 @php
+    use App\Enums\CmsPageSlug;
+
     $exclusive = $room['exclusive'] ?? [];
+    $reserveLabel = cms(CmsPageSlug::ErmitaRooms)->text('rooms_page.reserve', 'ermita.rooms_page.reserve');
 @endphp
 
 <x-layouts.app :title="$room['title'].' — '.__('nav.ermita')">
@@ -27,7 +30,7 @@
                     :href="route('cigno-ermita').'#booking'"
                     class="w-full"
                 >
-                    {{ __('ermita.rooms_page.reserve') }}
+                    {{ $reserveLabel }}
                 </x-ermita.button>
             </div>
 

@@ -42,21 +42,21 @@ return [
         'items' => [
             [
                 'image' => 'images/home/experiences-gastro.png',
-                'video' => 'Copia de 02. Reel sensaciones.mp4',
+                'video' => 'experience-gastro.mp4',
                 'label' => 'Local gastronomy',
                 'title' => 'Flavors & Traditions',
                 'body' => 'Immerse yourself in Yucatán’s authentic history and tradition through an exclusive culinary experience at our hotel.',
             ],
             [
                 'image' => 'images/home/experiences-spa.png',
-                'video' => 'Copia de 02. Reel SPA Cigno ERMITA.mp4',
+                'video' => 'experience-spa.mp4',
                 'label' => 'Spa',
                 'title' => 'A Sanctuary in Ermita',
                 'body' => 'Find a space of absolute calm with our wellness rituals designed to harmonize and complement your stay.',
             ],
             [
                 'image' => 'images/home/experiences-barrio.png',
-                'video' => 'Copia de 02. CIGNO Mejorada.mp4',
+                'video' => 'experience-barrio.mp4',
                 'label' => 'Heritage',
                 'title' => 'Art, barrio & heritage',
                 'body' => 'Walks through restored manors, artisan workshops, and the cultural life of historic quarters.',

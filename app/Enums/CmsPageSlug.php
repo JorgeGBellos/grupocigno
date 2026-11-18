@@ -11,6 +11,8 @@ enum CmsPageSlug: string
     case Shop = 'shop';
     case Cocina = 'cocina-vidente';
     case Ermita = 'cigno-ermita';
+    case ErmitaBarrio = 'cigno-ermita-barrio';
+    case ErmitaOffers = 'cigno-ermita-offers';
     case ErmitaRooms = 'cigno-ermita-rooms';
     case ErmitaRestaurant = 'cigno-ermita-restaurant';
     case ErmitaDaypass = 'cigno-ermita-daypass';
@@ -40,6 +42,8 @@ enum CmsPageSlug: string
             self::Shop => 'Tiendita',
             self::Cocina => 'Cocina Vidente',
             self::Ermita => 'Ermita — Inicio',
+            self::ErmitaBarrio => 'Ermita — Barrio Mágico',
+            self::ErmitaOffers => 'Ermita — Ofertas',
             self::ErmitaRooms => 'Ermita — Habitaciones',
             self::ErmitaRestaurant => 'Ermita — Restaurante',
             self::ErmitaDaypass => 'Ermita — Daypass',
@@ -90,8 +94,8 @@ enum CmsPageSlug: string
     {
         return match ($this) {
             self::Home, self::Contact, self::Club, self::Press, self::Shop, self::Cocina => 'Sitio',
-            self::Ermita, self::ErmitaRooms, self::ErmitaRestaurant, self::ErmitaDaypass,
-            self::ErmitaExperiences, self::ErmitaVenue, self::ErmitaContact => 'Ermita',
+            self::Ermita, self::ErmitaBarrio, self::ErmitaOffers, self::ErmitaRooms, self::ErmitaRestaurant,
+            self::ErmitaDaypass, self::ErmitaExperiences, self::ErmitaVenue, self::ErmitaContact => 'Ermita',
             self::Mejorada, self::MejoradaBarrio, self::MejoradaOffers, self::MejoradaRooms,
             self::MejoradaRestaurant, self::MejoradaDaypass, self::MejoradaExperiences,
             self::MejoradaVenue, self::MejoradaContact => 'Mejorada',
@@ -109,6 +113,8 @@ enum CmsPageSlug: string
             self::Shop => 'Tiendita',
             self::Cocina => 'Cocina Vidente',
             self::Ermita => 'Inicio',
+            self::ErmitaBarrio => 'Barrio Mágico',
+            self::ErmitaOffers => 'Ofertas',
             self::ErmitaRooms => 'Habitaciones',
             self::ErmitaRestaurant => 'Restaurante',
             self::ErmitaDaypass => 'Daypass',
@@ -140,12 +146,14 @@ enum CmsPageSlug: string
             self::Shop => 5,
             self::Cocina => 6,
             self::Ermita => 1,
-            self::ErmitaRooms => 2,
-            self::ErmitaRestaurant => 3,
-            self::ErmitaDaypass => 4,
-            self::ErmitaExperiences => 5,
-            self::ErmitaVenue => 6,
-            self::ErmitaContact => 7,
+            self::ErmitaBarrio => 2,
+            self::ErmitaOffers => 3,
+            self::ErmitaRooms => 4,
+            self::ErmitaRestaurant => 5,
+            self::ErmitaDaypass => 6,
+            self::ErmitaExperiences => 7,
+            self::ErmitaVenue => 8,
+            self::ErmitaContact => 9,
             self::Mejorada => 1,
             self::MejoradaBarrio => 2,
             self::MejoradaOffers => 3,

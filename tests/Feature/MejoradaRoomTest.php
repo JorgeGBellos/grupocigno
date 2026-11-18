@@ -24,6 +24,8 @@ class MejoradaRoomTest extends TestCase
 
     public function test_mejorada_rooms_can_be_retrieved_from_database(): void
     {
+        \App\Models\CmsPage::query()->where('slug', 'cigno-mejorada-rooms')->update(['cms_enabled' => true]);
+
         MejoradaRoom::query()->create([
             'slug' => 'suite-presidencial-test',
             'sort_order' => 1,
@@ -50,8 +52,10 @@ class MejoradaRoomTest extends TestCase
         $this->assertSame('Suite Presidencial Test', $teasers[0]['title']);
     }
 
-    public function test_room_show_page_shows_coming_soon_while_property_is_hidden(): void
+    public function test_room_show_page_renders_cms_room_when_enabled(): void
     {
+        \App\Models\CmsPage::query()->where('slug', 'cigno-mejorada-rooms')->update(['cms_enabled' => true]);
+
         MejoradaRoom::query()->create([
             'slug' => 'custom-room-test',
             'sort_order' => 1,
@@ -69,8 +73,13 @@ class MejoradaRoomTest extends TestCase
 
         $this->get(route('cigno-mejorada.rooms.show', 'custom-room-test'))
             ->assertOk()
-            ->assertSee(__('pages.coming_soon.eyebrow'), false)
-            ->assertDontSee('Habitación Personalizada Especial', false);
+            ->assertSee('Habitación Personalizada Especial', false);
+    }
+
+    public function test_room_show_page_returns_not_found_for_unknown_slug(): void
+    {
+        $this->get(route('cigno-mejorada.rooms.show', 'custom-room-test'))
+            ->assertNotFound();
     }
 
     public function test_mejorada_room_seeder_populates_rooms(): void
@@ -87,7 +96,7 @@ class MejoradaRoomTest extends TestCase
             'is_published' => true,
         ]);
 
-        $this->assertSame(10, MejoradaRoom::query()->count());
+        $this->assertSame(count(trans('mejorada.rooms_page.items')), MejoradaRoom::query()->count());
     }
 
     public function test_mejorada_room_admin_resource_is_accessible_to_authenticated_user(): void

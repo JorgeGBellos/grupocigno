@@ -2,6 +2,7 @@
     use App\Enums\CmsPageSlug;
 
     $cms = cms(CmsPageSlug::MejoradaRestaurant);
+    $restaurantGallery = $cms->gallery('restaurant.gallery', __('mejorada.restaurant.gallery'));
 @endphp
 
 <x-layouts.app :title="$cms->text('restaurant.page_title', 'mejorada.restaurant.page_title').' — '.__('nav.mejorada')">
@@ -61,4 +62,87 @@
             </div>
         </div>
     </section>
+
+    <section class="bg-off-white-300 site-section text-black-500">
+        <div class="site-shell mx-auto flex max-w-3xl flex-col items-center text-center">
+            <img
+                src="{{ $cms->asset('restaurant.signature.icon', 'images/home/Cocina Vidente.svg') }}"
+                alt=""
+                width="120"
+                class="h-auto w-[100px] sm:w-[120px]"
+            >
+
+            <h2 class="type-h2 mt-8 text-balance">
+                {{ $cms->text('restaurant.signature.title', 'mejorada.restaurant.signature.title') }}
+            </h2>
+
+            <div class="type-b2 mt-12 grid w-full grid-cols-1 gap-12 text-left lg:grid-cols-2 lg:gap-16">
+                <article>
+                    <h3 class="type-s2">
+                        {{ $cms->text('restaurant.signature.breakfast.title', 'mejorada.restaurant.signature.breakfast.title') }}
+                    </h3>
+                    <p class="type-label mt-3">
+                        {{ $cms->text('restaurant.signature.breakfast.hours', 'mejorada.restaurant.signature.breakfast.hours') }}
+                    </p>
+                    <p class="type-b2 mt-4 text-pretty">
+                        {{ $cms->text('restaurant.signature.breakfast.body', 'mejorada.restaurant.signature.breakfast.body') }}
+                    </p>
+                </article>
+
+                <article>
+                    <h3 class="type-s2">
+                        {{ $cms->text('restaurant.signature.dinner.title', 'mejorada.restaurant.signature.dinner.title') }}
+                    </h3>
+                    <p class="type-b2 mt-4 text-pretty">
+                        {{ $cms->text('restaurant.signature.dinner.body', 'mejorada.restaurant.signature.dinner.body') }}
+                    </p>
+                </article>
+            </div>
+
+            <p class="type-b3 mt-12 max-w-2xl text-pretty">
+                {{ $cms->text('restaurant.signature.note', 'mejorada.restaurant.signature.note') }}
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-beige-100 site-section text-black-500">
+        <div class="site-shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+            <div class="flex max-w-xl flex-col max-lg:order-2">
+                <img
+                    src="{{ $cms->asset('restaurant.signature.icon', 'images/home/Cocina Vidente.svg') }}"
+                    alt=""
+                    width="56"
+                    class="h-auto w-12 lg:w-14"
+                >
+
+                <h2 class="type-h2 mt-8 text-balance">
+                    {{ $cms->text('restaurant.chef.title', 'mejorada.restaurant.chef.title') }}
+                </h2>
+
+                <div class="type-b2 mt-8 space-y-6">
+                    <p>{{ $cms->text('restaurant.chef.body_1', 'mejorada.restaurant.chef.body_1') }}</p>
+                    <p>{{ $cms->text('restaurant.chef.body_2', 'mejorada.restaurant.chef.body_2') }}</p>
+                </div>
+            </div>
+
+            <img
+                src="{{ $cms->asset('restaurant.chef.image', 'images/home/ermita.png') }}"
+                alt="{{ __('mejorada.restaurant.chef.image_alt') }}"
+                class="aspect-[4/5] w-full object-cover max-lg:order-1"
+            >
+        </div>
+    </section>
+
+    @if (count($restaurantGallery) > 0)
+        <section class="bg-off-white-300 site-section text-black-500">
+            <div class="site-shell">
+                <x-home.peek-carousel
+                    class="w-full"
+                    :images="$restaurantGallery"
+                    :alt="$cms->text('restaurant.gallery_alt', 'mejorada.restaurant.gallery_alt')"
+                    bar-class="bg-blue-mejorada-300"
+                />
+            </div>
+        </section>
+    @endif
 </x-layouts.app>

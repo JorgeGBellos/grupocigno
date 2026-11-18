@@ -7,11 +7,15 @@
     'bedsLabel' => null,
     'infoHref' => null,
     'reserveHref' => null,
+    'moreInfoLabel' => null,
+    'reserveLabel' => null,
 ])
 
 @php
     $infoHref = $infoHref ?: route('cigno-ermita.rooms');
     $reserveHref = $reserveHref ?: route('cigno-ermita').'#booking';
+    $moreInfoLabel ??= __('ermita.rooms_page.more_info');
+    $reserveLabel ??= __('ermita.rooms_page.reserve');
     $bedsText = filled($bedsLabel)
         ? $bedsLabel
         : ($beds === 1
@@ -58,11 +62,11 @@
 
     <div class="mt-8 flex flex-col gap-3">
         <x-ermita.button :href="$infoHref" variant="outline" class="w-full px-6">
-            {{ __('ermita.rooms_page.more_info') }}
+            {{ $moreInfoLabel }}
         </x-ermita.button>
 
         <x-ermita.button :href="$reserveHref" class="w-full px-6">
-            {{ __('ermita.rooms_page.reserve') }}
+            {{ $reserveLabel }}
         </x-ermita.button>
     </div>
 </article>

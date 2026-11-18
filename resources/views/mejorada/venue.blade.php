@@ -1,7 +1,7 @@
 @php
     use App\Enums\CmsPageSlug;
     $cms = cms(CmsPageSlug::MejoradaVenue);
-    $spaces = __('mejorada.venue.spaces');
+    $spaces = $cms->venueSpaces('mejorada.venue.spaces');
 @endphp
 
 <x-layouts.app :title="$cms->text('venue.title', 'mejorada.venue.title').' — '.__('nav.mejorada')">
@@ -45,17 +45,17 @@
                 >
 
                 <div class="type-b2 mt-8 space-y-6 text-white">
-                    <p>{{ __('mejorada.venue.story_1') }}</p>
-                    <p>{{ __('mejorada.venue.story_2') }}</p>
+                    <p>{{ $cms->text('venue.story_1', 'mejorada.venue.story_1') }}</p>
+                    <p>{{ $cms->text('venue.story_2', 'mejorada.venue.story_2') }}</p>
                 </div>
 
                 <x-mejorada.button href="#venue-inquiry" variant="white" class="mt-10 w-full max-w-xs">
-                    {{ __('mejorada.venue.story_cta') }}
+                    {{ $cms->text('venue.story_cta', 'mejorada.venue.story_cta') }}
                 </x-mejorada.button>
             </div>
 
             <img
-                src="{{ asset(__('mejorada.venue.story_image')) }}"
+                src="{{ $cms->asset('venue.story_image', __('mejorada.venue.story_image')) }}"
                 alt=""
                 class="aspect-square w-full object-cover"
                 loading="lazy"

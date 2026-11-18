@@ -26,7 +26,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CmsPageSeeder::class,
+            ErmitaRoomSeeder::class,
             MejoradaRoomSeeder::class,
+            ErmitaExperienceSeeder::class,
+            MejoradaExperienceSeeder::class,
         ]);
     }
 }

@@ -16,7 +16,7 @@ class HomePageTest extends TestCase
         $response->assertSee(__('ui.select_language'), false);
         $response->assertSee('id="site-menu"', false);
         $response->assertSee('images/home/Home (1).png', false);
-        $response->assertSee('videos/01. WEB Cignos (1).mp4', false);
+        $response->assertSee('videos/home-hero.mp4', false);
         $response->assertSee('data-mirai-component="finder"', false);
         $response->assertSee('data-mirai-id="'.config('booking.idchain').'"', false);
         $response->assertSee('https://static.mirai.com/core/index.js', false);

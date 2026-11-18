@@ -7,11 +7,15 @@
     'bedsLabel' => null,
     'infoHref' => null,
     'reserveHref' => null,
+    'moreInfoLabel' => null,
+    'reserveLabel' => null,
 ])
 
 @php
     $infoHref = $infoHref ?: route('cigno-mejorada.rooms');
     $reserveHref = $reserveHref ?: route('cigno-mejorada').'#booking';
+    $moreInfoLabel ??= __('mejorada.rooms_page.more_info');
+    $reserveLabel ??= __('mejorada.rooms_page.reserve');
     $bedsText = filled($bedsLabel)
         ? $bedsLabel
         : ($beds === 1
@@ -58,11 +62,11 @@
 
     <div class="mt-8 flex flex-col gap-3">
         <x-mejorada.button :href="$infoHref" variant="outline" class="w-full px-6">
-            {{ __('mejorada.rooms_page.more_info') }}
+            {{ $moreInfoLabel }}
         </x-mejorada.button>
 
         <x-mejorada.button :href="$reserveHref" class="w-full px-6">
-            {{ __('mejorada.rooms_page.reserve') }}
+            {{ $reserveLabel }}
         </x-mejorada.button>
     </div>
 </article>

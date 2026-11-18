@@ -2,6 +2,8 @@
     use App\Enums\CmsPageSlug;
     $cms = cms(CmsPageSlug::MejoradaRooms);
     $rooms = $cms->mejoradaRooms();
+    $moreInfoLabel = $cms->text('rooms_page.more_info', 'mejorada.rooms_page.more_info');
+    $reserveLabel = $cms->text('rooms_page.reserve', 'mejorada.rooms_page.reserve');
 @endphp
 
 <x-layouts.app :title="$cms->text('rooms_page.title', 'mejorada.rooms_page.title').' — '.__('nav.mejorada')">
@@ -27,6 +29,8 @@
                         :beds-label="$room['beds_label'] ?? null"
                         :info-href="route('cigno-mejorada.rooms.show', $room['slug'])"
                         :reserve-href="route('cigno-mejorada').'#booking'"
+                        :more-info-label="$moreInfoLabel"
+                        :reserve-label="$reserveLabel"
                     />
                 @endforeach
             </div>

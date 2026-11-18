@@ -394,13 +394,13 @@ return [
         'items' => [
             [
                 'image' => 'images/ermita/experiencias/Rectangle 3 (21).png',
-                'video' => 'Copia de 02. Reel sensaciones.mov',
+                'video' => 'experience-gastro.mp4',
                 'title' => 'Flavors & Traditions: Local Gastronomy',
                 'body' => 'Immerse yourself in Yucatán\'s authentic history and tradition through an exclusive culinary experience at our hotel.',
             ],
             [
                 'image' => 'images/ermita/experiencias/Rectangle 3 (20).png',
-                'video' => 'Copia de 02. Reel SPA Cigno ERMITA.mov',
+                'video' => 'experience-spa.mp4',
                 'title' => 'A Sanctuary in Ermita & Mejorada',
                 'body' => 'Find a space of absolute calm with our yoga and meditation class, designed to harmonize and complement your stay at CIGNO.',
             ],

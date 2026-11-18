@@ -2,6 +2,11 @@
     use App\Enums\CmsPageSlug;
 
     $cms = cms(CmsPageSlug::Ermita);
+    $cocinaGallery = $cms->gallery('cocina.gallery', [
+        'images/cocina/gallery-meat.png',
+        'images/cocina/gallery-mole.png',
+        'images/cocina/gallery-carpaccio.png',
+    ]);
 @endphp
 
 <section class="relative isolate overflow-hidden site-section text-white">
@@ -15,7 +20,7 @@
         <div class="carousel-square order-2 w-full max-w-[40rem] justify-self-center overflow-hidden lg:order-1 lg:max-w-none">
             <div class="relative aspect-square overflow-hidden">
                 <img
-                    src="{{ asset('images/cocina/725621555_982617504576688_4481192901537941310_n.jpg') }}"
+                    src="{{ asset($cocinaGallery[0] ?? 'images/cocina/gallery-meat.png') }}"
                     alt="{{ __('ermita.cocina.image_alt') }}"
                     class="absolute inset-0 size-full object-cover"
                 >

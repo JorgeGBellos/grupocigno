@@ -2,7 +2,7 @@
     use App\Enums\CmsPageSlug;
 
     $cms = cms(CmsPageSlug::Home);
-    $items = __('home.experiences.items');
+    $items = $cms->homeExperienceTeasers();
 @endphp
 
 <section id="experiences" class="site-section bg-off-white-300 text-black-500">

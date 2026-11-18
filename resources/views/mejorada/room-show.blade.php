@@ -1,5 +1,8 @@
 @php
+    use App\Enums\CmsPageSlug;
+
     $exclusive = $room['exclusive'] ?? [];
+    $reserveLabel = cms(CmsPageSlug::MejoradaRooms)->text('rooms_page.reserve', 'mejorada.rooms_page.reserve');
 @endphp
 
 <x-layouts.app :title="$room['title'].' — '.__('nav.mejorada')">
@@ -27,7 +30,7 @@
                     :href="route('cigno-mejorada').'#booking'"
                     class="w-full"
                 >
-                    {{ __('mejorada.rooms_page.reserve') }}
+                    {{ $reserveLabel }}
                 </x-mejorada.button>
             </div>
 

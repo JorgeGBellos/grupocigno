@@ -25,8 +25,9 @@ fi
 $PHP artisan package:discover --ansi || true
 
 # Sync Vite build + storage symlink into public_html (document root).
+# Fail the deploy if sync fails so stale CSS/JS cannot ship silently.
 if [ -f deploy/hostinger/sync-public.sh ]; then
-  bash deploy/hostinger/sync-public.sh || true
+  bash deploy/hostinger/sync-public.sh
 else
   $PHP artisan view:clear || true
   $PHP artisan config:clear || true
