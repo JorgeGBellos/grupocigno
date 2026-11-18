@@ -23,7 +23,14 @@ else
 fi
 
 $PHP artisan package:discover --ansi || true
-$PHP artisan view:clear || true
-$PHP artisan config:clear || true
+
+# Sync Vite build + storage symlink into public_html (document root).
+if [ -f deploy/hostinger/sync-public.sh ]; then
+  bash deploy/hostinger/sync-public.sh || true
+else
+  $PHP artisan view:clear || true
+  $PHP artisan config:clear || true
+fi
+
 date > storage/logs/hostinger-composer.done
 echo "PHP=$PHP done" >> storage/logs/hostinger-composer.done

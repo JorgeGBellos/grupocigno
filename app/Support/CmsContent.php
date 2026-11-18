@@ -72,11 +72,14 @@ class CmsContent
 
     private function publicUrl(string $path): string
     {
-        $encoded = collect(explode('/', ltrim($path, '/')))
+        return asset($this->encodePublicPath($path));
+    }
+
+    private function encodePublicPath(string $path): string
+    {
+        return collect(explode('/', ltrim($path, '/')))
             ->map(fn (string $segment): string => rawurlencode($segment))
             ->implode('/');
-
-        return asset($encoded);
     }
 
     /**
@@ -91,16 +94,23 @@ class CmsContent
                 return array_values(array_map(function (mixed $path): string {
                     $path = (string) $path;
 
-                    if (str_starts_with($path, 'http') || str_starts_with($path, 'images/')) {
+                    if (str_starts_with($path, 'http')) {
                         return $path;
                     }
 
-                    return 'storage/'.$path;
+                    if (str_starts_with($path, 'images/') || str_starts_with($path, 'videos/') || str_starts_with($path, 'storage/')) {
+                        return $this->encodePublicPath($path);
+                    }
+
+                    return $this->encodePublicPath('storage/'.$path);
                 }, $paths));
             }
         }
 
-        return $fallbackPaths;
+        return array_values(array_map(
+            fn (string $path): string => str_starts_with($path, 'http') ? $path : $this->encodePublicPath($path),
+            $fallbackPaths,
+        ));
     }
 
     /**
@@ -195,16 +205,16 @@ class CmsContent
 
                     return [
                         'slug' => $room->slug,
-                        'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
-                        'title' => filled($lang['title'] ?? null) ? (string) $lang['title'] : $room->localizedTitle(),
-                        'body' => filled($lang['body'] ?? null) ? (string) $lang['body'] : $room->localizedBody(),
-                        'detail' => filled($lang['detail'] ?? null) ? (string) $lang['detail'] : $room->localizedDetail(),
-                        'price' => filled($lang['price'] ?? null) ? (string) $lang['price'] : $room->localizedPrice(),
-                        'size' => filled($lang['size'] ?? null) ? (string) $lang['size'] : $room->localizedSize(),
-                        'people' => (int) ($lang['people'] ?? $room->people),
-                        'beds' => (int) ($lang['beds'] ?? $room->beds),
+                        'image' => $this->mediaPublicPath($room->image, (string) ($lang['image'] ?? 'images/home/ermita.png')),
+                        'title' => $room->localizedTitle() ?: (string) ($lang['title'] ?? ''),
+                        'body' => $room->localizedBody() ?: (string) ($lang['body'] ?? ''),
+                        'detail' => $room->localizedDetail() ?: (string) ($lang['detail'] ?? ''),
+                        'price' => $room->localizedPrice() ?: (string) ($lang['price'] ?? ''),
+                        'size' => $room->localizedSize() ?: (string) ($lang['size'] ?? ''),
+                        'people' => (int) ($room->people ?: ($lang['people'] ?? 0)),
+                        'beds' => (int) ($room->beds ?: ($lang['beds'] ?? 0)),
                         'beds_label' => $lang['beds_label'] ?? null,
-                        'exclusive' => array_values($lang['exclusive'] ?? array_filter((array) ($room->exclusive ?? []))),
+                        'exclusive' => array_values(array_filter((array) ($room->exclusive ?? $lang['exclusive'] ?? []))),
                     ];
                 })
                 ->all();
@@ -309,7 +319,7 @@ class CmsContent
     {
         $langBySlug = collect(trans('mejorada.rooms_page.items'))->keyBy('slug');
 
-        if (MejoradaRoom::query()->published()->exists()) {
+        if ($this->pageEnabled(CmsPageSlug::MejoradaRooms) && MejoradaRoom::query()->published()->exists()) {
             return MejoradaRoom::query()
                 ->published()
                 ->ordered()
@@ -319,16 +329,16 @@ class CmsContent
 
                     return [
                         'slug' => $room->slug,
-                        'image' => $this->mediaPublicPath($room->image, 'images/home/ermita.png'),
-                        'title' => filled($lang['title'] ?? null) ? (string) $lang['title'] : $room->localizedTitle(),
-                        'body' => filled($lang['body'] ?? null) ? (string) $lang['body'] : $room->localizedBody(),
-                        'detail' => filled($lang['detail'] ?? null) ? (string) $lang['detail'] : $room->localizedDetail(),
-                        'price' => filled($lang['price'] ?? null) ? (string) $lang['price'] : $room->localizedPrice(),
-                        'size' => filled($lang['size'] ?? null) ? (string) $lang['size'] : $room->localizedSize(),
-                        'people' => (int) ($lang['people'] ?? $room->people),
-                        'beds' => (int) ($lang['beds'] ?? $room->beds),
+                        'image' => $this->mediaPublicPath($room->image, (string) ($lang['image'] ?? 'images/home/ermita.png')),
+                        'title' => $room->localizedTitle() ?: (string) ($lang['title'] ?? ''),
+                        'body' => $room->localizedBody() ?: (string) ($lang['body'] ?? ''),
+                        'detail' => $room->localizedDetail() ?: (string) ($lang['detail'] ?? ''),
+                        'price' => $room->localizedPrice() ?: (string) ($lang['price'] ?? ''),
+                        'size' => $room->localizedSize() ?: (string) ($lang['size'] ?? ''),
+                        'people' => (int) ($room->people ?: ($lang['people'] ?? 0)),
+                        'beds' => (int) ($room->beds ?: ($lang['beds'] ?? 0)),
                         'beds_label' => $lang['beds_label'] ?? null,
-                        'exclusive' => array_values($lang['exclusive'] ?? array_filter((array) ($room->exclusive ?? []))),
+                        'exclusive' => array_values(array_filter((array) ($room->exclusive ?? $lang['exclusive'] ?? []))),
                     ];
                 })
                 ->values()

@@ -50,19 +50,17 @@ Eso hace `npm run build`, commit y `git push`. Hostinger despliega el código a 
 
 **No** vuelvas a subir los videos salvo que hayan cambiado.
 
-### Si cambió el CSS/JS
+### Tras cada deploy (build + storage + migraciones)
 
-Tras el auto-deploy, copia `cigno/public/build/` → `public_html/build/` (File Manager o MCP), o deja que el script/MCP lo sincronice.
-
-### Si hay migraciones
-
-En el servidor, dentro de `cigno/`:
+En SSH / Terminal de Hostinger:
 
 ```bash
-php artisan migrate --force
-php artisan view:clear
-php artisan config:cache
+bash ~/domains/lightyellow-okapi-798142.hostingersite.com/public_html/cigno/deploy/hostinger/sync-public.sh
 ```
+
+Eso sincroniza `cigno/public/build` → `public_html/build`, crea el symlink `public_html/storage`, corre migraciones y limpia caché.
+
+Sin ese paso, el sitio puede seguir con CSS/JS viejos y el admin falla al subir medios (`/storage` 404).
 
 ## Qué no hacer
 

@@ -62,14 +62,12 @@ git push -u origin HEAD
 
 Write-Host @"
 
-Publish pushed. On Hostinger (after Git auto-deploy finishes):
-  cd domains/.../public_html/cigno
-  php artisan migrate --force
-  php artisan view:clear
-  php artisan config:cache
+Publish pushed. After Hostinger Git auto-deploy finishes, run once in SSH:
 
-If CSS/JS changed, sync public/build -> public_html/build (File Manager or MCP),
-or copy from cigno/public/build after deploy.
+  bash ~/domains/lightyellow-okapi-798142.hostingersite.com/public_html/cigno/deploy/hostinger/sync-public.sh
 
-Media (videos/images): upload only new/changed files under public_html/.
+That syncs build -> public_html/build, links public_html/storage, migrates, and clears caches.
+
+Media (videos/images): upload only new/changed files under public_html/
+(e.g. videos/mejorada-home.mp4, videos/agua.mp4, videos/padel.mp4).
 "@ -ForegroundColor Green
