@@ -163,7 +163,7 @@
                     class="transition-opacity duration-300 hover:opacity-50 lg:hidden"
                 >
                     <img
-                        src="{{ asset('images/Logotipo (3).svg') }}"
+                        src="{{ public_asset('images/Logotipo (3).svg') }}"
                         alt="{{ config('app.name') }}"
                         width="128"
                         class="h-auto w-[88px] sm:w-[110px]"
@@ -223,7 +223,7 @@
                 class="absolute left-1/2 hidden -translate-x-1/2 transition-opacity duration-300 hover:opacity-50 lg:block"
             >
                 <img
-                    src="{{ asset('images/Logotipo (3).svg') }}"
+                    src="{{ public_asset('images/Logotipo (3).svg') }}"
                     alt="{{ config('app.name') }}"
                     width="210"
                     class="h-auto w-[210px]"

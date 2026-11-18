@@ -9,6 +9,24 @@ if (! function_exists('cms')) {
     }
 }
 
+if (! function_exists('public_asset')) {
+    /**
+     * Like asset(), but percent-encodes each path segment (spaces, parentheses, etc.).
+     */
+    function public_asset(string $path): string
+    {
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        $encoded = collect(explode('/', ltrim($path, '/')))
+            ->map(fn (string $segment): string => rawurlencode($segment))
+            ->implode('/');
+
+        return asset($encoded);
+    }
+}
+
 if (! function_exists('hotel_phone_tel')) {
     function hotel_phone_tel(string $hotel): string
     {

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Support\HostingerPublicSync;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Shared hosting: keep public_html/build (+ storage) aligned with cigno/public.
+        if (! $this->app->runningInConsole() && public_path() !== base_path('public')) {
+            HostingerPublicSync::syncBuildIfNeeded();
+            HostingerPublicSync::ensureStorageLink();
+        }
     }
 }
